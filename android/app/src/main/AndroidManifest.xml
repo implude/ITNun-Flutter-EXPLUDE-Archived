@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.explude.itnun">
    <application
-        android:label="itnun"
+        android:label="잇는"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
