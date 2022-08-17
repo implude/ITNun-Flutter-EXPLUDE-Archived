@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itnun/constants.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -28,14 +29,12 @@ class StartPage extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
-                side: const BorderSide(width: 2.0, color: Color(0xff3C65F8))),
+                side: const BorderSide(width: 2.0, color: appColor)),
             onPressed: () {},
             child: const Text(
               "로그인",
               style: TextStyle(
-                  fontSize: 20,
-                  color: Color(0xff3C65F8),
-                  fontWeight: FontWeight.bold),
+                  fontSize: 20, color: appColor, fontWeight: FontWeight.bold),
             )),
       ),
       const SizedBox(height: 10),
@@ -46,7 +45,7 @@ class StartPage extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  backgroundColor: const Color(0xff3C65F8)),
+                  backgroundColor: appColor),
               onPressed: () {},
               child: const Text("회원가입",
                   style: TextStyle(
