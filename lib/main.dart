@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:itnun/start.dart';
 
 void main() {
@@ -11,8 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        initialRoute: "/",
-        getPages: [GetPage(name: "/", page: () => const StartPage())]);
+    return MaterialApp(
+      home: StartPage(),
+    );
   }
 }
