@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itnun/constants.dart';
+import 'package:get/get.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -30,7 +31,9 @@ class StartPage extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 side: const BorderSide(width: 2.0, color: appColor)),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed("/login");
+            },
             child: const Text(
               "로그인",
               style: TextStyle(
