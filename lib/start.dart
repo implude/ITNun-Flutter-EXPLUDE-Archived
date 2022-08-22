@@ -26,40 +26,56 @@ class StartPage extends StatelessWidget {
                 style: TextStyle(fontSize: 44, fontWeight: FontWeight.bold,fontFamily: "Pretendard",))
           ])
       ]),
-      SizedBox(height: context.heightTransformer(dividedBy: 3.0)),
-      SizedBox(
-          height: context.heightTransformer(dividedBy: 15),
-          width: 350,
-          child: OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                  ),
-                  side: const BorderSide(width: 2.0, color: appColor)),
-              onPressed: () {},
-              child: const Text(
-                "로그인",
-                style: TextStyle(
-                    fontSize: 20, color: appColor, fontWeight: FontWeight.bold,fontFamily: "Pretendard"),
-              )),
+      Flexible(
+        flex: 1,
+        child: Container(
+
+        ),
       ),
-      const SizedBox(height: 10),
-      SizedBox(
-            height: context.heightTransformer(dividedBy: 15),
-            width: 350,
-            child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))),
-                    backgroundColor: appColor),
-                onPressed: () {},
-                child: const Text("회원가입",
+      Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+        child: Column(
+          children: [
+            SizedBox(
+              height: context.heightTransformer(dividedBy: 15),
+              width: 350,
+              child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                      side: const BorderSide(width: 2.0, color: appColor)),
+                  onPressed: () {Get.toNamed("/login");},
+                  child: const Text(
+                    "로그인",
                     style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                    fontFamily: "Pretendard"))))
-    ])),
+                        fontSize: 20, color: appColor, fontWeight: FontWeight.bold,fontFamily: "Pretendard"),
+                  )),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+                height: context.heightTransformer(dividedBy: 15),
+                width: 350,
+                child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12))),
+                        backgroundColor: appColor),
+                    onPressed: () {},
+                    child: const Text("회원가입",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Pretendard"))))
+          ]
+
+        ),
+      ),
+
+    ]
+              )
+          ),
         ));
   }
 }

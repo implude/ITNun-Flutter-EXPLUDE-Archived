@@ -13,6 +13,8 @@ class LoginPage extends StatelessWidget {
       },
       child: Scaffold(
           body:SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
             child: Column(
               children: [
                 const SizedBox(
@@ -28,17 +30,16 @@ class LoginPage extends StatelessWidget {
                       onPressed: (){
                         Get.toNamed('/');
                       },
-                      iconSize:20,
+                      iconSize:30,
                         icon : Icon(Icons.arrow_back_ios_new)
                     ),
+                        SizedBox(width: 130,),
+
+                        Image.asset("assets/images/logo_outlined.png",height: 30,),
+
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/images/logo_outlined.png"),
-                  ],
-                ),
+
                 const SizedBox(
                   height:50
                 ),
@@ -48,25 +49,33 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       width:5
                     ),
-                    const Text("로그인",
-                      style: TextStyle(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Pretendard"
-                      ),
+                    const Padding(
+                       padding:  EdgeInsets.fromLTRB(0, 50, 0, 0),
+                       child: Text("로그인",
+                        style: TextStyle(
+                          fontSize: 44,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Pretendard"
+                        ),
                     ),
+                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+               Padding(
+                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 77),
+                 child: SizedBox(
+                    height: 20,
+                  ),
+               ),
                 const SizedBox(
                   height:60,
                   width:350,
                   child: TextField(
-                    obscureText : true,
+
+                    obscureText : false,
                     decoration: InputDecoration(
                       border :OutlineInputBorder(),
+
                       hintText: '아이디',
                     ),
                   ),
@@ -109,29 +118,39 @@ class LoginPage extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height:100,
-                ),
+
+                   Container(
+
+                     height: 70,
+                       color: Colors.blue,
+
+                   ),
+
                 Column(
                   children: [
-                    SizedBox(
-                        height: 60,
-                        width: 350,
-                        child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                                shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                                backgroundColor: appColor),
-                            onPressed: () {},
-                            child: const Text("로그인",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Pretendard"
-                                )
-                            )
-                        )
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                      child: SizedBox(
+                          height: 60,
+                          width: 350,
+                          child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                                  backgroundColor: appColor),
+                              onPressed: () {
+                                Get.toNamed("/main");
+                              },
+                              child: const Text("로그인",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Pretendard"
+                                  )
+                              )
+                          )
+                      ),
                     ),
                   ],
                 ),
