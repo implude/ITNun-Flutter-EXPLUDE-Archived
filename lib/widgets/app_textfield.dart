@@ -16,16 +16,16 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.widthTransformer(dividedBy: 1.1),
+      width: context.widthTransformer(dividedBy: 1.18),
       child: TextField(
           obscureText: obscureText,
           controller: controller,
           decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
-                  horizontal: 36,
+                  horizontal: 46,
                   vertical: context.heightTransformer(dividedBy: 30)),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(12),
                   borderSide: const BorderSide(color: Color(0xFFD1D1D1))),
               label:
                   Text(label, style: const TextStyle(color: Color(0xFFD1D1D1))),

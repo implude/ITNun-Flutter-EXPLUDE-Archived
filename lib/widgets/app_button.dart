@@ -20,13 +20,13 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.widthTransformer(dividedBy: 1.1),
+      width: context.widthTransformer(dividedBy: 1.18),
       height: context.heightTransformer(dividedBy: 14),
       child: OutlinedButton(
           style: OutlinedButton.styleFrom(
               backgroundColor: backgroundColor,
               side: outlineColor == null
-                  ? null
+                  ? BorderSide.none
                   : BorderSide(width: 2.0, color: outlineColor!),
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(12)))),
