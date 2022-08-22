@@ -8,7 +8,5 @@ class UserInfoController extends GetxController {
   final isReady = false.obs;
   final stageValue = Rxn<String>();
 
-  void next() {
-
-  }
+  void next() {}
 }
