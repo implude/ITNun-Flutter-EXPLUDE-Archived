@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/controllers/bindings/login_binding.dart';
 import 'package:itnun/controllers/bindings/signup_binding.dart';
+import 'package:itnun/controllers/bindings/user_info_binding.dart';
 import 'package:itnun/controllers/bindings/verify_binding.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_page.dart';
 
 void main() => runApp(const MyApp());
@@ -31,7 +33,11 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/signup",
             page: () => const SignUpPage(),
-            binding: SignUpBinding())
+            binding: SignUpBinding()),
+        GetPage(
+            name: "/userInfo",
+            page: () => const UserInfoPage(),
+            binding: UserInfoBinding())
       ],
     );
   }
