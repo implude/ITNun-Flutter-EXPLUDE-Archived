@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/controllers/bindings/login_binding.dart';
+import 'package:itnun/controllers/bindings/verify_binding.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/verify_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +18,14 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
-        GetPage(name: "/login", page: () => const LoginPage())
+        GetPage(
+            name: "/login",
+            page: () => const LoginPage(),
+            binding: LoginBinding()),
+        GetPage(
+            name: "/verify",
+            page: () => const VerifyPage(),
+            binding: VerifyBinding())
       ],
     );
   }
