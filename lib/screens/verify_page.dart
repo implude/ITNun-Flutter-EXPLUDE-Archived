@@ -6,6 +6,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bottom_setter.dart';
 import 'package:itnun/widgets/expanded_scroll.dart';
+import 'package:itnun/widgets/title_subject_widget.dart';
 
 class VerifyPage extends GetView<VerifyController> {
   const VerifyPage({Key? key}) : super(key: key);
@@ -21,16 +22,8 @@ class VerifyPage extends GetView<VerifyController> {
           child: AppPadding(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(height: context.heightTransformer(dividedBy: 10)),
-              const Text("입력하신 이메일로\n인증번호가 전송되었어요",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-              SizedBox(height: context.heightTransformer(dividedBy: 50)),
-              const Text("메일함에서 확인해주세요.",
-                  style: TextStyle(
-                      color: Color(0xFFB1B1B1),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500)),
-              SizedBox(height: context.heightTransformer(dividedBy: 15)),
+              const TitleSubjectWidget(
+                  title: "입력하신 이메일로\n인증번호가 전송되었어요", subject: "메일함에서 확인해주세요."),
               AppTextField(
                   maxLength: 6,
                   onChanged: controller.liveText,

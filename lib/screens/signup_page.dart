@@ -6,6 +6,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bottom_setter.dart';
 import 'package:itnun/widgets/expanded_scroll.dart';
+import 'package:itnun/widgets/title_subject_widget.dart';
 
 class SignUpPage extends GetView<SignUpController> {
   const SignUpPage({Key? key}) : super(key: key);
@@ -22,17 +23,9 @@ class SignUpPage extends GetView<SignUpController> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                SizedBox(height: context.heightTransformer(dividedBy: 10)),
-                const Text("이메일과 비밀번호를\n입력해주세요",
-                    style:
-                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                SizedBox(height: context.heightTransformer(dividedBy: 50)),
-                const Text("비밀번호는 8자 이상부터 사용할 수 있어요.",
-                    style: TextStyle(
-                        color: Color(0xFFB1B1B1),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(height: context.heightTransformer(dividedBy: 15)),
+                const TitleSubjectWidget(
+                    title: "이메일과 비밀번호를\n입력해주세요",
+                    subject: "비밀번호는 8자 이상부터 사용할 수 있어요."),
                 AppTextField(
                     controller: controller.emailController,
                     validator: controller.isEmailValid,
