@@ -21,7 +21,7 @@ class StartPage extends StatelessWidget {
               fontFamily: "Pretendard",
             )),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/logo_outlined.png"),
+          Image.asset("assets/images/logo_outlined.png", scale: 1.52),
           const SizedBox(width: 10),
           const Text("잇는",
               style: TextStyle(
@@ -41,7 +41,7 @@ class StartPage extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                 ),
                 side: const BorderSide(width: 2.0, color: appColor)),
-            onPressed: () {},
+            onPressed: () => Get.toNamed("/login"),
             child: const Text(
               "로그인",
               style: TextStyle(
