@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+typedef AppFormFieldValidator = bool Function(String);
+
 class AppButton extends StatelessWidget {
   final String text;
   final Color textColor;
@@ -47,6 +49,7 @@ class AppTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final ValueChanged<String>? onChanged;
   final int? maxLength;
+  final AppFormFieldValidator? validator;
 
   const AppTextField(
       {Key? key,
@@ -55,18 +58,24 @@ class AppTextField extends StatelessWidget {
       this.obscureText = false,
       this.keyboardType,
       this.onChanged,
-      this.maxLength})
+      this.maxLength,
+      this.validator})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+        autovalidateMode: AutovalidateMode.always,
+        validator: validator == null
+            ? null
+            : ((s) => s != null && validator!(s) ? null : ""),
         maxLength: maxLength,
         onChanged: onChanged,
         keyboardType: keyboardType,
         obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
+            errorStyle: const TextStyle(fontSize: 0),
             counterText: "",
             contentPadding: EdgeInsets.symmetric(
                 horizontal: 46,

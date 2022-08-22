@@ -42,7 +42,7 @@ class StartPage extends StatelessWidget {
               text: "회원가입",
               textColor: Colors.white,
               backgroundColor: appColor,
-              onPressed: () {})
+              onPressed: () => Get.toNamed("/signup"))
         ])
       ]),
     )));
