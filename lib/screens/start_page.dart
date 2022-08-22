@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/widgets/app_button.dart';
+import 'package:itnun/widgets/bottom_setter.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class StartPage extends StatelessWidget {
               fontFamily: "Pretendard",
             )),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/logo_outlined.png"),
+          Image.asset("assets/images/logo_outlined.png", scale: 1.52),
           const SizedBox(width: 10),
           const Text("잇는",
               style: TextStyle(
@@ -31,42 +33,20 @@ class StartPage extends StatelessWidget {
               ))
         ])
       ]),
-      SizedBox(height: context.heightTransformer(dividedBy: 3.0)),
-      SizedBox(
-        height: context.heightTransformer(dividedBy: 15),
-        width: 350,
-        child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                ),
-                side: const BorderSide(width: 2.0, color: appColor)),
-            onPressed: () {},
-            child: const Text(
-              "로그인",
-              style: TextStyle(
-                  fontSize: 20,
-                  color: appColor,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Pretendard"),
-            )),
-      ),
-      const SizedBox(height: 10),
-      SizedBox(
-          height: context.heightTransformer(dividedBy: 15),
-          width: 350,
-          child: OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  backgroundColor: appColor),
-              onPressed: () {},
-              child: const Text("회원가입",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Pretendard"))))
+      BottomSetter(children: [
+        AppButton(
+            text: "로그인",
+            textColor: appColor,
+            backgroundColor: Colors.transparent,
+            outlineColor: appColor,
+            onPressed: () => Get.toNamed("/login")),
+        SizedBox(height: context.heightTransformer(dividedBy: 70)),
+        AppButton(
+            text: "회원가입",
+            textColor: Colors.white,
+            backgroundColor: appColor,
+            onPressed: () {})
+      ])
     ])));
   }
 }
