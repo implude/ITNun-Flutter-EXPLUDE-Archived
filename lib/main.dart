@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:itnun/start.dart';
+import 'package:itnun/screens/start_page.dart';
 
 void main() => runApp(const MyApp());
 
