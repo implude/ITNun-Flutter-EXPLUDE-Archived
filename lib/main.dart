@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             binding: UserInfoBinding()),
         GetPage(
             name: "/notification",
-            page: () => const NotificationPage(),
+            page: () => NotificationPage(),
         ),
       ],
     );
