@@ -9,6 +9,10 @@ class UserInfoController extends GetxController {
   final stageValue = Rxn<String>();
 
   void next() {
+    Get.snackbar("준비", "중입니다",
+    backgroundColor: Colors.black,
+    colorText: Colors.white,
+    );
     Get.offAllNamed("/");
   }
 }
