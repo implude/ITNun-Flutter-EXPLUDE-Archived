@@ -5,5 +5,8 @@ class LoginController extends GetxController {
   final idController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void login() {}
+  void login() {
+    Get.toNamed("/notification");
+
+  }
 }

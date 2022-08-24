@@ -44,8 +44,8 @@ class LoginPage extends GetView<LoginController> {
                     text: "로그인",
                     textColor: Colors.white,
                     backgroundColor: appColor,
-                    onPressed: controller.login)
-              ])
+                    onPressed: controller.login),
+              ]),
             ]),
           ),
         )));

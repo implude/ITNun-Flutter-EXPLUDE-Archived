@@ -9,6 +9,7 @@ import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_page.dart';
+import 'package:itnun/screens/notification_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -37,7 +38,11 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/userInfo",
             page: () => const UserInfoPage(),
-            binding: UserInfoBinding())
+            binding: UserInfoBinding()),
+        GetPage(
+            name: "/notification",
+            page: () => const NotificationPage(),
+        ),
       ],
     );
   }
