@@ -49,48 +49,50 @@ class _NotificationGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
-        width: context.widthTransformer(dividedBy: 1),
         height:context.heightTransformer(dividedBy:7.5),
-        child: Column(children: [
-        Row(
-          children: [
-            // if(data.isNew) Image.asset('assets/images/new.svg'),
-            // 이미지 파일 확장자가 svg라 오류남
-            // jpg나 png 구해서 넣어주세요
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-              child :Text(
-                  data.title,
-                style:const TextStyle(
-                  fontSize:25,
-                  fontWeight: FontWeight.bold,
-                )
+        child: Column(
+            children: [
+              Row(
+                children: [
+                  if(data.isNew) Image.asset('assets/images/isNew.png'),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    child :Text(
+                        data.title,
+                      style:const TextStyle(
+                        fontSize:25,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.fromLTRB(context.widthTransformer(dividedBy: 2), 0, 0, 0),
+                  Align(
+                    alignment: Alignment.topRight ,
+                    child :Text(
+                        data.date,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      )
+                    ),
+                  ),
+                ]
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-              child :Text(
-                  data.date,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                )
-              ),
-            )
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Text(
+                  data.content,
+                  style: const TextStyle(
+                    color: Color(0xFFB1B1B1),
+                    fontSize:18,
+                    fontWeight:FontWeight.w500,
+                  )
+                ),
+              )
           ]
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-          child: Text(
-            data.content,
-            style: const TextStyle(
-              color: Color(0xFFB1B1B1),
-              fontSize:18,
-              fontWeight:FontWeight.w500,
-            )
-          ),
         )
-    ]));
+    );
   }
 }
 
