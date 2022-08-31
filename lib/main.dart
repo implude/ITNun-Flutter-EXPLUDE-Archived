@@ -5,7 +5,6 @@ import 'package:itnun/controllers/bindings/signup_binding.dart';
 import 'package:itnun/controllers/bindings/user_info_binding.dart';
 import 'package:itnun/controllers/bindings/verify_binding.dart';
 import 'package:itnun/screens/login_page.dart';
-import 'package:itnun/screens/menu_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/user_info_page.dart';
@@ -38,8 +37,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/userInfo",
             page: () => const UserInfoPage(),
-            binding: UserInfoBinding()),
-        GetPage(name: "/menu", page: () => const MenuPage())
+            binding: UserInfoBinding())
       ],
     );
   }

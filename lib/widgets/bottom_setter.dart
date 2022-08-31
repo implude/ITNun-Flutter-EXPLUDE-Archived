@@ -10,10 +10,10 @@ class BottomSetter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Padding(
-      padding:
-          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 50)),
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.end, children: children),
+          padding:
+              EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 50)),
+          child:
+              Column(mainAxisAlignment: MainAxisAlignment.end, children: children),
     ));
   }
 }
