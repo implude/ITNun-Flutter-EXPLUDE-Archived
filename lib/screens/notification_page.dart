@@ -89,14 +89,11 @@ class _NotificationGroup extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
         const Expanded(child: SizedBox.shrink()),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
-          child: Text(
-            data.date,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
+        Text(
+          data.date,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
           ),
         )
       ]),
