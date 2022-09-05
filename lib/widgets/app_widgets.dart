@@ -105,3 +105,19 @@ class AppPadding extends StatelessWidget {
         child: child);
   }
 }
+
+
+class AppBox extends StatelessWidget {
+  const AppBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child:Column(
+        children: [
+
+        ],
+      ),
+    );
+  }
+}

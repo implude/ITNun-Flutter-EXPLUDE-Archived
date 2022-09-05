@@ -6,7 +6,15 @@ class LoginController extends GetxController {
   final passwordController = TextEditingController();
 
   void login() {
-    Get.toNamed("/notification");
+    Get.snackbar(
+      "성공",
+      "로그인에 성공하였습니다",
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+
+    );
+    Get.offAllNamed("/");
+    Get.offAllNamed("/totalsearch");
 
   }
 }

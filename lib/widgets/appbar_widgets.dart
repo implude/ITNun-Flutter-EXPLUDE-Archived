@@ -22,6 +22,7 @@ class AppBarBackButton extends StatelessWidget {
 }
 
 PreferredSizeWidget createDefaultAppBar() => AppBar(
+
     leading: const AppBarBackButton(),
     title: const AppBarLogo(),
     centerTitle: true,

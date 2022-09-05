@@ -5,8 +5,10 @@ import 'package:itnun/controllers/bindings/signup_binding.dart';
 import 'package:itnun/controllers/bindings/user_info_binding.dart';
 import 'package:itnun/controllers/bindings/verify_binding.dart';
 import 'package:itnun/screens/login_page.dart';
+import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/total_search.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_page.dart';
 
@@ -37,7 +39,15 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/userInfo",
             page: () => const UserInfoPage(),
-            binding: UserInfoBinding())
+            binding: UserInfoBinding()),
+        GetPage(name: "/notification",
+            page: () => NotificationPage()
+        ),
+        GetPage(
+          name: "/totalsearch",
+          page: ()=> TotalSearch(),
+        ),
+
       ],
     );
   }

@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.5
   collection: ^1.16.0
   flutter_switch: ^0.3.2
+  naver_map_plugin: ^0.9.6
 
 dev_dependencies:
   flutter_test:
