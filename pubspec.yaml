@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.5
   collection: ^1.16.0
   flutter_switch: ^0.3.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
