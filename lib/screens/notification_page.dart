@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/app_widgets.dart';
+import 'package:itnun/widgets/appbar_widgets.dart';
 
 class NotificationPage extends StatelessWidget {
   final _dataList = [
@@ -76,13 +76,14 @@ class _NotificationGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       SizedBox(
-        height:context.heightTransformer(dividedBy: 45),
+        height: context.heightTransformer(dividedBy: 45),
       ),
       Row(children: [
-        if (data.isNew) Padding(
-          padding : const EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child:Image.asset('assets/images/isNew.png'),
-        ),
+        if (data.isNew)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: Image.asset('assets/images/isNew.png'),
+          ),
         Text(data.title,
             style: const TextStyle(
               fontSize: 25,
@@ -107,7 +108,7 @@ class _NotificationGroup extends StatelessWidget {
             fontWeight: FontWeight.w500,
           )),
       SizedBox(
-        height:context.heightTransformer(dividedBy: 45),
+        height: context.heightTransformer(dividedBy: 45),
       )
     ]);
   }

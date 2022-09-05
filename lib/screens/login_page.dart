@@ -36,7 +36,7 @@ class LoginPage extends GetView<LoginController> {
                     style: TextStyle(color: Color(0xFFC4C4C4))),
                 TextButton(
                     onPressed: () {
-                      Get.toNamed("/findpswd");
+                      Get.toNamed("/password/find");
                     },
                     child: const Text("비밀번호 찾기",
                         style: TextStyle(color: Color(0xFF343434))))
@@ -46,8 +46,7 @@ class LoginPage extends GetView<LoginController> {
                     text: "로그인",
                     textColor: Colors.white,
                     backgroundColor: appColor,
-                    onPressed: controller.login
-                ),
+                    onPressed: controller.login),
               ]),
             ]),
           ),

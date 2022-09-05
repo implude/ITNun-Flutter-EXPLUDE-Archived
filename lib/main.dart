@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:itnun/controllers/bindings/login_binding.dart';
-import 'package:itnun/controllers/bindings/make_new_password_binding.dart';
-import 'package:itnun/controllers/bindings/signup_binding.dart';
-import 'package:itnun/controllers/bindings/user_info_binding.dart';
-import 'package:itnun/controllers/bindings/verify_binding.dart';
-import 'package:itnun/controllers/bindings/find_password_binding.dart';
-import 'package:itnun/controllers/bindings/verify_find_password_binding.dart';
-import 'package:itnun/controllers/bindings/make_new_password_binding.dart';
+import 'package:itnun/controllers/find_password_controller.dart';
+import 'package:itnun/controllers/login_controller.dart';
+import 'package:itnun/controllers/make_password_controller.dart';
+import 'package:itnun/controllers/signup_controller.dart';
+import 'package:itnun/controllers/user_info_controller.dart';
+import 'package:itnun/controllers/verify_controller.dart';
+import 'package:itnun/controllers/verify_find_password_controller.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
+import 'package:itnun/screens/make_password_page.dart';
 import 'package:itnun/screens/menu_page.dart';
+import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/user_info_page.dart';
-import 'package:itnun/screens/verify_page.dart';
-import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/verify_find_password_page.dart';
-import 'package:itnun/screens/make_new_password_page.dart';
+import 'package:itnun/screens/verify_page.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -34,34 +34,46 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/login",
             page: () => const LoginPage(),
-            binding: LoginBinding()),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => LoginController());
+            })),
         GetPage(
             name: "/verify",
             page: () => const VerifyPage(),
-            binding: VerifyBinding()),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => VerifyController());
+            })),
         GetPage(
             name: "/signup",
             page: () => const SignUpPage(),
-            binding: SignUpBinding()),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => SignUpController());
+            })),
         GetPage(
             name: "/userInfo",
             page: () => const UserInfoPage(),
-            binding: UserInfoBinding()),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => UserInfoController());
+            })),
+        GetPage(name: "/notification", page: () => NotificationPage()),
         GetPage(
-            name: "/notification",
-            page: () => NotificationPage()),
+            name: "/password/find",
+            page: () => const FindPasswordPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => FindPasswordController());
+            })),
         GetPage(
-            name: "/findpswd",
-            page: () => const FindpswdPage(),
-            binding: FindpswdBinding()),
+            name: "/password/verifyFind",
+            page: () => const VerifyFindPasswordPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => VerifyFindPasswordController());
+            })),
         GetPage(
-            name: "/verifyfindpswd",
-            page: () => const Verifyfindpswd(),
-            binding: VerifyfindpswdBinding()),
-        GetPage(
-            name: "/makenewpswd",
-            page: () => const Makenewpswd(),
-            binding: Makenewpswdbinding()),
+            name: "/password/make",
+            page: () => const MakePasswordPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => MakePasswordController());
+            })),
         GetPage(name: "/menu", page: () => const MenuPage()),
       ],
     );

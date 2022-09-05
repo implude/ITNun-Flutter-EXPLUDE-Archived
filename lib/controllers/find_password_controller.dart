@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FindpswdController extends GetxController {
+class FindPasswordController extends GetxController {
   final emailController = TextEditingController();
 
   final emailLiveText = "".obs;
@@ -10,8 +10,7 @@ class FindpswdController extends GetxController {
 
   bool isEmailValid(String s) => s.isEmail;
 
-  void verifyfindpswd() {
-    Get.toNamed("/verifyfindpswd");
-
+  void verifyFindPassword() {
+    Get.toNamed("/password/verifyFind");
   }
 }

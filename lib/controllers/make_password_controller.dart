@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MakenewpswdController extends GetxController {
+class MakePasswordController extends GetxController {
   final passwordController = TextEditingController();
 
   final passwordLiveText = "".obs;
   final passwordAgainLiveText = "".obs;
 
-  bool isValid() => isPasswordValid(passwordLiveText.value) && isPasswordAgainValid(passwordAgainLiveText.value);
+  bool isValid() =>
+      isPasswordValid(passwordLiveText.value) &&
+      isPasswordAgainValid(passwordAgainLiveText.value);
 
   bool isPasswordValid(String s) => s.length >= 8;
 
@@ -17,4 +19,3 @@ class MakenewpswdController extends GetxController {
     Get.toNamed("/");
   }
 }
-

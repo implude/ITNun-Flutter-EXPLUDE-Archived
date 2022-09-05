@@ -7,6 +7,5 @@ class LoginController extends GetxController {
 
   void login() {
     Get.toNamed("/notification");
-
   }
 }
