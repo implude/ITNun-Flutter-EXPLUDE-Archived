@@ -12,15 +12,18 @@ class MenuPage extends StatelessWidget {
       _MenuWidget(
           title: "청년 정책 찾기",
           icon: Icons.how_to_vote,
+          iconColor: const Color(0xFF3C65F8),
           children: const ["통합검색", "상세검색"]),
       _MenuWidget(
           title: "착한 가게 찾기",
-          icon: Icons.place,
+          icon: Icons.place_outlined,
+          iconColor: const Color(0xFF4B3CF8),
           children: const ["착한 가게", "청년 공간", "선한 영향력 가게"]),
       _MenuWidget(
-          title: "청년 채용 광고 찾기",
-          icon: Icons.badge,
-          children: const ["아르바이트", "인턴", "계약직", "정규직"]),
+        iconColor: const Color(0xFF6721FC),
+        title: "청년 채용 광고 찾기",
+        icon: Icons.badge_outlined,
+      ),
       _MenuWidget(
           title: "오늘의 뉴스",
           icon: Icons.newspaper,
@@ -50,7 +53,7 @@ class MenuPage extends StatelessWidget {
 class _MenuWidget extends StatelessWidget {
   final String title;
   final IconData icon;
-  final Color? iconColor;
+  final Color iconColor;
   final List<String>? children;
 
   final expanded = false.obs;
@@ -60,7 +63,7 @@ class _MenuWidget extends StatelessWidget {
       required this.title,
       required this.icon,
       this.children,
-      this.iconColor})
+      required this.iconColor})
       : super(key: key);
 
   @override
@@ -71,8 +74,7 @@ class _MenuWidget extends StatelessWidget {
     return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: iconPadding,
-        child:
-            Icon(icon, color: iconColor ?? const Color(0xFF4B3CF8), size: 30),
+        child: Icon(icon, color: iconColor, size: 30),
       ),
       SizedBox(width: context.widthTransformer(dividedBy: 19.5)),
       Flexible(
