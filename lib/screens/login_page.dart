@@ -35,7 +35,9 @@ class LoginPage extends GetView<LoginController> {
                 const Text("비밀번호를 잊으셨나요?",
                     style: TextStyle(color: Color(0xFFC4C4C4))),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed("/password/find");
+                    },
                     child: const Text("비밀번호 찾기",
                         style: TextStyle(color: Color(0xFF343434))))
               ]),
