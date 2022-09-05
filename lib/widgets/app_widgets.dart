@@ -101,7 +101,7 @@ class AppPadding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: context.widthTransformer(dividedBy: 13.1)),
+            horizontal: context.widthTransformer(dividedBy: 15)),
         child: child);
   }
 }
