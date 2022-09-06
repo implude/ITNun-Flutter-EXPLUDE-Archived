@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.5
   collection: ^1.16.0
   flutter_switch: ^0.3.2
+  naver_map_plugin: ^0.9.6
   intl: ^0.17.0
 
 dev_dependencies:
@@ -51,7 +52,6 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_launcher_icons: ^0.10.0
-  dependency_validator: ^3.2.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
