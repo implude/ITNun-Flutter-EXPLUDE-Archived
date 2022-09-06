@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../constants.dart';
-import '../screens/total_search.dart';
 
 typedef AppFormFieldValidator = bool Function(String);
 
@@ -109,100 +108,123 @@ class AppPadding extends StatelessWidget {
   }
 }
 
-
 class AppBox extends StatelessWidget {
-  const AppBox({Key? key, required this.title, required this.category, required this.local, required this.ismarked}) : super(key: key);
+  const AppBox(
+      {Key? key,
+      required this.title,
+      required this.category,
+      required this.local,
+      required this.isMarked})
+      : super(key: key);
 
   final String title;
   final String category;
   final String local;
-  final bool ismarked;
+  final bool isMarked;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
-      child:RawMaterialButton(
-        onPressed: (){
+      padding:
+          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
+      child: RawMaterialButton(
+        onPressed: () {
           Get.toNamed("/none");
         },
         child: Container(
-            decoration: BoxDecoration(
-              color: appColor,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            width: context.heightTransformer(dividedBy: 1.153),
-            height: context.heightTransformer(dividedBy: 8.44),
-            child: Padding(
-              padding: EdgeInsets.only(top: context.heightTransformer(dividedBy: 42.2),left: context.widthTransformer(dividedBy: 42.2)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-                  Row(
-                    children: [
-                      Text("$title",style: TextStyle(color: Colors.white,fontSize: 18,fontFamily: "Pretendard",fontWeight: FontWeight.bold),),
-                      Flexible(flex:1,child: Container()),
-                      Padding(
-                        padding: EdgeInsets.only(right: context.heightTransformer(dividedBy: 130)),
-                        child: Builder(
-                          builder: (context) {
-                            if(ismarked==true)
-                              {
-                                return Icon(Icons.bookmark,color: Colors.white,);
-                              }
-                            else
-                              {
-                                return Icon(Icons.bookmark_border,color: Colors.white,);
-                              }
-
-                          }
-                        ),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: context.heightTransformer(dividedBy: 60.28)),
-                    child: Row(
-
-                      children: [
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy:28.13 ),
-                          decoration: BoxDecoration(
+          decoration: BoxDecoration(
+            color: appColor,
+            borderRadius: BorderRadius.circular(13),
+          ),
+          width: context.heightTransformer(dividedBy: 1.153),
+          height: context.heightTransformer(dividedBy: 8.44),
+          child: Padding(
+            padding: EdgeInsets.only(
+                top: context.heightTransformer(dividedBy: 42.2),
+                left: context.widthTransformer(dividedBy: 42.2)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontFamily: "Pretendard",
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Flexible(flex: 1, child: Container()),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          right: context.heightTransformer(dividedBy: 130)),
+                      child: Builder(builder: (context) {
+                        if (isMarked == true) {
+                          return const Icon(
+                            Icons.bookmark,
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(13),
-
-                          ),
-                          child: Center(child: Text("$category",style: TextStyle(fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
+                          );
+                        } else {
+                          return const Icon(
+                            Icons.bookmark_border,
+                            color: Colors.white,
+                          );
+                        }
+                      }),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: context.heightTransformer(dividedBy: 60.28)),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: context.widthTransformer(dividedBy: 6.5),
+                        height: context.heightTransformer(dividedBy: 28.13),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(13),
                         ),
-
-                        SizedBox(
-                          width: context.widthTransformer(dividedBy: 78),
-                        ),
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy:28.13 ),
-                          decoration: BoxDecoration(
+                        child: Center(
+                            child: Text(
+                          category,
+                          style: const TextStyle(
+                              fontSize: 12,
+                              fontFamily: "Pretendard",
+                              fontWeight: FontWeight.bold),
+                        )),
+                      ),
+                      SizedBox(
+                        width: context.widthTransformer(dividedBy: 78),
+                      ),
+                      Container(
+                        width: context.widthTransformer(dividedBy: 6.5),
+                        height: context.heightTransformer(dividedBy: 28.13),
+                        decoration: BoxDecoration(
                             color: appColor,
                             borderRadius: BorderRadius.circular(13),
                             border: Border.all(
                               width: 2,
                               color: Colors.white,
-                            )
-                          ),
-                          child: Center(child: Text("$local",style: TextStyle(color: Colors.white,fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
-                        ),
-                      ],
-                    ),
-                  )
-
-
-
-                ],
-              ),
+                            )),
+                        child: Center(
+                            child: Text(
+                          local,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontFamily: "Pretendard",
+                              fontWeight: FontWeight.bold),
+                        )),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-
-
+          ),
         ),
       ),
     );

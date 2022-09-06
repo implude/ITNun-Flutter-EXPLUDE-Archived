@@ -76,8 +76,8 @@ class MyApp extends StatelessWidget {
               Get.lazyPut(() => MakePasswordController());
             })),
         GetPage(name: "/menu", page: () => const MenuPage()),
-        GetPage(name: "/totalsearch",page: ()=>const TotalSearch()),
-        GetPage(name: "/none", page: ()=> const None()),
+        GetPage(name: "/totalSearch", page: () => const TotalSearch()),
+        GetPage(name: "/none", page: () => const None()),
       ],
     );
   }

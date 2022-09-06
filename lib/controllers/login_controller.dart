@@ -11,9 +11,7 @@ class LoginController extends GetxController {
       "로그인에 성공하였습니다",
       backgroundColor: Colors.green,
       colorText: Colors.white,
-
     );
-    Get.offAllNamed("/totalsearch");
-
+    Get.offAllNamed("/totalSearch");
   }
 }
