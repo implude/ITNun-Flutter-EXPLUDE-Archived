@@ -14,6 +14,7 @@ import 'package:itnun/screens/menu_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/total_search.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_find_password_page.dart';
 import 'package:itnun/screens/verify_page.dart';
@@ -75,6 +76,8 @@ class MyApp extends StatelessWidget {
               Get.lazyPut(() => MakePasswordController());
             })),
         GetPage(name: "/menu", page: () => const MenuPage()),
+        GetPage(name: "/totalsearch",page: ()=>const TotalSearch()),
+        GetPage(name: "/none", page: ()=> const None()),
       ],
     );
   }

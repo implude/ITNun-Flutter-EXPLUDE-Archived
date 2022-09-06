@@ -79,18 +79,35 @@ class TotalSearch extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(13),
-                      color: appColor,
-                    ),
-                  )
-
+                  AppBox(title: "청춘남녀만남지원", category: "생활복지", local: "경북", ismarked: true),
+                  AppBox(title: "주거안정 월세 대출", category: "주거금융", local: "전국", ismarked: false),
+                  AppBox(title: "인문 100년 장학금", category: "생활복지", local: "전국", ismarked: false),
+                  AppBox(title: "LH 희망상가", category: "창업지원", local: "전국", ismarked:false),
                 ],
               ),
             ),
           ],
         )),
+      ),
+    );
+  }
+}
+
+class None extends StatelessWidget {
+  const None({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: createDefaultAppBar(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(75, 300, 0, 0),
+            child: Text("아무것도없어",style: TextStyle(color: appColor,fontSize: 50,fontWeight: FontWeight.bold),
+        ),
+          ),
+        ]
       ),
     );
   }

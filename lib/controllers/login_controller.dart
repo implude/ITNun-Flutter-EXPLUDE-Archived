@@ -13,7 +13,6 @@ class LoginController extends GetxController {
       colorText: Colors.white,
 
     );
-    Get.offAllNamed("/");
     Get.offAllNamed("/totalsearch");
 
   }
