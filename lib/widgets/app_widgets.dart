@@ -110,8 +110,8 @@ class AppPadding extends StatelessWidget {
 }
 
 
-class AppBox extends StatelessWidget {
-  const AppBox({Key? key, required this.title, required this.category, required this.local, required this.ismarked}) : super(key: key);
+class TotalSearchAppBox extends StatelessWidget {
+  const TotalSearchAppBox({Key? key, required this.title, required this.category, required this.local, required this.ismarked}) : super(key: key);
 
   final String title;
   final String category;
@@ -128,73 +128,76 @@ class AppBox extends StatelessWidget {
         child: Container(
             decoration: BoxDecoration(
               color: appColor,
-              borderRadius: BorderRadius.circular(13),
+              borderRadius: BorderRadius.circular(12),
             ),
             width: context.heightTransformer(dividedBy: 1.153),
-            height: context.heightTransformer(dividedBy: 8.44),
+            height: context.heightTransformer(dividedBy: 7.96),
             child: Padding(
-              padding: EdgeInsets.only(top: context.heightTransformer(dividedBy: 42.2),left: context.widthTransformer(dividedBy: 42.2)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              padding: EdgeInsets.symmetric(horizontal: context.widthTransformer(dividedBy: 19.5),vertical: context.heightTransformer(dividedBy: 42.2)),
+              child: Row(
+               mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("$title",style: TextStyle(color: Colors.white,fontSize: 18,fontFamily: "Pretendard",fontWeight: FontWeight.bold),),
-                      Flexible(flex:1,child: Container()),
-                      Padding(
-                        padding: EdgeInsets.only(right: context.heightTransformer(dividedBy: 130)),
-                        child: Builder(
-                          builder: (context) {
-                            if(ismarked==true)
-                              {
-                                return Icon(Icons.bookmark,color: Colors.white,);
-                              }
-                            else
-                              {
-                                return Icon(Icons.bookmark_border,color: Colors.white,);
-                              }
+                       Text("$title",style: TextStyle(color: Colors.white,fontSize: 18,fontFamily: "Pretendard",fontWeight: FontWeight.bold),),
+                      SizedBox(
+                        height: context.heightTransformer(dividedBy: 60.28),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: context.widthTransformer(dividedBy: 6.5),
+                            height: context.heightTransformer(dividedBy:28.13 ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(6),
 
-                          }
-                        ),
+                            ),
+                            child: Center(child: Text("$category",style: TextStyle(fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
+                          ),
+
+                          SizedBox(
+                            width: context.widthTransformer(dividedBy: 78),
+                          ),
+                          Container(
+                            width: context.widthTransformer(dividedBy: 6.5),
+                            height: context.heightTransformer(dividedBy:28.13 ),
+                            decoration: BoxDecoration(
+                                color: appColor,
+                                borderRadius: BorderRadius.circular(6),
+                                border: Border.all(
+                                  width: 2,
+                                  color: Colors.white,
+                                )
+                            ),
+                            child: Center(child: Text("$local",style: TextStyle(color: Colors.white,fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
+                          ),
+                        ],
                       )
+
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: context.heightTransformer(dividedBy: 60.28)),
-                    child: Row(
+                  Flexible(flex: 1,child: Container()),
+                  Column(
+                    children: [
+                      Builder(
+                          builder: (context) {
+                            if(ismarked==true)
+                            {
+                              return Icon(Icons.bookmark,color: Colors.white,size: 32,);
+                            }
+                            else
+                            {
+                              return
 
-                      children: [
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy:28.13 ),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(13),
+                                Icon(Icons.bookmark_outline,color: Colors.white,size:32);
+                            }
 
-                          ),
-                          child: Center(child: Text("$category",style: TextStyle(fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
-                        ),
-
-                        SizedBox(
-                          width: context.widthTransformer(dividedBy: 78),
-                        ),
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy:28.13 ),
-                          decoration: BoxDecoration(
-                            color: appColor,
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                              width: 2,
-                              color: Colors.white,
-                            )
-                          ),
-                          child: Center(child: Text("$local",style: TextStyle(color: Colors.white,fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
-                        ),
-                      ],
-                    ),
-                  )
+                          }
+                      ),
+                    ],
+                  ),
 
 
 

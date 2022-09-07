@@ -7,6 +7,7 @@ import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
+import 'package:itnun/screens/detail_search.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/make_password_page.dart';
@@ -15,18 +16,24 @@ import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/total_search.dart';
+import 'package:itnun/screens/total_searched.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_find_password_page.dart';
 import 'package:itnun/screens/verify_page.dart';
+import 'package:itnun/screens/detail_search.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GetMaterialApp(
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
       initialRoute: "/",
@@ -78,6 +85,9 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/totalsearch",page: ()=>const TotalSearch()),
         GetPage(name: "/none", page: ()=> const None()),
+        GetPage(name: "/detailsearch", page: ()=> const DetailSearch()),
+        GetPage(name: "/totalsearched", page: ()=>const TotalSearched()),
+
       ],
     );
   }
