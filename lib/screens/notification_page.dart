@@ -72,7 +72,7 @@ class _NotificationGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: (){},
+      onPressed: () {},
       child: Column(children: [
         SizedBox(
           height: context.heightTransformer(dividedBy: 45),

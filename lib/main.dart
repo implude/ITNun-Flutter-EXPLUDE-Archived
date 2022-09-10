@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
@@ -24,20 +25,18 @@ import 'package:itnun/screens/total_searched.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_find_password_page.dart';
 import 'package:itnun/screens/verify_page.dart';
-import 'package:itnun/screens/detail_search.dart';
-import 'package:flutter/services.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  runApp(const MyApp());
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return GetMaterialApp(
-
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
       initialRoute: "/",
@@ -87,14 +86,17 @@ class MyApp extends StatelessWidget {
               Get.lazyPut(() => MakePasswordController());
             })),
         GetPage(name: "/menu", page: () => const MenuPage()),
-        GetPage(name: "/totalsearch",page: ()=>const TotalSearch()),
-        GetPage(name: "/none", page: ()=> const None()),
-        GetPage(name: "/detailsearch", page: ()=> const DetailSearch()),
-        GetPage(name: "/totalsearched", page: ()=>const TotalSearched()),
-        GetPage(name: "/testmain", page: ()=>const TestMain()),
-        GetPage(name: "/detailsearched", page: ()=>const DetailSearched()),
-        GetPage(name: "/cheapmarketsearch", page: ()=> const CheapMarketSearch()),
-        GetPage(name: "/cheapmarketsearched", page: ()=> const CheapMarketSearched()),
+        GetPage(name: "/totalSearch", page: () => const TotalSearch()),
+        GetPage(name: "/none", page: () => const None()),
+        GetPage(name: "/detailSearch", page: () => const DetailSearch()),
+        GetPage(name: "/totalSearched", page: () => const TotalSearched()),
+        GetPage(name: "/testMain", page: () => const TestMain()),
+        GetPage(name: "/detailSearched", page: () => const DetailSearched()),
+        GetPage(
+            name: "/cheapMarketSearch", page: () => const CheapMarketSearch()),
+        GetPage(
+            name: "/cheapMarketSearched",
+            page: () => const CheapMarketSearched()),
       ],
     );
   }
