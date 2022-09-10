@@ -118,7 +118,7 @@ class CheapMarketBookmarkBox extends _BookmarkAbleBox {
             key: key,
             filled: category,
             outlined: region,
-            backgroundColor: cheapMarketColor,
+            backgroundColor: const Color(0xff4B3CF8),
             onPressed: () => Get.toNamed("/search/cheap/detail"));
 }
 

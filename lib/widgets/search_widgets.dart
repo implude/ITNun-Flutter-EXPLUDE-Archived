@@ -44,12 +44,12 @@ class SearchTextField extends StatelessWidget {
 
 class _SearchTemplate extends StatelessWidget {
   final String title;
-  final Color borderColor;
-  final Color iconColor;
+  final Color? borderColor;
+  final Color? iconColor;
 
   final String subtitle;
   final Widget child;
-  final VoidCallback onSearchPressed;
+  final VoidCallback? onSearchPressed;
 
   const _SearchTemplate(
       {Key? key,
@@ -77,11 +77,15 @@ class _SearchTemplate extends StatelessWidget {
                 ),
               ),
               SizedBox(height: context.heightTransformer(dividedBy: 22.10)),
-              SearchTextField(
-                  borderColor: borderColor,
-                  iconColor: iconColor,
-                  onPressed: onSearchPressed),
-              SizedBox(height: context.heightTransformer(dividedBy: 28.13)),
+              if (borderColor != null &&
+                  iconColor != null &&
+                  onSearchPressed != null) ...[
+                SearchTextField(
+                    borderColor: borderColor!,
+                    iconColor: iconColor!,
+                    onPressed: onSearchPressed!),
+                SizedBox(height: context.heightTransformer(dividedBy: 28.13))
+              ],
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -105,9 +109,9 @@ class _SearchTemplate extends StatelessWidget {
 class SearchWidget extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Color borderColor;
-  final Color iconColor;
-  final VoidCallback onSearchPressed;
+  final Color? borderColor;
+  final Color? iconColor;
+  final VoidCallback? onSearchPressed;
 
   final List<Widget> children;
 
@@ -115,10 +119,10 @@ class SearchWidget extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.subtitle,
-      required this.borderColor,
-      required this.iconColor,
+      this.borderColor,
+      this.iconColor,
       required this.children,
-      required this.onSearchPressed})
+      this.onSearchPressed})
       : super(key: key);
 
   @override
