@@ -1,9 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 
-import '../constants.dart';
-
 typedef AppFormFieldValidator = bool Function(String);
+
+class AppSwitch extends StatelessWidget {
+  final bool value;
+  final ValueChanged<bool> onChanged;
+
+  const AppSwitch({Key? key, required this.value, required this.onChanged})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterSwitch(
+        width: context.widthTransformer(dividedBy: 9),
+        height: context.heightTransformer(dividedBy: 36),
+        activeColor: const Color(0xFF3C65F8),
+        inactiveColor: Colors.transparent,
+        inactiveToggleColor: const Color(0xFFD1D1D1),
+        inactiveSwitchBorder: Border.all(color: const Color(0xFFD1D1D1)),
+        toggleSize: 16,
+        padding: 3,
+        value: value,
+        onToggle: onChanged);
+  }
+}
+
+class LogoWithText extends StatelessWidget {
+  final double width;
+
+  const LogoWithText({Key? key, required this.width}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Flexible(
+            child: Image.asset("assets/images/logo_outlined.png"),
+          ),
+          const SizedBox(width: 10),
+          const Expanded(
+            flex: 2,
+            child: FittedBox(
+              child: Text(
+                "잇는",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class FocusUnSetter extends StatelessWidget {
+  final Widget child;
+
+  const FocusUnSetter({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      behavior: HitTestBehavior.opaque,
+      child: child,
+    );
+  }
+}
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -108,124 +176,41 @@ class AppPadding extends StatelessWidget {
   }
 }
 
-class AppBox extends StatelessWidget {
-  const AppBox(
-      {Key? key,
-      required this.title,
-      required this.category,
-      required this.local,
-      required this.isMarked})
-      : super(key: key);
+class SearchTextField extends StatelessWidget {
+  final Color borderColor;
+  final Color iconColor;
+  final VoidCallback onPressed;
 
-  final String title;
-  final String category;
-  final String local;
-  final bool isMarked;
+  const SearchTextField(
+      {Key? key,
+      required this.borderColor,
+      required this.iconColor,
+      required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
-      child: RawMaterialButton(
-        onPressed: () {
-          Get.toNamed("/none");
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: appColor,
-            borderRadius: BorderRadius.circular(13),
-          ),
-            width: context.heightTransformer(dividedBy: 1.153),
-            height: context.heightTransformer(dividedBy: 8.44),
-          child: Padding(
-            padding: EdgeInsets.only(
-                top: context.heightTransformer(dividedBy: 42.2),
-                left: context.widthTransformer(dividedBy: 42.2)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: "Pretendard",
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Flexible(flex: 1, child: Container()),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          right: context.heightTransformer(dividedBy: 130)),
-                      child: Builder(builder: (context) {
-                        if (isMarked == true) {
-                          return const Icon(
-                            Icons.bookmark,
-                            color: Colors.white,
-                          );
-                        } else {
-                          return const Icon(
-                            Icons.bookmark_border,
-                            color: Colors.white,
-                          );
-                        }
-                      }),
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: context.heightTransformer(dividedBy: 60.28)),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: context.widthTransformer(dividedBy: 6.5),
-                        height: context.heightTransformer(dividedBy: 28.13),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                        ),
-                        child: Center(
-                            child: Text(
-                          category,
-                          style: const TextStyle(
-                              fontSize: 12,
-                              fontFamily: "Pretendard",
-                              fontWeight: FontWeight.bold),
-                        )),
-                      ),
-                      SizedBox(
-                        width: context.widthTransformer(dividedBy: 78),
-                      ),
-                      Container(
-                        width: context.widthTransformer(dividedBy: 6.5),
-                        height: context.heightTransformer(dividedBy: 28.13),
-                        decoration: BoxDecoration(
-                            color: appColor,
-                            borderRadius: BorderRadius.circular(13),
-                            border: Border.all(
-                              width: 2,
-                              color: Colors.white,
-                            )),
-                        child: Center(
-                            child: Text(
-                          local,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontFamily: "Pretendard",
-                              fontWeight: FontWeight.bold),
-                        )),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
+    final border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(13),
+      borderSide: BorderSide(color: borderColor, width: 3),
+    );
+    return TextField(
+      decoration: InputDecoration(
+        enabledBorder: border,
+        focusedBorder: border,
+        contentPadding: EdgeInsets.symmetric(
+            vertical: context.heightTransformer(dividedBy: 36), horizontal: 46),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(right: 24),
+          child: IconButton(
+              onPressed: onPressed,
+              icon: Icon(
+                Icons.search,
+                color: iconColor,
+                size: 32,
+              )),
         ),
+        hintText: "이곳에 입력",
       ),
     );
   }

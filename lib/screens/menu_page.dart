@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
+import 'package:itnun/widgets/title_subject_widget.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -25,24 +26,24 @@ class MenuPage extends StatelessWidget {
         icon: Icons.badge_outlined,
       ),
       _MenuWidget(
-          title: "오늘의 뉴스",
-          icon: Icons.newspaper,
-          iconColor: const Color(0xFFA921FC))
+        title: "오늘의 뉴스",
+        icon: Icons.newspaper,
+        iconColor: const Color(0xFFA921FC),
+        onPressed: () => Get.toNamed("/news"),
+      )
     ];
 
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: AppPadding(
-          child: Column(children: [
-        SizedBox(height: context.heightTransformer(dividedBy: 30)),
-        const Text("메뉴",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
-        SizedBox(height: context.heightTransformer(dividedBy: 20)),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const TitleWidget(title: "메뉴"),
         Expanded(
           child: ListView.separated(
               itemBuilder: (_, index) => widgets[index],
               separatorBuilder: (_, __) =>
-                  SizedBox(height: context.heightTransformer(dividedBy: 30)),
+                  SizedBox(height: context.heightTransformer(dividedBy: 40)),
               itemCount: widgets.length),
         )
       ])),
@@ -55,6 +56,7 @@ class _MenuWidget extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final List<String>? children;
+  final VoidCallback? onPressed;
 
   final expanded = false.obs;
 
@@ -63,7 +65,8 @@ class _MenuWidget extends StatelessWidget {
       required this.title,
       required this.icon,
       this.children,
-      required this.iconColor})
+      required this.iconColor,
+      this.onPressed})
       : super(key: key);
 
   @override
@@ -80,7 +83,10 @@ class _MenuWidget extends StatelessWidget {
       Flexible(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           TextButton(
-              onPressed: expanded.toggle,
+              onPressed: () {
+                expanded.toggle();
+                onPressed?.call();
+              },
               child: Row(
                 children: [
                   Text(title,

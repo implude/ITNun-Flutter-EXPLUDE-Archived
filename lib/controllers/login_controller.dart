@@ -12,6 +12,6 @@ class LoginController extends GetxController {
       backgroundColor: Colors.green,
       colorText: Colors.white,
     );
-    Get.offAllNamed("/totalResult");
+    Get.offAllNamed("/main");
   }
 }

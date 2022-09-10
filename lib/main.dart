@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
+import 'package:itnun/controllers/my_info_edit_controller.dart';
+import 'package:itnun/controllers/setting_controller.dart';
 import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
@@ -11,9 +14,31 @@ import 'package:itnun/controllers/total_result_controller.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/make_password_page.dart';
+import 'package:itnun/screens/account/account_page.dart';
+import 'package:itnun/screens/account/app_info_page.dart';
+import 'package:itnun/screens/account/bookmark_edit_page.dart';
+import 'package:itnun/screens/account/bookmark_page.dart';
+import 'package:itnun/screens/account/my_info_edit_page.dart';
+import 'package:itnun/screens/account/my_info_page.dart';
+import 'package:itnun/screens/account/setting_page.dart';
+import 'package:itnun/screens/login/login_page.dart';
+import 'package:itnun/screens/login/signup_page.dart';
+import 'package:itnun/screens/login/user_info_page.dart';
+import 'package:itnun/screens/login/verify_page.dart';
+import 'package:itnun/screens/main_page.dart';
 import 'package:itnun/screens/menu_page.dart';
+import 'package:itnun/screens/news/today_news_detail_page.dart';
+import 'package:itnun/screens/news/today_news_page.dart';
 import 'package:itnun/screens/notification_page.dart';
-import 'package:itnun/screens/signup_page.dart';
+import 'package:itnun/screens/password/find_password_page.dart';
+import 'package:itnun/screens/password/make_password_page.dart';
+import 'package:itnun/screens/password/verify_find_password_page.dart';
+import 'package:itnun/screens/search/cheap_market_search.dart';
+import 'package:itnun/screens/search/cheap_market_searched.dart';
+import 'package:itnun/screens/search/detail_search.dart';
+import 'package:itnun/screens/search/detail_searched.dart';
+import 'package:itnun/screens/search/total_search.dart';
+import 'package:itnun/screens/search/total_searched.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/total_search.dart';
 import 'package:itnun/screens/user_info_page.dart';
@@ -21,7 +46,10 @@ import 'package:itnun/screens/verify_find_password_page.dart';
 import 'package:itnun/screens/verify_page.dart';
 import 'package:itnun/screens/total_result.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  runApp(const MyApp());
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -84,18 +112,39 @@ class MyApp extends StatelessWidget {
             Get.lazyPut(() => TotalResultController());
           })
         ),
+        GetPage(name: "/menu", page: () => const MenuPage()),
+        GetPage(name: "/search/total", page: () => const TotalSearch()),
+        GetPage(name: "/search/detail", page: () => const DetailSearch()),
         GetPage(
-            name: "/menu",
-            page: () => const MenuPage()
-        ),
+            name: "/search/total/result", page: () => const TotalSearched()),
         GetPage(
-            name: "/totalSearch",
-            page: () => const TotalSearch(),
-        ),
+            name: "/search/detail/result", page: () => const DetailSearched()),
+        GetPage(name: "/search/cheap", page: () => const CheapMarketSearch()),
         GetPage(
-            name: "/none",
-            page: () => const None()
-        ),
+            name: "/search/cheap/result",
+            page: () => const CheapMarketSearched()),
+        GetPage(name: "/main", page: () => const MainPage()),
+        GetPage(name: "/account", page: () => const AccountPage()),
+        GetPage(name: "/account/info", page: () => const MyInfoPage()),
+        GetPage(
+            name: "/account/info/edit",
+            page: () => const MyInfoEditPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => MyInfoEditController());
+            })),
+        GetPage(
+            name: "/account/setting",
+            page: () => const SettingPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => SettingController());
+            })),
+        GetPage(name: "/account/app", page: () => const AppInfoPage()),
+        GetPage(name: "/account/bookmark", page: () => const BookmarkPage()),
+        GetPage(
+            name: "/account/bookmark/edit",
+            page: () => const BookmarkEditPage()),
+        GetPage(name: "/news", page: () => const TodayNewsPage()),
+        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage())
       ],
     );
   }
