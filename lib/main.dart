@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/search/cheap",
+      initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
