@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
 import 'package:itnun/widgets/search_widgets.dart';
 
-class HireSearchPage extends StatelessWidget {
-  const HireSearchPage({Key? key}) : super(key: key);
+class HireSearch extends StatelessWidget {
+  const HireSearch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: SearchWidget(
-        onSearchPressed: () {},
+        onSearchPressed: () => Get.toNamed("/search/hire/result"),
         title: "청년 채용 공고 찾기",
         subtitle: "추천 공고",
         borderColor: const Color(0xFF6721FC),

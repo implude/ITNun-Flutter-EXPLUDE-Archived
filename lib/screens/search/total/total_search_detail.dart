@@ -5,7 +5,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../widgets/detail_widgets.dart';
+import '../../../widgets/detail_widgets.dart';
 
 class TotalSearchDetail extends StatelessWidget {
   const TotalSearchDetail({Key? key}) : super(key: key);
