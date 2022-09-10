@@ -38,6 +38,7 @@ import 'package:itnun/screens/search/hire/hire_search.dart';
 import 'package:itnun/screens/search/hire/hire_search_detail.dart';
 import 'package:itnun/screens/search/hire/hire_search_result.dart';
 import 'package:itnun/screens/search/space/space_search.dart';
+import 'package:itnun/screens/search/space/space_search_detail.dart';
 import 'package:itnun/screens/search/space/space_search_result.dart';
 import 'package:itnun/screens/search/total/total_search.dart';
 import 'package:itnun/screens/search/total/total_search_detail.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/search/space",
+      initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -152,7 +153,9 @@ class MyApp extends StatelessWidget {
             page: () => const CheapMarketSearchDetail()),
         GetPage(name: "/search/space", page: () => const SpaceSearch()),
         GetPage(
-            name: "/search/space/result", page: () => const SpaceSearchResult())
+            name: "/search/space/result",
+            page: () => const SpaceSearchResult()),
+        GetPage(name: "/search/space/detail", page: () => const SpaceSearchDetail())
       ],
     );
   }
