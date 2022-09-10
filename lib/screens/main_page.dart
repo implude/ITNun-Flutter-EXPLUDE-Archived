@@ -19,7 +19,6 @@ class MainPage extends StatelessWidget {
             icon: const Icon(
               Icons.menu,
               color: Colors.black,
-              size: 36,
             )),
         actions: [
           IconButton(
@@ -27,14 +26,12 @@ class MainPage extends StatelessWidget {
               icon: const Icon(
                 Icons.notifications_none,
                 color: Colors.black,
-                size: 36,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed("/account"),
               icon: const Icon(
                 Icons.account_circle_outlined,
                 color: Colors.black,
-                size: 36,
               ))
         ],
         backgroundColor: Colors.transparent,

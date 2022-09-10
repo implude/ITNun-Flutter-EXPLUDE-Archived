@@ -15,9 +15,7 @@ class LoginPage extends GetView<LoginController> {
     return Scaffold(
         appBar: createDefaultAppBar(),
         body: ExpandedSingleChildScrollView(
-            child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => FocusScope.of(context).unfocus(),
+            child: FocusUnSetter(
           child: AppPadding(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               SizedBox(height: context.heightTransformer(dividedBy: 9)),

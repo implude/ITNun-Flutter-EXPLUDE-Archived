@@ -4,6 +4,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
 import '../../constants.dart';
+import '../../widgets/bookmark_widget.dart';
 
 class TotalSearched extends StatelessWidget {
   const TotalSearched({Key? key}) : super(key: key);
@@ -15,9 +16,7 @@ class TotalSearched extends StatelessWidget {
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: SingleChildScrollView(
-        child: GestureDetector(
-          onTap: FocusScope.of(context).unfocus,
-          behavior: HitTestBehavior.opaque,
+        child: FocusUnSetter(
           child: AppPadding(
               child: Column(
             children: [
@@ -49,170 +48,236 @@ class TotalSearched extends StatelessWidget {
               SizedBox(
                 height: context.heightTransformer(dividedBy: 42.2),
               ),
-              Column(
-                children: const [
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "청춘남녀만남지원",
-                      category: "생활복지",
-                      local: "경북",
-                      isMarked: true),
-                  TotalSearchAppBox(
-                      title: "주거안정 월세 대출",
-                      category: "주거금융",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "인문 100년 장학금",
-                      category: "생활복지",
-                      local: "전국",
-                      isMarked: false),
-                  TotalSearchAppBox(
-                      title: "LH 희망상가",
-                      category: "창업지원",
-                      local: "전국",
-                      isMarked: false),
-                ],
-              ),
+              ...[
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "청춘남녀만남지원",
+                    category: "생활복지",
+                    region: "경북",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "주거안정 월세 대출",
+                    category: "주거금융",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "인문 100년 장학금",
+                    category: "생활복지",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor),
+                BookmarkAbleBox(
+                    title: "LH 희망상가",
+                    category: "창업지원",
+                    region: "전국",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: appColor)
+              ].map((e) => Padding(
+                    padding: EdgeInsets.only(
+                        bottom: context.heightTransformer(dividedBy: 60)),
+                    child: e,
+                  ))
             ],
           )),
         ),

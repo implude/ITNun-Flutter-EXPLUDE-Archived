@@ -16,40 +16,39 @@ class FindPasswordPage extends GetView<FindPasswordController> {
     return Scaffold(
         appBar: createDefaultAppBar(),
         body: ExpandedSingleChildScrollView(
-            child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: FocusScope.of(context).unfocus,
-                child: AppPadding(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TitleSubjectWidget(
-                        title: "회원가입때 사용한\n이메일을 입력해주세요",
-                        subject: "비밀번호 변경 메일을 보내드릴게요."),
-                    AppTextField(
-                        controller: controller.emailController,
-                        validator: controller.isEmailValid,
-                        label: "이메일",
-                        keyboardType: TextInputType.emailAddress,
-                        onChanged: controller.emailLiveText),
-                    SizedBox(
-                      height: context.heightTransformer(dividedBy: 100),
-                    ),
-                    BottomSetter(
-                      children: [
-                        Obx(() {
-                          bool valid = controller.isValid();
-                          return AppButton(
-                              text: "다음",
-                              textColor: valid ? Colors.white : Colors.black,
-                              backgroundColor:
-                                  valid ? appColor : const Color(0xFFF1F1F1),
-                              onPressed:
-                                  valid ? controller.verifyFindPassword : null);
-                        }),
-                      ],
-                    )
-                  ],
-                )))));
+            child: FocusUnSetter(
+          child: AppPadding(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TitleSubjectWidget(
+                  title: "회원가입때 사용한\n이메일을 입력해주세요",
+                  subject: "비밀번호 변경 메일을 보내드릴게요."),
+              AppTextField(
+                  controller: controller.emailController,
+                  validator: controller.isEmailValid,
+                  label: "이메일",
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: controller.emailLiveText),
+              SizedBox(
+                height: context.heightTransformer(dividedBy: 100),
+              ),
+              BottomSetter(
+                children: [
+                  Obx(() {
+                    bool valid = controller.isValid();
+                    return AppButton(
+                        text: "다음",
+                        textColor: valid ? Colors.white : Colors.black,
+                        backgroundColor:
+                            valid ? appColor : const Color(0xFFF1F1F1),
+                        onPressed:
+                            valid ? controller.verifyFindPassword : null);
+                  }),
+                ],
+              )
+            ],
+          )),
+        )));
   }
 }

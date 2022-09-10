@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 
-import '../constants.dart';
-
 typedef AppFormFieldValidator = bool Function(String);
+
+class AppSwitch extends StatelessWidget {
+  final bool value;
+  final ValueChanged<bool> onChanged;
+
+  const AppSwitch({Key? key, required this.value, required this.onChanged})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterSwitch(
+        width: context.widthTransformer(dividedBy: 9),
+        height: context.heightTransformer(dividedBy: 36),
+        activeColor: const Color(0xFF3C65F8),
+        inactiveColor: Colors.transparent,
+        inactiveToggleColor: const Color(0xFFD1D1D1),
+        inactiveSwitchBorder: Border.all(color: const Color(0xFFD1D1D1)),
+        toggleSize: 16,
+        padding: 3,
+        value: value,
+        onToggle: onChanged);
+  }
+}
 
 class LogoWithText extends StatelessWidget {
   final double width;
@@ -189,242 +211,6 @@ class SearchTextField extends StatelessWidget {
               )),
         ),
         hintText: "이곳에 입력",
-      ),
-    );
-  }
-}
-
-class TotalSearchAppBox extends StatelessWidget {
-  const TotalSearchAppBox(
-      {Key? key,
-      required this.title,
-      required this.category,
-      required this.local,
-      required this.isMarked})
-      : super(key: key);
-
-  final String title;
-  final String category;
-  final String local;
-  final bool isMarked;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
-      child: RawMaterialButton(
-        onPressed: () {
-          Get.toNamed("/none");
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: appColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          width: context.heightTransformer(dividedBy: 1.153),
-          height: context.heightTransformer(dividedBy: 7.96),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: context.widthTransformer(dividedBy: 19.5),
-                vertical: context.heightTransformer(dividedBy: 42.2)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: context.heightTransformer(dividedBy: 60.28),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy: 28.13),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(
-                              child: Text(
-                            category,
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                        SizedBox(
-                          width: context.widthTransformer(dividedBy: 78),
-                        ),
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy: 28.13),
-                          decoration: BoxDecoration(
-                              color: appColor,
-                              borderRadius: BorderRadius.circular(6),
-                              border: Border.all(
-                                width: 2,
-                                color: Colors.white,
-                              )),
-                          child: Center(
-                              child: Text(
-                            local,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Flexible(flex: 1, child: Container()),
-                Column(
-                  children: [
-                    Builder(builder: (context) {
-                      if (isMarked == true) {
-                        return const Icon(
-                          Icons.bookmark,
-                          color: Colors.white,
-                          size: 32,
-                        );
-                      } else {
-                        return const Icon(Icons.bookmark_outline,
-                            color: Colors.white, size: 32);
-                      }
-                    }),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CheapMarketSearchAppBox extends StatelessWidget {
-  const CheapMarketSearchAppBox(
-      {Key? key,
-      required this.title,
-      required this.category,
-      required this.local,
-      required this.isMarked})
-      : super(key: key);
-
-  final String title;
-  final String category;
-  final String local;
-  final bool isMarked;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
-      child: RawMaterialButton(
-        onPressed: () {
-          Get.toNamed("/none");
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: cheapMarketColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          width: context.heightTransformer(dividedBy: 1.153),
-          height: context.heightTransformer(dividedBy: 7.96),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: context.widthTransformer(dividedBy: 19.5),
-                vertical: context.heightTransformer(dividedBy: 42.2)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: context.heightTransformer(dividedBy: 60.28),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6),
-                          height: context.heightTransformer(dividedBy: 28.13),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(
-                              child: Text(
-                            category,
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                        SizedBox(
-                          width: context.widthTransformer(dividedBy: 78),
-                        ),
-                        Container(
-                          width: context.widthTransformer(dividedBy: 6.5),
-                          height: context.heightTransformer(dividedBy: 28.13),
-                          decoration: BoxDecoration(
-                              color: cheapMarketColor,
-                              borderRadius: BorderRadius.circular(6),
-                              border: Border.all(
-                                width: 2,
-                                color: Colors.white,
-                              )),
-                          child: Center(
-                              child: Text(
-                            local,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Flexible(flex: 1, child: Container()),
-                Column(
-                  children: [
-                    Builder(builder: (context) {
-                      if (isMarked == true) {
-                        return const Icon(
-                          Icons.bookmark,
-                          color: Colors.white,
-                          size: 32,
-                        );
-                      } else {
-                        return const Icon(Icons.bookmark_outline,
-                            color: Colors.white, size: 32);
-                      }
-                    }),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }

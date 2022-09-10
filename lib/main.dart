@@ -4,10 +4,19 @@ import 'package:get/get.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
+import 'package:itnun/controllers/my_info_edit_controller.dart';
+import 'package:itnun/controllers/setting_controller.dart';
 import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
+import 'package:itnun/screens/account/account_page.dart';
+import 'package:itnun/screens/account/app_info_page.dart';
+import 'package:itnun/screens/account/bookmark_edit_page.dart';
+import 'package:itnun/screens/account/bookmark_page.dart';
+import 'package:itnun/screens/account/my_info_edit_page.dart';
+import 'package:itnun/screens/account/my_info_page.dart';
+import 'package:itnun/screens/account/setting_page.dart';
 import 'package:itnun/screens/login/login_page.dart';
 import 'package:itnun/screens/login/signup_page.dart';
 import 'package:itnun/screens/login/user_info_page.dart';
@@ -87,7 +96,6 @@ class MyApp extends StatelessWidget {
             })),
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/search/total", page: () => const TotalSearch()),
-        GetPage(name: "/none", page: () => const None()),
         GetPage(name: "/search/detail", page: () => const DetailSearch()),
         GetPage(
             name: "/search/total/result", page: () => const TotalSearched()),
@@ -97,7 +105,26 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/cheap/result",
             page: () => const CheapMarketSearched()),
-        GetPage(name: "/main", page: () => const MainPage())
+        GetPage(name: "/main", page: () => const MainPage()),
+        GetPage(name: "/account", page: () => const AccountPage()),
+        GetPage(name: "/account/info", page: () => const MyInfoPage()),
+        GetPage(
+            name: "/account/info/edit",
+            page: () => const MyInfoEditPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => MyInfoEditController());
+            })),
+        GetPage(
+            name: "/account/setting",
+            page: () => const SettingPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => SettingController());
+            })),
+        GetPage(name: "/account/app", page: () => const AppInfoPage()),
+        GetPage(name: "/account/bookmark", page: () => const BookmarkPage()),
+        GetPage(
+            name: "/account/bookmark/edit",
+            page: () => const BookmarkEditPage())
       ],
     );
   }
