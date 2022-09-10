@@ -136,8 +136,8 @@ class AppBox extends StatelessWidget {
             color: appColor,
             borderRadius: BorderRadius.circular(13),
           ),
-          width: context.heightTransformer(dividedBy: 1.153),
-          height: context.heightTransformer(dividedBy: 8.44),
+            width: context.heightTransformer(dividedBy: 1.153),
+            height: context.heightTransformer(dividedBy: 8.44),
           child: Padding(
             padding: EdgeInsets.only(
                 top: context.heightTransformer(dividedBy: 42.2),
@@ -230,3 +230,5 @@ class AppBox extends StatelessWidget {
     );
   }
 }
+
+

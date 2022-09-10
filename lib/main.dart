@@ -18,6 +18,7 @@ import 'package:itnun/screens/total_search.dart';
 import 'package:itnun/screens/user_info_page.dart';
 import 'package:itnun/screens/verify_find_password_page.dart';
 import 'package:itnun/screens/verify_page.dart';
+import 'package:itnun/screens/total_result.dart';
 
 void main() => runApp(const MyApp());
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/",
+      initialRoute: "/totalResult",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -75,6 +76,10 @@ class MyApp extends StatelessWidget {
             binding: BindingsBuilder(() {
               Get.lazyPut(() => MakePasswordController());
             })),
+        GetPage(
+          name: "/totalResult",
+          page:() => const TotalResult(),
+        ),
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/totalSearch", page: () => const TotalSearch()),
         GetPage(name: "/none", page: () => const None()),
