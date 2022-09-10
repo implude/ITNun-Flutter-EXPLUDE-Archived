@@ -87,7 +87,7 @@ abstract class _BookmarkAbleBox extends _BookmarkBox {
       {Key? key,
       required super.title,
       required super.filled,
-       super.outlined,
+      super.outlined,
       required bool marked,
       required super.backgroundColor,
       required ValueChanged<bool> onMarked,
@@ -166,6 +166,20 @@ class SpaceBookmarkBox extends _BookmarkAbleBox {
             filled: region,
             backgroundColor: const Color(0xFF4B3CF8),
             onPressed: () => Get.toNamed("/search/space/detail"));
+}
+
+class KindBookmarkBox extends _BookmarkAbleBox {
+  KindBookmarkBox(
+      {Key? key,
+      required super.title,
+      required String region,
+      required super.marked,
+      required super.onMarked})
+      : super(
+            key: key,
+            filled: region,
+            backgroundColor: const Color(0xFF4B3CF8),
+            onPressed: () => Get.toNamed("/search/kind/detail"));
 }
 
 class BookmarkRemoveBox extends _BookmarkBox {
