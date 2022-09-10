@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DetailSearchController extends GetxController {
-
   final employmentExpanded = false.obs;
   final educationExpanded = false.obs;
   final specialtyExpanded = false.obs;

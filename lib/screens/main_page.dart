@@ -250,7 +250,6 @@ class _FindJobWidget extends StatelessWidget {
       child: Row(
         children: [
           Column(
-
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
