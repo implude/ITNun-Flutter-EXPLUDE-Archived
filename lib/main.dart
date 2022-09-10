@@ -38,6 +38,7 @@ import 'package:itnun/screens/search/hire/hire_search.dart';
 import 'package:itnun/screens/search/hire/hire_search_detail.dart';
 import 'package:itnun/screens/search/hire/hire_search_result.dart';
 import 'package:itnun/screens/search/kind/kind_search.dart';
+import 'package:itnun/screens/search/kind/kind_search_result.dart';
 import 'package:itnun/screens/search/space/space_search.dart';
 import 'package:itnun/screens/search/space/space_search_detail.dart';
 import 'package:itnun/screens/search/space/space_search_result.dart';
@@ -159,7 +160,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/space/detail",
             page: () => const SpaceSearchDetail()),
-        GetPage(name: "/search/kind", page: () => const KindSearch())
+        GetPage(name: "/search/kind", page: () => const KindSearch()),
+        GetPage(
+            name: "/search/kind/result", page: () => const KindSearchResult())
       ],
     );
   }
