@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/constants.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
+import 'package:itnun/widgets/bookmark_widget.dart';
+import 'package:itnun/widgets/search_widgets.dart';
 
-import '../../widgets/bookmark_widget.dart';
-
-class DetailSearchResult extends StatelessWidget {
-  const DetailSearchResult({Key? key}) : super(key: key);
+class TotalSearchResult extends StatelessWidget {
+  const TotalSearchResult({Key? key}) : super(key: key);
   static const int count = 30;
+  static const String answer = "일하기싫어ㅓㅓㅓㅓ";
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,18 @@ class DetailSearchResult extends StatelessWidget {
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
               const Text(
-                "상세검색",
+                "통합검색",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
               ),
               SizedBox(
-                height: context.heightTransformer(dividedBy: 844 / 44),
+                height: context.heightTransformer(dividedBy: 22.10),
+              ),
+              SearchTextField(
+                  borderColor: appColor,
+                  iconColor: appColor.withOpacity(0.5),
+                  onPressed: () => Get.toNamed("/search/total/result")),
+              SizedBox(
+                height: context.heightTransformer(dividedBy: 28.13),
               ),
               Row(
                 children: const [

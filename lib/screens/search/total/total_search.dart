@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../../widgets/bookmark_widget.dart';
+import '../../../constants.dart';
+import '../../../widgets/bookmark_widget.dart';
+import '../../../widgets/search_widgets.dart';
 
-class CheapMarketSearch extends StatelessWidget {
-  const CheapMarketSearch({Key? key}) : super(key: key);
+class TotalSearch extends StatelessWidget {
+  const TotalSearch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +23,16 @@ class CheapMarketSearch extends StatelessWidget {
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
               const Text(
-                "착한가게 찾기",
+                "통합검색",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
               ),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
               SearchTextField(
-                borderColor: const Color(0xFF4B3CF8),
-                iconColor: const Color(0xFFA59EFC),
-                onPressed: () => Get.toNamed("/search/cheap/result"),
+                borderColor: appColor,
+                iconColor: appColor.withOpacity(0.5),
+                onPressed: () => Get.toNamed("/search/total/result"),
               ),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 28.13),
@@ -38,7 +40,7 @@ class CheapMarketSearch extends StatelessWidget {
               Row(
                 children: const [
                   Text(
-                    "추천 가게",
+                    "추천 정책",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -47,31 +49,31 @@ class CheapMarketSearch extends StatelessWidget {
                 height: context.heightTransformer(dividedBy: 27.22),
               ),
               ...[
-                CheapMarketBookmarkBox(
-                  title: "체스보드게임",
-                  category: "기타서비스업",
-                  region: "부산광역시",
+                TotalBookmarkBox(
+                  title: "청춘남녀만남지원",
+                  category: "생활복지",
+                  region: "경북",
                   marked: true,
                   onMarked: (value) {},
                 ),
-                CheapMarketBookmarkBox(
-                  title: "맥스리뷰(금정점)",
-                  category: "기타서비스업",
-                  region: "부산광역시",
+                TotalBookmarkBox(
+                  title: "주거안정 월세 대출",
+                  category: "주거금융",
+                  region: "전국",
                   marked: false,
                   onMarked: (value) {},
                 ),
-                CheapMarketBookmarkBox(
-                  title: "펠로",
-                  category: "양식",
-                  region: "부산광역시",
+                TotalBookmarkBox(
+                  title: "인문 100년 장학금",
+                  category: "생활복지",
+                  region: "전국",
                   marked: false,
                   onMarked: (value) {},
                 ),
-                CheapMarketBookmarkBox(
-                  title: "헤어디자이너 수빈",
-                  category: "이미용업",
-                  region: "광주광역시",
+                TotalBookmarkBox(
+                  title: "LH 희망상가",
+                  category: "창업지원",
+                  region: "전국",
                   marked: false,
                   onMarked: (value) {},
                 )

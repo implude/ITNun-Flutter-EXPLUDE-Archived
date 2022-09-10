@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../../constants.dart';
-import '../../widgets/bookmark_widget.dart';
+import '../../../constants.dart';
+import '../../../widgets/bookmark_widget.dart';
+import '../../../widgets/search_widgets.dart';
 
 class CheapMarketSearchResult extends StatelessWidget {
   const CheapMarketSearchResult({Key? key}) : super(key: key);

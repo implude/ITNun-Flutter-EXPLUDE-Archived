@@ -3,13 +3,11 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../../constants.dart';
-import '../../widgets/bookmark_widget.dart';
+import '../../../widgets/bookmark_widget.dart';
 
-class TotalSearchResult extends StatelessWidget {
-  const TotalSearchResult({Key? key}) : super(key: key);
+class DetailSearchResult extends StatelessWidget {
+  const DetailSearchResult({Key? key}) : super(key: key);
   static const int count = 30;
-  static const String answer = "일하기싫어ㅓㅓㅓㅓ";
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +22,11 @@ class TotalSearchResult extends StatelessWidget {
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
               const Text(
-                "통합검색",
+                "상세검색",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
               ),
               SizedBox(
-                height: context.heightTransformer(dividedBy: 22.10),
-              ),
-              SearchTextField(
-                  borderColor: appColor,
-                  iconColor: appColor.withOpacity(0.5),
-                  onPressed: () => Get.toNamed("/search/total/result")),
-              SizedBox(
-                height: context.heightTransformer(dividedBy: 28.13),
+                height: context.heightTransformer(dividedBy: 844 / 44),
               ),
               Row(
                 children: const [

@@ -29,13 +29,16 @@ import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
-import 'package:itnun/screens/search/cheap_market_search.dart';
-import 'package:itnun/screens/search/cheap_market_search_result.dart';
-import 'package:itnun/screens/search/detail_search.dart';
-import 'package:itnun/screens/search/detail_search_result.dart';
-import 'package:itnun/screens/search/total_search.dart';
-import 'package:itnun/screens/search/total_search_detail.dart';
-import 'package:itnun/screens/search/total_search_result.dart';
+import 'package:itnun/screens/search/cheap/cheap_market_search.dart';
+import 'package:itnun/screens/search/cheap/cheap_market_search_result.dart';
+import 'package:itnun/screens/search/detail/detail_search.dart';
+import 'package:itnun/screens/search/detail/detail_search_result.dart';
+import 'package:itnun/screens/search/hire/hire_search.dart';
+import 'package:itnun/screens/search/hire/hire_search_detail.dart';
+import 'package:itnun/screens/search/hire/hire_search_result.dart';
+import 'package:itnun/screens/search/total/total_search.dart';
+import 'package:itnun/screens/search/total/total_search_detail.dart';
+import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
 
 void main() async {
@@ -135,7 +138,12 @@ class MyApp extends StatelessWidget {
             name: "/account/bookmark/edit",
             page: () => const BookmarkEditPage()),
         GetPage(name: "/news", page: () => const TodayNewsPage()),
-        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage())
+        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage()),
+        GetPage(name: "/search/hire", page: () => const HireSearch()),
+        GetPage(
+            name: "/search/hire/result", page: () => const HireSearchResult()),
+        GetPage(
+            name: "/search/hire/detail", page: () => const HireSearchDetail())
       ],
     );
   }

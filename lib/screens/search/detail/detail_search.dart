@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 
 class DetailSearch extends StatelessWidget {
   const DetailSearch({Key? key}) : super(key: key);
