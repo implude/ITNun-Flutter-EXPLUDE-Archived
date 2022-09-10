@@ -43,7 +43,6 @@ class TodayNewsDetailPage extends StatelessWidget {
       _AgreedInfo(siteName: data.siteName),
       Text(
         data.content,
-        textAlign: TextAlign.end,
         style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
       ),
       AppButton(

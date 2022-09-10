@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:itnun/controllers/detail_search_controller.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/search/cheap",
+      initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -113,7 +114,12 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/search/total", page: () => const TotalSearch()),
-        GetPage(name: "/search/detail", page: () => const DetailSearch()),
+        GetPage(
+            name: "/search/detail",
+            page: () => const DetailSearch(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => DetailSearchController());
+            })),
         GetPage(
             name: "/search/total/result",
             page: () => const TotalSearchResult()),
@@ -164,7 +170,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/search/kind", page: () => const KindSearch()),
         GetPage(
             name: "/search/kind/result", page: () => const KindSearchResult()),
-        GetPage(name: "/search/kind/detail", page: () => const KindSearchDetail())
+        GetPage(
+            name: "/search/kind/detail", page: () => const KindSearchDetail())
       ],
     );
   }

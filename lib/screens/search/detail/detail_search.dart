@@ -1,572 +1,79 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/constants.dart';
+import 'package:itnun/controllers/detail_search_controller.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../../../constants.dart';
+String _getValueBasesOnSelected(String prefix, List<String>? selected) {
+  if (selected == null) {
+    return "제한없음";
+  } else if (selected.isEmpty) {
+    return "$prefix 전체";
+  } else {
+    final length = selected.length;
+    final first = selected[0];
 
-class DetailSearch extends StatelessWidget {
+    return length == 1 ? first : "$first 외 ${length - 1}개";
+  }
+}
+
+Widget _createGridViewWrapper(String prefix, RxList<String> selected,
+        List<String> all, RxBool expanded) =>
+    Obx(() => _WidgetWrapper(
+          expanded: expanded.value,
+          onExpand: expanded,
+          title: prefix,
+          titleValue: Obx(() => Text(
+                _getValueBasesOnSelected(prefix, selected),
+              )),
+          child: _GridViewWidget(
+              items: all,
+              selectedItems: selected,
+              onChanged: selected,
+              prefix: prefix),
+        ));
+
+class DetailSearch extends GetView<DetailSearchController> {
   const DetailSearch({Key? key}) : super(key: key);
-  final appHeight = 844;
-  final appWidth = 390;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: createDefaultAppBar(),
-      body: SingleChildScrollView(
-        child: FocusUnSetter(
+      body: FocusUnSetter(
+        child: SingleChildScrollView(
           child: AppPadding(
             child: Column(
               children: [
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: 21.64),
-                ),
+                SizedBox(height: context.heightTransformer(dividedBy: 22.10)),
                 const Center(
-                    child: Text(
-                  "상세검색",
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                )),
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: 32.46),
+                  child: Text(
+                    "상세 검색",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+                  ),
                 ),
-                Container(
-                  width: context.widthTransformer(dividedBy: appWidth / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 374),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          context.widthTransformer(dividedBy: appWidth / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  context.widthTransformer(dividedBy: 19.5),
-                              vertical: context.heightTransformer(
-                                  dividedBy: appHeight / 20)),
-                          child: Row(
-                            children: [
-                              const Text("취업상태",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              const Text("고른거 뜨게 하기",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                            ],
-                          ),
-                        ),
-                        const CreateBox(title: "취업상태 전체", isBig: true),
-                        Row(
-                          children: [
-                            const CreateBox(title: "재직자", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "자영업자", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "미취업자", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "프리랜서", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "일용근로자", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "(예비)창업자", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "단기근로자", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "영농종사자", isBig: false),
-                          ],
-                        ),
-                        const CreateBox(title: "제한없음", isBig: true),
-                        Center(
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.keyboard_arrow_up_outlined,
-                                  color: Color(0xffD1D1D1),
-                                  size: 32,
-                                ))),
-                      ],
-                    ),
-                  ),
-                ), //취업상태
-
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 10),
-                ),
-
-                Container(
-                  width: context.widthTransformer(dividedBy: appWidth / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 374),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          context.widthTransformer(dividedBy: appWidth / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: context.widthTransformer(dividedBy: 19.5),
-                            right: context.widthTransformer(dividedBy: 19.5),
-                            top: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                            bottom: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                          ),
-                          child: Row(
-                            children: [
-                              const Text("학력",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              const Text("고른거 뜨게 하기",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                            ],
-                          ),
-                        ),
-                        const CreateBox(title: "학력 전체", isBig: true),
-                        Row(
-                          children: [
-                            const CreateBox(title: "고졸 미만", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "고교 재학", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "고졸 예정", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "고교 졸업", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "대학 재학", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "대졸 예정", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "대학 졸업", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "석 • 박사", isBig: false),
-                          ],
-                        ),
-                        const CreateBox(title: "제한없음", isBig: true),
-                        Center(
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.keyboard_arrow_up_outlined,
-                                  color: Color(0xffD1D1D1),
-                                  size: 32,
-                                ))),
-                      ],
-                    ),
-                  ),
-                ), //학력
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 10),
-                ),
-
-                Container(
-                  width: context.widthTransformer(dividedBy: appWidth / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 330),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal:
-                          context.widthTransformer(dividedBy: appWidth / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: context.widthTransformer(dividedBy: 19.5),
-                            right: context.widthTransformer(dividedBy: 19.5),
-                            top: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                            bottom: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                          ),
-                          child: Row(
-                            children: [
-                              const Text("특화분야",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              const Text("고른거 뜨게 하기",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                            ],
-                          ),
-                        ),
-                        const CreateBox(title: "특화분야 전체", isBig: true),
-                        Row(
-                          children: [
-                            const CreateBox(title: "중소기업", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "여성", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "저소득층", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "장애인", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "농업인", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "군인", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "지역인재", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "제한없음", isBig: false),
-                          ],
-                        ),
-                        Center(
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.keyboard_arrow_up_outlined,
-                                  color: Color(0xffD1D1D1),
-                                  size: 32,
-                                ))),
-                      ],
-                    ),
-                  ),
-                ), //특화분야
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 10),
-                ),
-
-                Container(
-                  width: context.widthTransformer(dividedBy: 390 / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 243),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.widthTransformer(dividedBy: 390 / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: context.widthTransformer(dividedBy: 19.5),
-                            right: context.widthTransformer(dividedBy: 19.5),
-                            top: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                            bottom: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                          ),
-                          child: Row(
-                            children: [
-                              const Text("신청기간",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              const Text("고른거 뜨게 하기",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                            ],
-                          ),
-                        ),
-                        const CreateBox(title: "기간 전체", isBig: true),
-                        Row(
-                          children: [
-                            const CreateBox(title: "현재 신청 가능", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "1개월 이내", isBig: false),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const CreateBox(title: "3개월 이내", isBig: false),
-                            SizedBox(
-                              width:
-                                  context.widthTransformer(dividedBy: 390 / 4),
-                            ),
-                            const CreateBox(title: "6개월 이내", isBig: false),
-                          ],
-                        ),
-                        Center(
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.keyboard_arrow_up_outlined,
-                                  color: Color(0xffD1D1D1),
-                                  size: 32,
-                                ))),
-                      ],
-                    ),
-                  ),
-                ), //신청기간
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 10),
-                ),
-
-                Container(
-                  width: context.widthTransformer(dividedBy: 390 / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 81),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.widthTransformer(dividedBy: 390 / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: context.widthTransformer(dividedBy: 19.5),
-                            right: context.widthTransformer(dividedBy: 19.5),
-                            top: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                            bottom: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                          ),
-                          child: Row(
-                            children: [
-                              const Text("나이",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              const Text("만",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                              SizedBox(
-                                width: context.widthTransformer(
-                                    dividedBy: 390 / 12),
-                              ),
-                              SizedBox(
-                                width: context.widthTransformer(
-                                    dividedBy: 390 / 50),
-                                height: context.heightTransformer(
-                                    dividedBy: appHeight / 30),
-                                child: TextField(
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    contentPadding:
-                                        const EdgeInsets.fromLTRB(5, 0, 10, 0),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6),
-                                      borderSide: const BorderSide(
-                                          color: strokeColor, width: 1),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6),
-                                      borderSide: const BorderSide(
-                                          color: strokeColor, width: 1),
-                                    ),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(6),
-                                      borderSide: const BorderSide(
-                                          color: strokeColor, width: 1),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: context.widthTransformer(
-                                    dividedBy: 390 / 4),
-                              ),
-                              const Text("세",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ), //나이
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 10),
-                ),
-                Container(
-                  width: context.widthTransformer(dividedBy: 390 / 338),
-                  height: context.heightTransformer(dividedBy: appHeight / 87),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: strokeColor,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: context.widthTransformer(dividedBy: 390 / 17),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: context.widthTransformer(dividedBy: 19.5),
-                            right: context.widthTransformer(dividedBy: 19.5),
-                            top: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                            bottom: context.heightTransformer(
-                                dividedBy: appHeight / 20),
-                          ),
-                          child: Row(
-                            children: [
-                              const Text("키워드",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600)),
-                              Flexible(flex: 1, child: Container()),
-                              SizedBox(
-                                width: context.widthTransformer(
-                                    dividedBy: 390 / 100),
-                                height: context.heightTransformer(
-                                    dividedBy: appHeight / 40),
-                                child: const TextField(
-                                  decoration: InputDecoration(
-                                    hintText: "이곳에 입력",
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ), //키워드
-
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 20),
-                ),
-                RawMaterialButton(
-                    onPressed: () {
-                      Get.toNamed("/search/detail/result");
-                    },
-                    child: Container(
-                      height:
-                          context.heightTransformer(dividedBy: appHeight / 50),
-                      width: context.widthTransformer(dividedBy: 390 / 100),
-                      decoration: BoxDecoration(
-                        color: appColor,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Center(
-                        child: Text("검색",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
-                      ),
-                    )),
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: appHeight / 26),
-                ),
+                SizedBox(height: context.heightTransformer(dividedBy: 40)),
+                ...[
+                  _createGridViewWrapper(
+                      "취업상태",
+                      controller.employmentState,
+                      controller.employmentStates,
+                      controller.employmentExpanded),
+                  _createGridViewWrapper("학력", controller.education,
+                      controller.educations, controller.educationExpanded),
+                  _createGridViewWrapper("특화분야", controller.specialization,
+                      controller.specializations, controller.specialtyExpanded),
+                  _createGridViewWrapper("신청기간", controller.applyDate,
+                      controller.applyDates, controller.applyDateExpanded),
+                  _AgeWidget(controller: controller.ageController),
+                  _KeywordWidget(controller: controller.keywordController),
+                ].map((e) => Padding(
+                      padding: EdgeInsets.only(
+                          bottom: context.heightTransformer(dividedBy: 60)),
+                      child: e,
+                    ))
               ],
             ),
           ),
@@ -576,55 +83,231 @@ class DetailSearch extends StatelessWidget {
   }
 }
 
-class CreateBox extends StatelessWidget {
-  const CreateBox({Key? key, required this.title, required this.isBig})
-      : super(key: key);
+class _KeywordWidget extends StatelessWidget {
+  final TextEditingController controller;
 
-  final String title;
-  final bool isBig;
+  const _KeywordWidget({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      if (isBig == true) {
-        return RawMaterialButton(
-          onPressed: () {},
-          child: Container(
-            width: context.widthTransformer(dividedBy: 390 / 298),
-            height: context.heightTransformer(dividedBy: 21.1),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: strokeColor, width: 1),
-            ),
-            child: Center(
-              child: Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
+    return _WidgetWrapper(
+        title: "키워드",
+        titleValue: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: context.widthTransformer(dividedBy: 10),
+            maxWidth: context.widthTransformer(dividedBy: 3),
+          ),
+          child: IntrinsicWidth(
+            child: TextField(
+              textAlign: TextAlign.end,
+              controller: controller,
+              decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  isDense: true,
+                  hintText: "이곳에 입력",
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: Color(0xFFD1D1D1))),
             ),
           ),
-        );
-      } else {
-        return RawMaterialButton(
-          onPressed: () {},
-          child: Container(
-            width: context.widthTransformer(dividedBy: 390 / 147),
-            height: context.heightTransformer(dividedBy: 21.1),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: strokeColor, width: 1),
-            ),
-            child: Center(
-              child: Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
+        ));
+  }
+}
+
+class _AgeWidget extends StatelessWidget {
+  final TextEditingController controller;
+
+  const _AgeWidget({Key? key, required this.controller}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    const border =
+        OutlineInputBorder(borderSide: BorderSide(color: Color(0xFFC5D1FD)));
+
+    return _WidgetWrapper(
+      title: "나이",
+      titleValue: Row(
+        children: [
+          const Text("만"),
+          SizedBox(width: context.widthTransformer(dividedBy: 40)),
+          const IntrinsicWidth(
+            child: TextField(
+              maxLength: 2,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  enabledBorder: border,
+                  focusedBorder: border,
+                  counterText: ""),
             ),
           ),
-        );
-      }
-    });
+          SizedBox(width: context.widthTransformer(dividedBy: 40)),
+          const Text("세")
+        ],
+      ),
+    );
+  }
+}
+
+class _GridViewWidget extends StatelessWidget {
+  final List<String> items;
+  final RxList<String> selectedItems;
+  final ValueChanged<List<String>> onChanged;
+  final String prefix;
+
+  const _GridViewWidget(
+      {Key? key,
+      required this.items,
+      required this.selectedItems,
+      required this.onChanged,
+      required this.prefix})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final itemWidgets = items.map((e) => Obx(() => _GridButton(
+        selected: selectedItems.contains(e),
+        onChanged: (value) {
+          final current = [...selectedItems];
+
+          if (value) {
+            current.add(e);
+          } else {
+            current.remove(e);
+          }
+
+          onChanged(current);
+        },
+        label: e)));
+
+    return Column(
+      children: [
+        Obx(() => _GridButton(
+              selected: selectedItems.isEmpty,
+              onChanged: (_) => onChanged([]),
+              label: "$prefix 전체",
+            )),
+        ...itemWidgets.slices(2).map(
+              (e) => Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Row(
+                  children: [
+                    Flexible(child: e[0]),
+                    if (e.length == 2) ...[
+                      const SizedBox(width: 6),
+                      Flexible(child: e[1])
+                    ]
+                  ],
+                ),
+              ),
+            )
+      ],
+    );
+  }
+}
+
+class _GridButton extends StatelessWidget {
+  final bool selected;
+  final ValueChanged<bool> onChanged;
+  final String label;
+
+  const _GridButton(
+      {Key? key,
+      required this.selected,
+      required this.onChanged,
+      required this.label})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => onChanged(!selected),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 18),
+        decoration: BoxDecoration(
+            color: selected ? appColor : Colors.transparent,
+            border: Border.all(
+                color: selected ? appColor : const Color(0xFFC5D1FD)),
+            borderRadius: BorderRadius.circular(8)),
+        child: Center(
+          child: Text(
+            label,
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: selected ? Colors.white : Colors.black),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _WidgetWrapper extends StatelessWidget {
+  final String title;
+  final Widget titleValue;
+  final Widget? child;
+  final bool? expanded;
+  final ValueChanged<bool>? onExpand;
+
+  const _WidgetWrapper(
+      {Key? key,
+      required this.title,
+      required this.titleValue,
+      this.child,
+      this.expanded,
+      this.onExpand})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.symmetric(
+            vertical: context.heightTransformer(dividedBy: 50),
+            horizontal: context.heightTransformer(dividedBy: 40)),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: const Color(0xFFC5D1FD), width: 3)),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: context.heightTransformer(dividedBy: 40)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
+                    titleValue
+                  ]),
+            ),
+            if (child != null) ...[
+              Visibility(
+                visible: expanded!,
+                child: Column(
+                  children: [
+                    SizedBox(height: context.heightTransformer(dividedBy: 40)),
+                    child!
+                  ],
+                ),
+              ),
+              SizedBox(height: context.heightTransformer(dividedBy: 100)),
+              IconButton(
+                  iconSize: 32,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                  onPressed: () => onExpand!(!expanded!),
+                  icon: Icon(
+                    expanded!
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
+                    color: const Color(0xFFD1D1D1),
+                  ))
+            ]
+          ],
+        ));
   }
 }
