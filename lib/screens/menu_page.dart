@@ -14,15 +14,28 @@ class MenuPage extends StatelessWidget {
           title: "청년 정책 찾기",
           icon: Icons.how_to_vote,
           iconColor: const Color(0xFF3C65F8),
-          children: const ["통합검색", "상세검색"]),
+          children: [
+            _MenuItem(
+                text: "통합검색", onPressed: () => Get.toNamed("/search/total")),
+            _MenuItem(
+                text: "상세검색", onPressed: () => Get.toNamed("/search/detail"))
+          ]),
       _MenuWidget(
           title: "착한 가게 찾기",
           icon: Icons.place_outlined,
           iconColor: const Color(0xFF4B3CF8),
-          children: const ["착한 가게", "청년 공간", "선한 영향력 가게"]),
+          children: [
+            _MenuItem(
+                text: "착한 가게", onPressed: () => Get.toNamed("/search/cheap")),
+            _MenuItem(
+                text: "청년 공간", onPressed: () => Get.toNamed("/search/space")),
+            _MenuItem(
+                text: "선한 영향력 가게", onPressed: () => Get.toNamed("/search/kind"))
+          ]),
       _MenuWidget(
         iconColor: const Color(0xFF6721FC),
         title: "청년 채용 광고 찾기",
+        onPressed: () => Get.toNamed("/search/hire"),
         icon: Icons.badge_outlined,
       ),
       _MenuWidget(
@@ -51,11 +64,21 @@ class MenuPage extends StatelessWidget {
   }
 }
 
+class _MenuItem {
+  final String text;
+  final VoidCallback onPressed;
+
+  const _MenuItem({
+    required this.text,
+    required this.onPressed,
+  });
+}
+
 class _MenuWidget extends StatelessWidget {
   final String title;
   final IconData icon;
   final Color iconColor;
-  final List<String>? children;
+  final List<_MenuItem>? children;
   final VoidCallback? onPressed;
 
   final expanded = false.obs;
@@ -112,8 +135,8 @@ class _MenuWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: children!
                         .map((e) => TextButton(
-                            onPressed: () {},
-                            child: Text(e,
+                            onPressed: e.onPressed,
+                            child: Text(e.text,
                                 style: const TextStyle(
                                     color: Color(0xFFA1A1A1),
                                     fontWeight: FontWeight.w500,

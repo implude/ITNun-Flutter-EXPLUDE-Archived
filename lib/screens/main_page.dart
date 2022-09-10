@@ -17,6 +17,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+            iconSize: 36,
             onPressed: () => Get.toNamed("/menu"),
             icon: const Icon(
               Icons.menu,
@@ -24,12 +25,14 @@ class MainPage extends StatelessWidget {
             )),
         actions: [
           IconButton(
+              iconSize: 36,
               onPressed: () => Get.toNamed("/notification"),
               icon: const Icon(
                 Icons.notifications_none,
                 color: Colors.black,
               )),
           IconButton(
+              iconSize: 36,
               onPressed: () => Get.toNamed("/account"),
               icon: const Icon(
                 Icons.account_circle_outlined,
@@ -75,7 +78,7 @@ class MainPage extends StatelessWidget {
                     _FindWidget(
                       name: "청년 정책 찾기",
                       backgroundColor: appColor,
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed("/search/total"),
                       icon: Icons.how_to_vote_outlined,
                     ),
                     const Expanded(child: SizedBox.shrink()),
@@ -256,7 +259,7 @@ class _FindJobWidget extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
-              _GoButton(onPressed: () {})
+              _GoButton(onPressed: () => Get.toNamed("/search/hire"))
             ],
           ),
           const Expanded(child: SizedBox.shrink()),
