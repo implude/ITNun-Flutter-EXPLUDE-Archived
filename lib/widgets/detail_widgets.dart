@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants.dart';
 
@@ -53,6 +54,7 @@ class DetailValueBox extends StatelessWidget {
                 style:
                     const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
             Text(
+              textAlign: TextAlign.end,
               value,
               style: const TextStyle(
                   color: _textColor, fontWeight: FontWeight.w500),
@@ -134,5 +136,26 @@ class InfoBox extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class DetailComponent extends StatelessWidget {
+  final String title;
+  final List<Widget> children;
+
+  const DetailComponent({Key? key, required this.title, required this.children})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      SubTitleBox(subtitle: title),
+      SizedBox(height: context.heightTransformer(dividedBy: 50)),
+      ...children.map((e) => Padding(
+            padding:
+                EdgeInsets.only(top: context.heightTransformer(dividedBy: 100)),
+            child: e,
+          ))
+    ]);
   }
 }

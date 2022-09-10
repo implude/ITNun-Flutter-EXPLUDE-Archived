@@ -142,3 +142,34 @@ class SearchWidget extends StatelessWidget {
                 .toList()));
   }
 }
+
+class SearchDetailWidget extends StatelessWidget {
+  final String title;
+  final List<Widget> children;
+
+  const SearchDetailWidget(
+      {Key? key, required this.title, required this.children})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: AppPadding(
+          child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: context.heightTransformer(dividedBy: 30)),
+        child: Column(children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          ),
+          ...children.map((e) => Padding(
+                padding: EdgeInsets.only(
+                    top: context.heightTransformer(dividedBy: 30)),
+                child: e,
+              ))
+        ]),
+      )),
+    );
+  }
+}
