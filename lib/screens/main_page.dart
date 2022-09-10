@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final separator =
-        SizedBox(height: context.heightTransformer(dividedBy: 40));
+        SizedBox(height: context.heightTransformer(dividedBy: 50));
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -75,7 +75,7 @@ class MainPage extends StatelessWidget {
                     _FindWidget(
                       name: "청년 정책 찾기",
                       backgroundColor: appColor,
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed("/search/total"),
                       icon: Icons.how_to_vote_outlined,
                     ),
                     const Expanded(child: SizedBox.shrink()),
@@ -247,6 +247,7 @@ class _FindJobWidget extends StatelessWidget {
       child: Row(
         children: [
           Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
