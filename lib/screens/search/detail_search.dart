@@ -64,8 +64,8 @@ class DetailSearch extends StatelessWidget {
                               Flexible(flex: 1, child: Container()),
                               const Text("고른거 뜨게 하기",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                             ],
                           ),
                         ),
@@ -164,8 +164,8 @@ class DetailSearch extends StatelessWidget {
                               Flexible(flex: 1, child: Container()),
                               const Text("고른거 뜨게 하기",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                             ],
                           ),
                         ),
@@ -263,8 +263,8 @@ class DetailSearch extends StatelessWidget {
                               Flexible(flex: 1, child: Container()),
                               const Text("고른거 뜨게 하기",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                             ],
                           ),
                         ),
@@ -360,8 +360,8 @@ class DetailSearch extends StatelessWidget {
                               Flexible(flex: 1, child: Container()),
                               const Text("고른거 뜨게 하기",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                             ],
                           ),
                         ),
@@ -437,8 +437,8 @@ class DetailSearch extends StatelessWidget {
                               Flexible(flex: 1, child: Container()),
                               const Text("만",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                               SizedBox(
                                 width: context.widthTransformer(
                                     dividedBy: 390 / 12),
@@ -477,8 +477,8 @@ class DetailSearch extends StatelessWidget {
                               ),
                               const Text("세",
                                   style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400)),
+                                    fontSize: 14,
+                                  )),
                             ],
                           ),
                         ),

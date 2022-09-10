@@ -155,7 +155,7 @@ class _TodayNewsWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const Expanded(child: SizedBox.shrink()),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed("/news"),
                   child: Row(
                     children: const [
                       Icon(

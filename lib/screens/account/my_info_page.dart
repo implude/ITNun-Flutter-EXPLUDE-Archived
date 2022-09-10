@@ -65,10 +65,7 @@ class _InfoWidget extends StatelessWidget {
         const Expanded(child: SizedBox.shrink()),
         Text(
           value,
-          style: const TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 18,
-              color: Color(0xFFA1A1A1)),
+          style: const TextStyle(fontSize: 18, color: Color(0xFFA1A1A1)),
         )
       ],
     );
