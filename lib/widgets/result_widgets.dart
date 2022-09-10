@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+const textColor = Color(0xff818181);
+
 class KeyValueBox extends StatelessWidget {
   const KeyValueBox(
       {Key? key,
@@ -14,14 +16,14 @@ class KeyValueBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width:context.widthTransformer(dividedBy: 1.25),
-        height: context.heightTransformer(dividedBy: 15),
+        width:context.widthTransformer(dividedBy: 1.15),
+        // height:context.heightTransformer(dividedBy:15.6),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(8),
           color:const Color(0xffECF0FF),
         ),
         child:Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Row(
             mainAxisAlignment:MainAxisAlignment.spaceBetween,
             children: [
@@ -30,7 +32,12 @@ class KeyValueBox extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )
               ),
-              Text(value),
+              Text(value,
+                style: const TextStyle(
+                  color: textColor,
+                ),
+                textAlign: TextAlign.end,
+              ),
             ],
           ),
         )
@@ -82,19 +89,20 @@ class PlainTextBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width:context.widthTransformer(dividedBy: 1.25),
+        width:context.widthTransformer(dividedBy: 1.15),
         //height:context.heightTransformer(dividedBy:5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(8),
           color:const Color(0xffECF0FF),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Expanded(
             child: Text(text,
                 overflow:TextOverflow.fade,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
+                  color: textColor,
                 )
             ),
           ),
@@ -115,28 +123,20 @@ class InfoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width:context.widthTransformer(dividedBy: 1.25),
+        width:context.widthTransformer(dividedBy: 1.15),
         //height:context.heightTransformer(dividedBy:5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(8),
           color:const Color(0xffECF0FF),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(subtitle, style: const TextStyle(fontWeight: FontWeight.bold)),
+              Text(subtitle, style: const TextStyle(fontWeight: FontWeight.bold,fontSize:16)),
               SizedBox(height:context.heightTransformer(dividedBy:45)),
-              Flexible(
-                flex: 1,
-                fit:FlexFit.tight,
-                child: ListView.builder(
-                  itemCount : contents.length,
-                  itemBuilder :(_, index) =>
-                    Info(content: contents[index]),
-                ),
-              )
+              ...contents.map((e) => Info(content: e))
               // Row(
               //   children: [
               //     Container(
@@ -211,7 +211,7 @@ class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      // crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.fromLTRB(0, context.heightTransformer(dividedBy: 150), 0, 0),
@@ -227,9 +227,17 @@ class Info extends StatelessWidget {
         Container(
           width: context.widthTransformer(dividedBy:30),
         ),
-        Text(content,
-          // overflow:TextOverflow.fade,
+        Flexible(
+          fit: FlexFit.tight,
+          child: Text(content,
+            overflow:TextOverflow.fade,
+            style: const TextStyle(
+              color: textColor,
+              fontSize: 14,
+            )
+          ),
         ),
+        SizedBox(height:context.heightTransformer(dividedBy:35)),
       ],
     );
   }

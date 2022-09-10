@@ -7,6 +7,7 @@ import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
+import 'package:itnun/controllers/total_result_controller.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/make_password_page.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/totalResult",
+      initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -79,10 +80,22 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/totalResult",
           page:() => const TotalResult(),
+          binding: BindingsBuilder((){
+            Get.lazyPut(() => TotalResultController());
+          })
         ),
-        GetPage(name: "/menu", page: () => const MenuPage()),
-        GetPage(name: "/totalSearch", page: () => const TotalSearch()),
-        GetPage(name: "/none", page: () => const None()),
+        GetPage(
+            name: "/menu",
+            page: () => const MenuPage()
+        ),
+        GetPage(
+            name: "/totalSearch",
+            page: () => const TotalSearch(),
+        ),
+        GetPage(
+            name: "/none",
+            page: () => const None()
+        ),
       ],
     );
   }
