@@ -10,6 +10,10 @@ import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
+import 'package:itnun/controllers/total_result_controller.dart';
+import 'package:itnun/screens/find_password_page.dart';
+import 'package:itnun/screens/login_page.dart';
+import 'package:itnun/screens/make_password_page.dart';
 import 'package:itnun/screens/account/account_page.dart';
 import 'package:itnun/screens/account/app_info_page.dart';
 import 'package:itnun/screens/account/bookmark_edit_page.dart';
@@ -36,6 +40,11 @@ import 'package:itnun/screens/search/detail_searched.dart';
 import 'package:itnun/screens/search/total_search.dart';
 import 'package:itnun/screens/search/total_searched.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/total_search.dart';
+import 'package:itnun/screens/user_info_page.dart';
+import 'package:itnun/screens/verify_find_password_page.dart';
+import 'package:itnun/screens/verify_page.dart';
+import 'package:itnun/screens/total_result.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -96,6 +105,13 @@ class MyApp extends StatelessWidget {
             binding: BindingsBuilder(() {
               Get.lazyPut(() => MakePasswordController());
             })),
+        GetPage(
+          name: "/totalResult",
+          page:() => const TotalResult(),
+          binding: BindingsBuilder((){
+            Get.lazyPut(() => TotalResultController());
+          })
+        ),
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/search/total", page: () => const TotalSearch()),
         GetPage(name: "/search/detail", page: () => const DetailSearch()),

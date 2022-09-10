@@ -30,6 +30,12 @@ class NotificationPage extends StatelessWidget {
       date: DateTime(2020, 1, 1),
       isNew: false,
     ),
+    _NotificationData(
+      title: "공지사항 5",
+      content: "공지사항 예시 5이에요. 자세히 보려면 터치해 주세요.",
+      date: DateTime(2020, 1, 1),
+      isNew: false,
+    ),
     // 데이터는 여기에다가 추가하기
   ];
 
