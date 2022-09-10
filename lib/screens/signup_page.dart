@@ -16,9 +16,7 @@ class SignUpPage extends GetView<SignUpController> {
     return Scaffold(
         appBar: createDefaultAppBar(),
         body: ExpandedSingleChildScrollView(
-            child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: FocusScope.of(context).unfocus,
+            child: FocusUnSetter(
           child: AppPadding(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

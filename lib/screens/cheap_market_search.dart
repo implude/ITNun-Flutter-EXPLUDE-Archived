@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../constants.dart';
-
 class CheapMarketSearch extends StatelessWidget {
   const CheapMarketSearch({Key? key}) : super(key: key);
 
@@ -29,44 +27,10 @@ class CheapMarketSearch extends StatelessWidget {
               SizedBox(
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
-              TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: 24,
-                      horizontal: context.widthTransformer(dividedBy: 9.75)),
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: context.widthTransformer(dividedBy: 20.93)),
-                    child: IconButton(
-                      onPressed: () {
-                        Get.toNamed("/cheapMarketSearched");
-                      },
-                      icon: const Icon(
-                        Icons.search,
-                        size: 32,
-                        color: Color(0xffA59EFC),
-                      ),
-                    ),
-                  ),
-                  floatingLabelStyle: const TextStyle(color: cheatMarketColor),
-                  enabled: true,
-                  hintText: "이곳에 입력",
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide:
-                        const BorderSide(color: cheatMarketColor, width: 3),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide:
-                        const BorderSide(color: cheatMarketColor, width: 3),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide:
-                        const BorderSide(color: cheatMarketColor, width: 3),
-                  ),
-                ),
+              SearchTextField(
+                borderColor: const Color(0xFF4B3CF8),
+                iconColor: const Color(0xFFA59EFC),
+                onPressed: () => Get.toNamed("/cheapMarketSearched"),
               ),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 28.13),

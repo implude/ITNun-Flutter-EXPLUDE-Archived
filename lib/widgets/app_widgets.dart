@@ -5,6 +5,52 @@ import '../constants.dart';
 
 typedef AppFormFieldValidator = bool Function(String);
 
+class LogoWithText extends StatelessWidget {
+  final double width;
+
+  const LogoWithText({Key? key, required this.width}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Flexible(
+            child: Image.asset("assets/images/logo_outlined.png"),
+          ),
+          const SizedBox(width: 10),
+          const Expanded(
+            flex: 2,
+            child: FittedBox(
+              child: Text(
+                "잇는",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class FocusUnSetter extends StatelessWidget {
+  final Widget child;
+
+  const FocusUnSetter({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      behavior: HitTestBehavior.opaque,
+      child: child,
+    );
+  }
+}
+
 class AppButton extends StatelessWidget {
   final String text;
   final Color textColor;
@@ -108,6 +154,46 @@ class AppPadding extends StatelessWidget {
   }
 }
 
+class SearchTextField extends StatelessWidget {
+  final Color borderColor;
+  final Color iconColor;
+  final VoidCallback onPressed;
+
+  const SearchTextField(
+      {Key? key,
+      required this.borderColor,
+      required this.iconColor,
+      required this.onPressed})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(13),
+      borderSide: BorderSide(color: borderColor, width: 3),
+    );
+    return TextField(
+      decoration: InputDecoration(
+        enabledBorder: border,
+        focusedBorder: border,
+        contentPadding: EdgeInsets.symmetric(
+            vertical: context.heightTransformer(dividedBy: 36), horizontal: 46),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(right: 24),
+          child: IconButton(
+              onPressed: onPressed,
+              icon: Icon(
+                Icons.search,
+                color: iconColor,
+                size: 32,
+              )),
+        ),
+        hintText: "이곳에 입력",
+      ),
+    );
+  }
+}
+
 class TotalSearchAppBox extends StatelessWidget {
   const TotalSearchAppBox(
       {Key? key,
@@ -153,7 +239,6 @@ class TotalSearchAppBox extends StatelessWidget {
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,
-                          fontFamily: "Pretendard",
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -172,9 +257,7 @@ class TotalSearchAppBox extends StatelessWidget {
                               child: Text(
                             category,
                             style: const TextStyle(
-                                fontSize: 12,
-                                fontFamily: "Pretendard",
-                                fontWeight: FontWeight.bold),
+                                fontSize: 12, fontWeight: FontWeight.bold),
                           )),
                         ),
                         SizedBox(
@@ -196,7 +279,6 @@ class TotalSearchAppBox extends StatelessWidget {
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
-                                fontFamily: "Pretendard",
                                 fontWeight: FontWeight.bold),
                           )),
                         ),
@@ -255,7 +337,7 @@ class CheapMarketSearchAppBox extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: cheatMarketColor,
+            color: cheapMarketColor,
             borderRadius: BorderRadius.circular(12),
           ),
           width: context.heightTransformer(dividedBy: 1.153),
@@ -275,7 +357,6 @@ class CheapMarketSearchAppBox extends StatelessWidget {
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,
-                          fontFamily: "Pretendard",
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -294,9 +375,7 @@ class CheapMarketSearchAppBox extends StatelessWidget {
                               child: Text(
                             category,
                             style: const TextStyle(
-                                fontSize: 12,
-                                fontFamily: "Pretendard",
-                                fontWeight: FontWeight.bold),
+                                fontSize: 12, fontWeight: FontWeight.bold),
                           )),
                         ),
                         SizedBox(
@@ -306,7 +385,7 @@ class CheapMarketSearchAppBox extends StatelessWidget {
                           width: context.widthTransformer(dividedBy: 6.5),
                           height: context.heightTransformer(dividedBy: 28.13),
                           decoration: BoxDecoration(
-                              color: cheatMarketColor,
+                              color: cheapMarketColor,
                               borderRadius: BorderRadius.circular(6),
                               border: Border.all(
                                 width: 2,
@@ -318,7 +397,6 @@ class CheapMarketSearchAppBox extends StatelessWidget {
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
-                                fontFamily: "Pretendard",
                                 fontWeight: FontWeight.bold),
                           )),
                         ),

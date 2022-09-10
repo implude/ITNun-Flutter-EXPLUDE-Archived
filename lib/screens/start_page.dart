@@ -18,18 +18,8 @@ class StartPage extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              fontFamily: "Pretendard",
             )),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/logo_outlined.png", scale: 1.52),
-          const SizedBox(width: 10),
-          const Text("잇는",
-              style: TextStyle(
-                fontSize: 44,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Pretendard",
-              ))
-        ]),
+        LogoWithText(width: context.widthTransformer(dividedBy: 2.9)),
         BottomSetter(children: [
           AppButton(
               text: "로그인",

@@ -28,10 +28,7 @@ class DetailSearch extends StatelessWidget {
                   const Center(
                       child: Text(
                     "상세검색",
-                    style: TextStyle(
-                        fontFamily: "Pretendard",
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   )),
                   SizedBox(
                     height: context.heightTransformer(dividedBy: 32.46),
@@ -65,13 +62,11 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("취업상태",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
                                 const Text("고른거 뜨게 하기",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                               ],
@@ -169,13 +164,11 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("학력",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
                                 const Text("고른거 뜨게 하기",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                               ],
@@ -272,13 +265,11 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("특화분야",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
                                 const Text("고른거 뜨게 하기",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                               ],
@@ -374,13 +365,11 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("신청기간",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
                                 const Text("고른거 뜨게 하기",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                               ],
@@ -456,13 +445,11 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("나이",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
                                 const Text("만",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                                 SizedBox(
@@ -503,7 +490,6 @@ class DetailSearch extends StatelessWidget {
                                 ),
                                 const Text("세",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400)),
                               ],
@@ -549,7 +535,6 @@ class DetailSearch extends StatelessWidget {
                               children: [
                                 const Text("키워드",
                                     style: TextStyle(
-                                        fontFamily: "Pretendard",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600)),
                                 Flexible(flex: 1, child: Container()),
@@ -591,7 +576,6 @@ class DetailSearch extends StatelessWidget {
                         child: const Center(
                           child: Text("검색",
                               style: TextStyle(
-                                  fontFamily: "Pretendard",
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white)),
@@ -632,10 +616,8 @@ class CreateBox extends StatelessWidget {
             child: Center(
               child: Text(
                 title,
-                style: const TextStyle(
-                    fontFamily: "Pretendard",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -653,10 +635,8 @@ class CreateBox extends StatelessWidget {
             child: Center(
               child: Text(
                 title,
-                style: const TextStyle(
-                    fontFamily: "Pretendard",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
             ),
           ),

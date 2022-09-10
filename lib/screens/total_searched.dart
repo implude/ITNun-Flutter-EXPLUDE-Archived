@@ -31,42 +31,10 @@ class TotalSearched extends StatelessWidget {
               SizedBox(
                 height: context.heightTransformer(dividedBy: 22.10),
               ),
-              TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: 24,
-                      horizontal: context.widthTransformer(dividedBy: 9.75)),
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: context.widthTransformer(dividedBy: 20.93)),
-                    child: IconButton(
-                      onPressed: () {
-                        Get.toNamed("/totalSearched");
-                      },
-                      icon: const Icon(
-                        Icons.search,
-                        size: 32,
-                        color: Color(0xff3C65F8),
-                      ),
-                    ),
-                  ),
-                  floatingLabelStyle: const TextStyle(color: appColor),
-                  enabled: true,
-                  hintText: answer,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide: const BorderSide(color: appColor, width: 3),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide: const BorderSide(color: appColor, width: 3),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    borderSide: const BorderSide(color: appColor, width: 3),
-                  ),
-                ),
-              ),
+              SearchTextField(
+                  borderColor: appColor,
+                  iconColor: appColor.withOpacity(0.5),
+                  onPressed: () => Get.toNamed("/totalSearched")),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 28.13),
               ),
