@@ -5,6 +5,7 @@ import 'package:itnun/widgets/appbar_widgets.dart';
 
 import '../../constants.dart';
 import '../../widgets/bookmark_widget.dart';
+import '../../widgets/search_widgets.dart';
 
 class TotalSearchResult extends StatelessWidget {
   const TotalSearchResult({Key? key}) : super(key: key);

@@ -132,6 +132,20 @@ class TotalBookmarkBox extends _BookmarkAbleBox {
             onPressed: () => Get.toNamed("/search/total/detail"));
 }
 
+class HireBookmarkBox extends _BookmarkAbleBox {
+  HireBookmarkBox(
+      {Key? key,
+      required super.title,
+      required super.category,
+      required super.region,
+      required super.marked,
+      required super.onMarked})
+      : super(
+            key: key,
+            backgroundColor: const Color(0xFF6721FC),
+            onPressed: () => Get.toNamed("/search/hire/detail"));
+}
+
 class BookmarkRemoveBox extends _BookmarkBox {
   const BookmarkRemoveBox(
       {Key? key,

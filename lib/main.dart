@@ -33,6 +33,7 @@ import 'package:itnun/screens/search/cheap_market_search.dart';
 import 'package:itnun/screens/search/cheap_market_search_result.dart';
 import 'package:itnun/screens/search/detail_search.dart';
 import 'package:itnun/screens/search/detail_search_result.dart';
+import 'package:itnun/screens/search/hire_search_page.dart';
 import 'package:itnun/screens/search/total_search.dart';
 import 'package:itnun/screens/search/total_search_detail.dart';
 import 'package:itnun/screens/search/total_search_result.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/",
+      initialRoute: "/search/hire",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -135,7 +136,8 @@ class MyApp extends StatelessWidget {
             name: "/account/bookmark/edit",
             page: () => const BookmarkEditPage()),
         GetPage(name: "/news", page: () => const TodayNewsPage()),
-        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage())
+        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage()),
+        GetPage(name: "/search/hire", page: () => const HireSearchPage())
       ],
     );
   }
