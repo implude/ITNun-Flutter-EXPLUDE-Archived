@@ -563,7 +563,7 @@ class DetailSearch extends StatelessWidget {
                   ),
                   RawMaterialButton(
                       onPressed: () {
-                        Get.toNamed("/detailSearched");
+                        Get.toNamed("/search/detail/result");
                       },
                       child: Container(
                         height: context.heightTransformer(

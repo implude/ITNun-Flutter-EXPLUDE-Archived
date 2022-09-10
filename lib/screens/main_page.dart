@@ -83,7 +83,7 @@ class MainPage extends StatelessWidget {
                     _FindWidget(
                         name: "착한 가게 찾기",
                         backgroundColor: const Color(0xFF4B3CF8),
-                        onPressed: () => Get.toNamed("/cheapMarketSearch"),
+                        onPressed: () => Get.toNamed("/search/cheap"),
                         icon: Icons.place_outlined)
                   ],
                 ),

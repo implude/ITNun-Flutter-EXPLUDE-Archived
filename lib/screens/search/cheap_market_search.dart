@@ -30,7 +30,7 @@ class CheapMarketSearch extends StatelessWidget {
               SearchTextField(
                 borderColor: const Color(0xFF4B3CF8),
                 iconColor: const Color(0xFFA59EFC),
-                onPressed: () => Get.toNamed("/cheapMarketSearched"),
+                onPressed: () => Get.toNamed("/search/cheap/result"),
               ),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 28.13),

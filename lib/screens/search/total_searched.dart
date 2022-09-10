@@ -34,7 +34,7 @@ class TotalSearched extends StatelessWidget {
               SearchTextField(
                   borderColor: appColor,
                   iconColor: appColor.withOpacity(0.5),
-                  onPressed: () => Get.toNamed("/totalSearched")),
+                  onPressed: () => Get.toNamed("/search/total/result")),
               SizedBox(
                 height: context.heightTransformer(dividedBy: 28.13),
               ),
