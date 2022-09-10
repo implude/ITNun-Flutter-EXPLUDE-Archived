@@ -23,6 +23,8 @@ import 'package:itnun/screens/login/user_info_page.dart';
 import 'package:itnun/screens/login/verify_page.dart';
 import 'package:itnun/screens/main_page.dart';
 import 'package:itnun/screens/menu_page.dart';
+import 'package:itnun/screens/news/today_news_detail_page.dart';
+import 'package:itnun/screens/news/today_news_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
@@ -124,7 +126,9 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/account/bookmark", page: () => const BookmarkPage()),
         GetPage(
             name: "/account/bookmark/edit",
-            page: () => const BookmarkEditPage())
+            page: () => const BookmarkEditPage()),
+        GetPage(name: "/news", page: () => const TodayNewsPage()),
+        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage())
       ],
     );
   }

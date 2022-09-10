@@ -36,9 +36,9 @@ class AccountPage extends StatelessWidget {
             const Text(
               "ktywp8436@dimigo.hs.kr",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400),
+                color: Colors.white,
+                fontSize: 16,
+              ),
             ),
             SizedBox(height: context.heightTransformer(dividedBy: 16)),
             const Expanded(child: _BottomInfo())

@@ -108,7 +108,7 @@ class _InfoEditWidget extends StatelessWidget {
           child: TextField(
             textAlign: TextAlign.right,
             controller: controller,
-            style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+            style: const TextStyle(fontSize: 16),
             decoration: const InputDecoration(border: InputBorder.none),
           ),
         ),
@@ -116,8 +116,7 @@ class _InfoEditWidget extends StatelessWidget {
     } else if (items != null) {
       child = DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-            style: const TextStyle(
-                fontWeight: FontWeight.w400, fontSize: 16, color: Colors.black),
+            style: const TextStyle(fontSize: 16, color: Colors.black),
             icon:
                 const Icon(Icons.keyboard_arrow_down, color: Color(0xFFD1D1D1)),
             value: value,

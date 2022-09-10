@@ -26,9 +26,11 @@ class MenuPage extends StatelessWidget {
         icon: Icons.badge_outlined,
       ),
       _MenuWidget(
-          title: "오늘의 뉴스",
-          icon: Icons.newspaper,
-          iconColor: const Color(0xFFA921FC))
+        title: "오늘의 뉴스",
+        icon: Icons.newspaper,
+        iconColor: const Color(0xFFA921FC),
+        onPressed: () => Get.toNamed("/news"),
+      )
     ];
 
     return Scaffold(
@@ -54,6 +56,7 @@ class _MenuWidget extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final List<String>? children;
+  final VoidCallback? onPressed;
 
   final expanded = false.obs;
 
@@ -62,7 +65,8 @@ class _MenuWidget extends StatelessWidget {
       required this.title,
       required this.icon,
       this.children,
-      required this.iconColor})
+      required this.iconColor,
+      this.onPressed})
       : super(key: key);
 
   @override
@@ -79,7 +83,10 @@ class _MenuWidget extends StatelessWidget {
       Flexible(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           TextButton(
-              onPressed: expanded.toggle,
+              onPressed: () {
+                expanded.toggle();
+                onPressed?.call();
+              },
               child: Row(
                 children: [
                   Text(title,
