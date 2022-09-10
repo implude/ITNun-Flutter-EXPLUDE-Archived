@@ -7,7 +7,10 @@ import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
+import 'package:itnun/screens/cheap_market_search.dart';
+import 'package:itnun/screens/cheap_market_searched.dart';
 import 'package:itnun/screens/detail_search.dart';
+import 'package:itnun/screens/detail_searched.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
 import 'package:itnun/screens/make_password_page.dart';
@@ -15,6 +18,7 @@ import 'package:itnun/screens/menu_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/signup_page.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/test_main.dart';
 import 'package:itnun/screens/total_search.dart';
 import 'package:itnun/screens/total_searched.dart';
 import 'package:itnun/screens/user_info_page.dart';
@@ -87,6 +91,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/none", page: ()=> const None()),
         GetPage(name: "/detailsearch", page: ()=> const DetailSearch()),
         GetPage(name: "/totalsearched", page: ()=>const TotalSearched()),
+        GetPage(name: "/testmain", page: ()=>const TestMain()),
+        GetPage(name: "/detailsearched", page: ()=>const DetailSearched()),
+        GetPage(name: "/cheapmarketsearch", page: ()=> const CheapMarketSearch()),
+        GetPage(name: "/cheapmarketsearched", page: ()=> const CheapMarketSearched()),
 
       ],
     );

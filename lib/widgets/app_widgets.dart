@@ -189,9 +189,7 @@ class TotalSearchAppBox extends StatelessWidget {
                             }
                             else
                             {
-                              return
-
-                                Icon(Icons.bookmark_outline,color: Colors.white,size:32);
+                              return Icon(Icons.bookmark_outline,color: Colors.white,size:32);
                             }
 
                           }
@@ -204,6 +202,106 @@ class TotalSearchAppBox extends StatelessWidget {
                 ],
               ),
             ),
+
+
+        ),
+      ),
+    );
+  }
+}
+
+class CheapMarketSearchAppBox extends StatelessWidget {
+  const CheapMarketSearchAppBox({Key? key, required this.title, required this.category, required this.local, required this.ismarked}) : super(key: key);
+
+  final String title;
+  final String category;
+  final String local;
+  final bool ismarked;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
+      child:RawMaterialButton(
+        onPressed: (){
+          Get.toNamed("/none");
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: cheapmarketcolor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          width: context.heightTransformer(dividedBy: 1.153),
+          height: context.heightTransformer(dividedBy: 7.96),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: context.widthTransformer(dividedBy: 19.5),vertical: context.heightTransformer(dividedBy: 42.2)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("$title",style: TextStyle(color: Colors.white,fontSize: 18,fontFamily: "Pretendard",fontWeight: FontWeight.bold),),
+                    SizedBox(
+                      height: context.heightTransformer(dividedBy: 60.28),
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          width: context.widthTransformer(dividedBy: 6),
+                          height: context.heightTransformer(dividedBy:28.13 ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(6),
+
+                          ),
+                          child: Center(child: Text("$category",style: TextStyle(fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
+                        ),
+
+                        SizedBox(
+                          width: context.widthTransformer(dividedBy: 78),
+                        ),
+                        Container(
+                          width: context.widthTransformer(dividedBy: 6.5),
+                          height: context.heightTransformer(dividedBy:28.13 ),
+                          decoration: BoxDecoration(
+                              color: cheapmarketcolor,
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.white,
+                              )
+                          ),
+                          child: Center(child: Text("$local",style: TextStyle(color: Colors.white,fontSize: 12,fontFamily: "Pretendard",fontWeight: FontWeight.bold),)),
+                        ),
+                      ],
+                    )
+
+                  ],
+                ),
+                Flexible(flex: 1,child: Container()),
+                Column(
+                  children: [
+                    Builder(
+                        builder: (context) {
+                          if(ismarked==true)
+                          {
+                            return Icon(Icons.bookmark,color: Colors.white,size: 32,);
+                          }
+                          else
+                          {
+                            return Icon(Icons.bookmark_outline,color: Colors.white,size:32);
+                          }
+
+                        }
+                    ),
+                  ],
+                ),
+
+
+
+              ],
+            ),
+          ),
 
 
         ),
