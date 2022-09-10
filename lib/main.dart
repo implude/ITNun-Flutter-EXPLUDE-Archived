@@ -95,7 +95,6 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/detailsearched", page: ()=>const DetailSearched()),
         GetPage(name: "/cheapmarketsearch", page: ()=> const CheapMarketSearch()),
         GetPage(name: "/cheapmarketsearched", page: ()=> const CheapMarketSearched()),
-
       ],
     );
   }

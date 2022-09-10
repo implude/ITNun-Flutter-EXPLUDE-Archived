@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/app_widgets.dart';
+import 'package:itnun/widgets/appbar_widgets.dart';
+
 import '../constants.dart';
 
 class TotalSearch extends StatelessWidget {

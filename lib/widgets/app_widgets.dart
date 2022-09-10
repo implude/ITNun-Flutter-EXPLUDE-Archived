@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../constants.dart';
-import '../screens/total_search.dart';
 
 typedef AppFormFieldValidator = bool Function(String);
 
@@ -109,20 +108,21 @@ class AppPadding extends StatelessWidget {
   }
 }
 
-
 class TotalSearchAppBox extends StatelessWidget {
   const TotalSearchAppBox({Key? key, required this.title, required this.category, required this.local, required this.ismarked}) : super(key: key);
 
   final String title;
   final String category;
   final String local;
-  final bool ismarked;
+  final bool isMarked;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
-      child:RawMaterialButton(
-        onPressed: (){
+      padding:
+          EdgeInsets.only(bottom: context.heightTransformer(dividedBy: 84)),
+      child: RawMaterialButton(
+        onPressed: () {
           Get.toNamed("/none");
         },
         child: Container(
@@ -302,8 +302,6 @@ class CheapMarketSearchAppBox extends StatelessWidget {
               ],
             ),
           ),
-
-
         ),
       ),
     );
