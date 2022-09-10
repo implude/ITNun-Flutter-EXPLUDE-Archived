@@ -30,6 +30,7 @@ import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search.dart';
+import 'package:itnun/screens/search/cheap/cheap_market_search_detail.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search_result.dart';
 import 'package:itnun/screens/search/detail/detail_search.dart';
 import 'package:itnun/screens/search/detail/detail_search_result.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/",
+      initialRoute: "/search/cheap",
       getPages: [
         GetPage(name: "/", page: () => const StartPage()),
         GetPage(
@@ -143,7 +144,10 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/hire/result", page: () => const HireSearchResult()),
         GetPage(
-            name: "/search/hire/detail", page: () => const HireSearchDetail())
+            name: "/search/hire/detail", page: () => const HireSearchDetail()),
+        GetPage(
+            name: "/search/cheap/detail",
+            page: () => const CheapMarketSearchDetail())
       ],
     );
   }
