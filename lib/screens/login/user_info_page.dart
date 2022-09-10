@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
@@ -78,7 +77,7 @@ class UserInfoPage extends GetView<UserInfoController> {
                 hint: const Text("드롭다운 메뉴",
                     style: TextStyle(color: Color(0xFFD1D1D1))),
                 value: controller.stageValue.value,
-                items: controller.stageItems
+                items: stages
                     .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                     .toList(),
                 onChanged: controller.stageValue),
@@ -89,17 +88,9 @@ class UserInfoPage extends GetView<UserInfoController> {
               _UserInfoTextField(controller: controller.departmentController)),
       _UserInfoWidget(
           label: "창업 준비생이에요.",
-          child: Obx(() => FlutterSwitch(
-              width: context.widthTransformer(dividedBy: 9),
-              height: context.heightTransformer(dividedBy: 36),
-              activeColor: const Color(0xFF3C65F8),
-              inactiveColor: Colors.transparent,
-              inactiveToggleColor: const Color(0xFFD1D1D1),
-              inactiveSwitchBorder: Border.all(color: const Color(0xFFD1D1D1)),
-              toggleSize: 16,
-              padding: 3,
-              value: controller.isReady.value,
-              onToggle: controller.isReady)))
+          child: Obx(() => AppSwitch(
+              value: controller.isPreparing.value,
+              onChanged: controller.isPreparing)))
     ];
 
     final widgets = <Widget>[];
@@ -114,24 +105,23 @@ class UserInfoPage extends GetView<UserInfoController> {
     return Scaffold(
         appBar: createDefaultAppBar(),
         body: ExpandedSingleChildScrollView(
-            child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: FocusScope.of(context).unfocus,
-                child: AppPadding(
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                      const TitleSubjectWidget(
-                          title: "더 나은 서비스를 위해\n정보를 입력해주세요",
-                          subject: "이 입력은 건너뛸 수 있어요."),
-                      ...widgets,
-                      BottomSetter(children: [
-                        AppButton(
-                            text: "완료",
-                            textColor: Colors.white,
-                            backgroundColor: appColor,
-                            onPressed: controller.next)
-                      ])
-                    ])))));
+            child: FocusUnSetter(
+          child: AppPadding(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                const TitleSubjectWidget(
+                    title: "더 나은 서비스를 위해\n정보를 입력해주세요",
+                    subject: "이 입력은 건너뛸 수 있어요."),
+                ...widgets,
+                BottomSetter(children: [
+                  AppButton(
+                      text: "완료",
+                      textColor: Colors.white,
+                      backgroundColor: appColor,
+                      onPressed: controller.next)
+                ])
+              ])),
+        )));
   }
 }

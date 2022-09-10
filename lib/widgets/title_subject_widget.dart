@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+class TitleWidget extends StatelessWidget {
+  final String title;
+
+  const TitleWidget({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height: context.heightTransformer(dividedBy: 30)),
+        Text(title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
+        SizedBox(height: context.heightTransformer(dividedBy: 16)),
+      ],
+    );
+  }
+}
+
 class TitleSubjectWidget extends StatelessWidget {
   final String title;
   final String subject;

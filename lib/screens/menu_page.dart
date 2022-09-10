@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
+import 'package:itnun/widgets/title_subject_widget.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -33,16 +34,14 @@ class MenuPage extends StatelessWidget {
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: AppPadding(
-          child: Column(children: [
-        SizedBox(height: context.heightTransformer(dividedBy: 30)),
-        const Text("메뉴",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36)),
-        SizedBox(height: context.heightTransformer(dividedBy: 20)),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const TitleWidget(title: "메뉴"),
         Expanded(
           child: ListView.separated(
               itemBuilder: (_, index) => widgets[index],
               separatorBuilder: (_, __) =>
-                  SizedBox(height: context.heightTransformer(dividedBy: 30)),
+                  SizedBox(height: context.heightTransformer(dividedBy: 40)),
               itemCount: widgets.length),
         )
       ])),

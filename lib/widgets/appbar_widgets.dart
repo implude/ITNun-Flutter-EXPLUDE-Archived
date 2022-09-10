@@ -21,9 +21,13 @@ class AppBarBackButton extends StatelessWidget {
   }
 }
 
-PreferredSizeWidget createDefaultAppBar() => AppBar(
-    leading: const AppBarBackButton(),
-    title: const AppBarLogo(),
-    centerTitle: true,
-    backgroundColor: Colors.transparent,
-    elevation: 0);
+PreferredSizeWidget createDefaultAppBar({List<Widget>? actions}) {
+  return AppBar(
+      leading:
+          (Get.rawRoute?.isFirst ?? true) ? null : const AppBarBackButton(),
+      title: const AppBarLogo(),
+      centerTitle: true,
+      actions: actions,
+      backgroundColor: Colors.transparent,
+      elevation: 0);
+}

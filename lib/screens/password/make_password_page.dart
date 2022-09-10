@@ -16,49 +16,48 @@ class MakePasswordPage extends GetView<MakePasswordController> {
     return Scaffold(
         appBar: createDefaultAppBar(),
         body: ExpandedSingleChildScrollView(
-            child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: FocusScope.of(context).unfocus,
-                child: AppPadding(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TitleSubjectWidget(
-                        title: "새 비밀번호를\n입력해주세요",
-                        subject: "비밀번호는 8자 이상부터 사용할 수 있어요."),
-                    AppTextField(
-                      onChanged: controller.passwordLiveText,
-                      validator: controller.isPasswordValid,
-                      label: "비밀번호 입력",
-                      obscureText: true,
-                      controller: controller.passwordController,
-                    ),
-                    SizedBox(
-                      height: context.heightTransformer(dividedBy: 100),
-                    ),
-                    AppTextField(
-                      onChanged: controller.passwordAgainLiveText,
-                      validator: controller.isPasswordAgainValid,
-                      label: "비밀번호 확인",
-                      obscureText: true,
-                    ),
-                    SizedBox(
-                      height: context.heightTransformer(dividedBy: 100),
-                    ),
-                    BottomSetter(
-                      children: [
-                        Obx(() {
-                          bool valid = controller.isValid();
-                          return AppButton(
-                              text: "변경 완료하기",
-                              textColor: valid ? Colors.white : Colors.black,
-                              backgroundColor:
-                                  valid ? appColor : const Color(0xFFF1F1F1),
-                              onPressed: valid ? controller.login : null);
-                        }),
-                      ],
-                    )
-                  ],
-                )))));
+            child: FocusUnSetter(
+          child: AppPadding(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TitleSubjectWidget(
+                  title: "새 비밀번호를\n입력해주세요",
+                  subject: "비밀번호는 8자 이상부터 사용할 수 있어요."),
+              AppTextField(
+                onChanged: controller.passwordLiveText,
+                validator: controller.isPasswordValid,
+                label: "비밀번호 입력",
+                obscureText: true,
+                controller: controller.passwordController,
+              ),
+              SizedBox(
+                height: context.heightTransformer(dividedBy: 100),
+              ),
+              AppTextField(
+                onChanged: controller.passwordAgainLiveText,
+                validator: controller.isPasswordAgainValid,
+                label: "비밀번호 확인",
+                obscureText: true,
+              ),
+              SizedBox(
+                height: context.heightTransformer(dividedBy: 100),
+              ),
+              BottomSetter(
+                children: [
+                  Obx(() {
+                    bool valid = controller.isValid();
+                    return AppButton(
+                        text: "변경 완료하기",
+                        textColor: valid ? Colors.white : Colors.black,
+                        backgroundColor:
+                            valid ? appColor : const Color(0xFFF1F1F1),
+                        onPressed: valid ? controller.login : null);
+                  }),
+                ],
+              )
+            ],
+          )),
+        )));
   }
 }

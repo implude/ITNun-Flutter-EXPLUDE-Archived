@@ -4,6 +4,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
 import '../../constants.dart';
+import '../../widgets/bookmark_widget.dart';
 
 class CheapMarketSearched extends StatelessWidget {
   const CheapMarketSearched({Key? key}) : super(key: key);
@@ -15,9 +16,7 @@ class CheapMarketSearched extends StatelessWidget {
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: SingleChildScrollView(
-        child: GestureDetector(
-          onTap: FocusScope.of(context).unfocus,
-          behavior: HitTestBehavior.opaque,
+        child: FocusUnSetter(
           child: AppPadding(
               child: Column(
             children: [
@@ -50,150 +49,208 @@ class CheapMarketSearched extends StatelessWidget {
               SizedBox(
                 height: context.heightTransformer(dividedBy: 42.2),
               ),
-              Column(
-                children: const [
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "체스보드게임",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: true),
-                  CheapMarketSearchAppBox(
-                      title: "맥스리뷰(금정점)",
-                      category: "기타서비스업",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "펠로",
-                      category: "양식",
-                      local: "부산광역시",
-                      isMarked: false),
-                  CheapMarketSearchAppBox(
-                      title: "헤어디자이너 수빈",
-                      category: "이미용업",
-                      local: "광주광역시",
-                      isMarked: false),
-                ],
-              ),
+              ...[
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "체스보드게임",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: true,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "맥스리뷰(금정점)",
+                    category: "기타서비스업",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "펠로",
+                    category: "양식",
+                    region: "부산광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor),
+                BookmarkAbleBox(
+                    title: "헤어디자이너 수빈",
+                    category: "이미용업",
+                    region: "광주광역시",
+                    marked: false,
+                    onMarked: (value) {},
+                    backgroundColor: cheapMarketColor)
+              ].map((e) => Padding(
+                    padding: EdgeInsets.only(
+                        bottom: context.heightTransformer(dividedBy: 60)),
+                    child: e,
+                  )),
             ],
           )),
         ),
