@@ -10,10 +10,6 @@ import 'package:itnun/controllers/signup_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
-import 'package:itnun/controllers/total_result_controller.dart';
-import 'package:itnun/screens/find_password_page.dart';
-import 'package:itnun/screens/login_page.dart';
-import 'package:itnun/screens/make_password_page.dart';
 import 'package:itnun/screens/account/account_page.dart';
 import 'package:itnun/screens/account/app_info_page.dart';
 import 'package:itnun/screens/account/bookmark_edit_page.dart';
@@ -34,17 +30,13 @@ import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
 import 'package:itnun/screens/search/cheap_market_search.dart';
-import 'package:itnun/screens/search/cheap_market_searched.dart';
+import 'package:itnun/screens/search/cheap_market_search_result.dart';
 import 'package:itnun/screens/search/detail_search.dart';
-import 'package:itnun/screens/search/detail_searched.dart';
+import 'package:itnun/screens/search/detail_search_result.dart';
 import 'package:itnun/screens/search/total_search.dart';
-import 'package:itnun/screens/search/total_searched.dart';
+import 'package:itnun/screens/search/total_search_detail.dart';
+import 'package:itnun/screens/search/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
-import 'package:itnun/screens/total_search.dart';
-import 'package:itnun/screens/user_info_page.dart';
-import 'package:itnun/screens/verify_find_password_page.dart';
-import 'package:itnun/screens/verify_page.dart';
-import 'package:itnun/screens/total_result.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -106,23 +98,22 @@ class MyApp extends StatelessWidget {
               Get.lazyPut(() => MakePasswordController());
             })),
         GetPage(
-          name: "/totalResult",
-          page:() => const TotalResult(),
-          binding: BindingsBuilder((){
-            Get.lazyPut(() => TotalResultController());
-          })
+          name: "/search/total/detail",
+          page: () => const TotalSearchDetail(),
         ),
         GetPage(name: "/menu", page: () => const MenuPage()),
         GetPage(name: "/search/total", page: () => const TotalSearch()),
         GetPage(name: "/search/detail", page: () => const DetailSearch()),
         GetPage(
-            name: "/search/total/result", page: () => const TotalSearched()),
+            name: "/search/total/result",
+            page: () => const TotalSearchResult()),
         GetPage(
-            name: "/search/detail/result", page: () => const DetailSearched()),
+            name: "/search/detail/result",
+            page: () => const DetailSearchResult()),
         GetPage(name: "/search/cheap", page: () => const CheapMarketSearch()),
         GetPage(
             name: "/search/cheap/result",
-            page: () => const CheapMarketSearched()),
+            page: () => const CheapMarketSearchResult()),
         GetPage(name: "/main", page: () => const MainPage()),
         GetPage(name: "/account", page: () => const AccountPage()),
         GetPage(name: "/account/info", page: () => const MyInfoPage()),

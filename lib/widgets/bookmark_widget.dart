@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:itnun/constants.dart';
 
 abstract class _BookmarkBox extends StatelessWidget {
   final String title;
@@ -76,19 +78,58 @@ abstract class _BookmarkBox extends StatelessWidget {
   }
 }
 
-class BookmarkAbleBox extends _BookmarkBox {
-  BookmarkAbleBox(
+abstract class _BookmarkAbleBox extends _BookmarkBox {
+  final VoidCallback onPressed;
+
+  _BookmarkAbleBox(
       {Key? key,
       required super.title,
       required super.category,
       required super.region,
       required bool marked,
       required super.backgroundColor,
-      required ValueChanged<bool> onMarked})
+      required ValueChanged<bool> onMarked,
+      required this.onPressed})
       : super(
             key: key,
             icon: marked ? Icons.bookmark : Icons.bookmark_border,
             onIconPressed: () => onMarked(!marked));
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: super.build(context),
+    );
+  }
+}
+
+class CheapMarketBookmarkBox extends _BookmarkAbleBox {
+  CheapMarketBookmarkBox(
+      {Key? key,
+      required super.title,
+      required super.category,
+      required super.region,
+      required super.marked,
+      required super.onMarked})
+      : super(
+            key: key,
+            backgroundColor: cheapMarketColor,
+            onPressed: () => Get.toNamed("/search/cheap/detail"));
+}
+
+class TotalBookmarkBox extends _BookmarkAbleBox {
+  TotalBookmarkBox(
+      {Key? key,
+      required super.title,
+      required super.category,
+      required super.region,
+      required super.marked,
+      required super.onMarked})
+      : super(
+            key: key,
+            backgroundColor: appColor,
+            onPressed: () => Get.toNamed("/search/total/detail"));
 }
 
 class BookmarkRemoveBox extends _BookmarkBox {

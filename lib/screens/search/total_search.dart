@@ -48,34 +48,34 @@ class TotalSearch extends StatelessWidget {
                 height: context.heightTransformer(dividedBy: 27.22),
               ),
               ...[
-                BookmarkAbleBox(
-                    title: "청춘남녀만남지원",
-                    category: "생활복지",
-                    region: "경북",
-                    marked: true,
-                    onMarked: (value) {},
-                    backgroundColor: appColor),
-                BookmarkAbleBox(
-                    title: "주거안정 월세 대출",
-                    category: "주거금융",
-                    region: "전국",
-                    marked: false,
-                    onMarked: (value) {},
-                    backgroundColor: appColor),
-                BookmarkAbleBox(
-                    title: "인문 100년 장학금",
-                    category: "생활복지",
-                    region: "전국",
-                    marked: false,
-                    onMarked: (value) {},
-                    backgroundColor: appColor),
-                BookmarkAbleBox(
-                    title: "LH 희망상가",
-                    category: "창업지원",
-                    region: "전국",
-                    marked: false,
-                    onMarked: (value) {},
-                    backgroundColor: appColor)
+                TotalBookmarkBox(
+                  title: "청춘남녀만남지원",
+                  category: "생활복지",
+                  region: "경북",
+                  marked: true,
+                  onMarked: (value) {},
+                ),
+                TotalBookmarkBox(
+                  title: "주거안정 월세 대출",
+                  category: "주거금융",
+                  region: "전국",
+                  marked: false,
+                  onMarked: (value) {},
+                ),
+                TotalBookmarkBox(
+                  title: "인문 100년 장학금",
+                  category: "생활복지",
+                  region: "전국",
+                  marked: false,
+                  onMarked: (value) {},
+                ),
+                TotalBookmarkBox(
+                  title: "LH 희망상가",
+                  category: "창업지원",
+                  region: "전국",
+                  marked: false,
+                  onMarked: (value) {},
+                )
               ].map((e) => Padding(
                     padding: EdgeInsets.only(
                         bottom: context.heightTransformer(dividedBy: 60)),
