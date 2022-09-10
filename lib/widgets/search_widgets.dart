@@ -158,7 +158,7 @@ class SearchDetailWidget extends StatelessWidget {
           child: Padding(
         padding: EdgeInsets.symmetric(
             vertical: context.heightTransformer(dividedBy: 30)),
-        child: Column(children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             title,
             style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),

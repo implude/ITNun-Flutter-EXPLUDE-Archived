@@ -21,15 +21,47 @@ class _CircleIcon extends StatelessWidget {
   }
 }
 
-class _CircleWithWidget extends StatelessWidget {
-  final Widget child;
+class _CircleBigText extends StatelessWidget {
+  final String text;
 
-  const _CircleWithWidget({Key? key, required this.child}) : super(key: key);
+  const _CircleBigText({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [const _CircleIcon(), const SizedBox(width: 8), child],
+      children: [
+        const _CircleIcon(),
+        const SizedBox(width: 8),
+        Text(
+          text,
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+        )
+      ],
+    );
+  }
+}
+
+class _CircleSmallText extends StatelessWidget {
+  final String text;
+
+  const _CircleSmallText({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(top: 2),
+          child: _CircleIcon(),
+        ),
+        const SizedBox(width: 8),
+        Flexible(
+            child: Text(
+          text,
+          style: const TextStyle(color: _textColor),
+        ))
+      ],
     );
   }
 }
@@ -73,11 +105,7 @@ class SubTitleBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _CircleWithWidget(
-        child: Text(
-      subtitle,
-      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
-    ));
+    return _CircleBigText(text: subtitle);
   }
 }
 
@@ -123,14 +151,7 @@ class InfoBox extends StatelessWidget {
           ...contents.map(
             (e) => Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: _CircleWithWidget(
-                child: Flexible(
-                  child: Text(
-                    e,
-                    style: const TextStyle(color: _textColor),
-                  ),
-                ),
-              ),
+              child: _CircleSmallText(text: e),
             ),
           )
         ],
@@ -140,22 +161,72 @@ class InfoBox extends StatelessWidget {
 }
 
 class DetailComponent extends StatelessWidget {
-  final String title;
+  final String? title;
   final List<Widget> children;
 
-  const DetailComponent({Key? key, required this.title, required this.children})
+  const DetailComponent({Key? key, this.title, required this.children})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      SubTitleBox(subtitle: title),
-      SizedBox(height: context.heightTransformer(dividedBy: 50)),
+      if (title != null) ...[
+        SubTitleBox(subtitle: title!),
+        SizedBox(height: context.heightTransformer(dividedBy: 50))
+      ],
       ...children.map((e) => Padding(
             padding:
                 EdgeInsets.only(top: context.heightTransformer(dividedBy: 100)),
             child: e,
           ))
     ]);
+  }
+}
+
+class NaverMapBox extends StatelessWidget {
+  const NaverMapBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: _decoration,
+      padding: const EdgeInsets.symmetric(vertical: 100),
+      child: const Center(
+        child: Text(
+          "네이버 지도로 위치 표시",
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+class InfoWithIcon extends StatelessWidget {
+  final String info;
+
+  const InfoWithIcon({Key? key, required this.info}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: _decoration,
+      padding: _innerPadding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            Icons.info_outline,
+            size: 36,
+          ),
+          Flexible(
+            child: Text(
+              info,
+              textAlign: TextAlign.end,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
