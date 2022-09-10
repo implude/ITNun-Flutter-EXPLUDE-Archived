@@ -14,6 +14,7 @@ import 'package:itnun/screens/detail_search.dart';
 import 'package:itnun/screens/detail_searched.dart';
 import 'package:itnun/screens/find_password_page.dart';
 import 'package:itnun/screens/login_page.dart';
+import 'package:itnun/screens/main_page.dart';
 import 'package:itnun/screens/make_password_page.dart';
 import 'package:itnun/screens/menu_page.dart';
 import 'package:itnun/screens/notification_page.dart';
@@ -97,6 +98,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/cheapMarketSearched",
             page: () => const CheapMarketSearched()),
+        GetPage(name: "/main", page: () => const MainPage())
       ],
     );
   }
