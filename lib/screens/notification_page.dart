@@ -71,44 +71,47 @@ class _NotificationGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        height: context.heightTransformer(dividedBy: 45),
-      ),
-      Row(children: [
-        if (data.isNew)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: Image.asset('assets/images/isNew.png'),
-          ),
-        Text(data.title,
+    return RawMaterialButton(
+      onPressed: (){},
+      child: Column(children: [
+        SizedBox(
+          height: context.heightTransformer(dividedBy: 45),
+        ),
+        Row(children: [
+          if (data.isNew)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+              child: Image.asset('assets/images/isNew.png'),
+            ),
+          Text(data.title,
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              )),
+          const Expanded(child: SizedBox.shrink()),
+          Text(
+            DateFormat("yyyy / MM / dd").format(data.date),
             style: const TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+              color: Color(0xFFBDBDBD),
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          )
+        ]),
+        SizedBox(
+          height: context.heightTransformer(dividedBy: 30),
+        ),
+        Text(data.content,
+            style: const TextStyle(
+              color: Color(0xFFB1B1B1),
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
             )),
-        const Expanded(child: SizedBox.shrink()),
-        Text(
-          DateFormat("yyyy / MM / dd").format(data.date),
-          style: const TextStyle(
-            color: Color(0xFFBDBDBD),
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
+        SizedBox(
+          height: context.heightTransformer(dividedBy: 45),
         )
       ]),
-      SizedBox(
-        height: context.heightTransformer(dividedBy: 30),
-      ),
-      Text(data.content,
-          style: const TextStyle(
-            color: Color(0xFFB1B1B1),
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-          )),
-      SizedBox(
-        height: context.heightTransformer(dividedBy: 45),
-      )
-    ]);
+    );
   }
 }
 
