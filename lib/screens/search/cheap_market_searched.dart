@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 class CheapMarketSearched extends StatelessWidget {
   const CheapMarketSearched({Key? key}) : super(key: key);
