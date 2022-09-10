@@ -4,8 +4,8 @@ import 'package:itnun/constants.dart';
 
 abstract class _BookmarkBox extends StatelessWidget {
   final String title;
-  final String category;
-  final String region;
+  final String filled;
+  final String? outlined;
   final Color backgroundColor;
   final IconData icon;
   final VoidCallback onIconPressed;
@@ -28,8 +28,8 @@ abstract class _BookmarkBox extends StatelessWidget {
   const _BookmarkBox(
       {Key? key,
       required this.title,
-      required this.category,
-      required this.region,
+      required this.filled,
+      this.outlined,
       required this.backgroundColor,
       required this.icon,
       required this.onIconPressed})
@@ -67,9 +67,11 @@ abstract class _BookmarkBox extends StatelessWidget {
           const SizedBox(height: 8),
           Row(
             children: [
-              _createInnerBox(category, true),
-              const SizedBox(width: 8),
-              _createInnerBox(region, false)
+              _createInnerBox(filled, true),
+              if (outlined != null) ...[
+                const SizedBox(width: 8),
+                _createInnerBox(outlined!, false)
+              ]
             ],
           )
         ],
@@ -84,8 +86,8 @@ abstract class _BookmarkAbleBox extends _BookmarkBox {
   _BookmarkAbleBox(
       {Key? key,
       required super.title,
-      required super.category,
-      required super.region,
+      required super.filled,
+       super.outlined,
       required bool marked,
       required super.backgroundColor,
       required ValueChanged<bool> onMarked,
@@ -108,12 +110,14 @@ class CheapMarketBookmarkBox extends _BookmarkAbleBox {
   CheapMarketBookmarkBox(
       {Key? key,
       required super.title,
-      required super.category,
-      required super.region,
+      required String category,
+      required String region,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
+            filled: category,
+            outlined: region,
             backgroundColor: cheapMarketColor,
             onPressed: () => Get.toNamed("/search/cheap/detail"));
 }
@@ -122,12 +126,14 @@ class TotalBookmarkBox extends _BookmarkAbleBox {
   TotalBookmarkBox(
       {Key? key,
       required super.title,
-      required super.category,
-      required super.region,
+      required String category,
+      required String region,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
+            filled: category,
+            outlined: region,
             backgroundColor: appColor,
             onPressed: () => Get.toNamed("/search/total/detail"));
 }
@@ -136,22 +142,38 @@ class HireBookmarkBox extends _BookmarkAbleBox {
   HireBookmarkBox(
       {Key? key,
       required super.title,
-      required super.category,
-      required super.region,
+      required String dueDate,
+      required String region,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
+            filled: dueDate,
+            outlined: region,
             backgroundColor: const Color(0xFF6721FC),
             onPressed: () => Get.toNamed("/search/hire/detail"));
+}
+
+class SpaceBookmarkBox extends _BookmarkAbleBox {
+  SpaceBookmarkBox(
+      {Key? key,
+      required super.title,
+      required String region,
+      required super.marked,
+      required super.onMarked})
+      : super(
+            key: key,
+            filled: region,
+            backgroundColor: const Color(0xFF4B3CF8),
+            onPressed: () => Get.toNamed("/search/space/detail"));
 }
 
 class BookmarkRemoveBox extends _BookmarkBox {
   const BookmarkRemoveBox(
       {Key? key,
       required super.title,
-      required super.category,
-      required super.region,
+      required super.filled,
+      super.outlined,
       required super.backgroundColor,
       required VoidCallback onRemoved})
       : super(key: key, icon: Icons.remove, onIconPressed: onRemoved);

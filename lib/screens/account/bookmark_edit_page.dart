@@ -28,14 +28,14 @@ class BookmarkEditPage extends StatelessWidget {
             ...[
               BookmarkRemoveBox(
                   title: "LH 희망상가",
-                  category: "창업지원",
-                  region: "전국",
+                  filled: "창업지원",
+                  outlined: "전국",
                   backgroundColor: appColor,
                   onRemoved: () {}),
               BookmarkRemoveBox(
                   title: "청춘남녀만남지원",
-                  category: "생활복지",
-                  region: "경북",
+                  filled: "생활복지",
+                  outlined: "경북",
                   backgroundColor: appColor,
                   onRemoved: () {})
             ].map((e) => Padding(
