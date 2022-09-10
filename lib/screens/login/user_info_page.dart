@@ -54,8 +54,8 @@ class _UserInfoTextField extends StatelessWidget {
             controller: controller,
             decoration: const InputDecoration(
                 border: InputBorder.none,
-                label: Text("이곳에 입력",
-                    style: TextStyle(color: Color(0xFFD1D1D1))))));
+                hintText: "이곳에 입력",
+                hintStyle: TextStyle(color: Color(0xFFD1D1D1)))));
   }
 }
 

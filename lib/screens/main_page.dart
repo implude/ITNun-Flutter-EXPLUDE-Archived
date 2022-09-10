@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final separator =
-        SizedBox(height: context.heightTransformer(dividedBy: 40));
+        SizedBox(height: context.heightTransformer(dividedBy: 50));
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -250,6 +250,7 @@ class _FindJobWidget extends StatelessWidget {
       child: Row(
         children: [
           Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
