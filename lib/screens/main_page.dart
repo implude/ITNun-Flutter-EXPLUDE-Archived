@@ -16,31 +16,46 @@ class MainPage extends StatelessWidget {
         SizedBox(height: context.heightTransformer(dividedBy: 50));
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            iconSize: 36,
-            onPressed: () => Get.toNamed("/menu"),
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black,
-            )),
-        actions: [
-          IconButton(
+        leading: Padding(
+          padding: EdgeInsets.only(left: context.widthTransformer(dividedBy: 390/23)),
+          child: IconButton(
               iconSize: 36,
-              onPressed: () => Get.toNamed("/notification"),
+              onPressed: () => Get.toNamed("/menu"),
               icon: const Icon(
-                Icons.notifications_none,
+                Icons.menu,
                 color: Colors.black,
               )),
-          IconButton(
-              iconSize: 36,
-              onPressed: () => Get.toNamed("/account"),
-              icon: const Icon(
-                Icons.account_circle_outlined,
-                color: Colors.black,
-              ))
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: context.widthTransformer(dividedBy: 390/23)),
+          child: Row(
+            children: [
+              IconButton(
+                  iconSize: 36,
+                  onPressed: () => Get.toNamed("/notification"),
+                  icon: const Icon(
+                    Icons.notifications_none,
+                    color: Colors.black,
+                  )),
+              SizedBox(
+                width: context.widthTransformer(dividedBy: 390/5),
+              ),
+              IconButton(
+                  iconSize: 36,
+                  onPressed: () => Get.toNamed("/account"),
+                  icon: const Icon(
+                    Icons.account_circle_outlined,
+                    color: Colors.black,
+                  ))
+
+            ],
+          ),
+          ),
+
         ],
         backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 0
       ),
       body: FocusUnSetter(
         child: AppPadding(
