@@ -5,7 +5,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 
 import '../widgets/search_widgets.dart';
 
-const _innerPadding = EdgeInsets.symmetric(vertical: 20, horizontal: 30);
+const _innerPadding = EdgeInsets.only(left: 28, right: 30, top: 18, bottom: 20);
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -257,33 +257,51 @@ class _FindJobWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: const Color(0xFF6721FC),
-          borderRadius: BorderRadius.circular(12)),
-      padding: _innerPadding,
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "청년 채용 공고 찾기",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              _GoButton(onPressed: () => Get.toNamed("/search/hire"))
-            ],
-          ),
-          const Expanded(child: SizedBox.shrink()),
-          const Icon(
-            Icons.badge_outlined,
-            size: 40,
-            color: Colors.white,
-          )
-        ],
+    return RawMaterialButton(
+      onPressed: (){Get.toNamed("/search/hire");},
+      child: Container(
+        decoration: BoxDecoration(
+            color: const Color(0xFF6721FC),
+            borderRadius: BorderRadius.circular(12)),
+        padding: _innerPadding,
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "청년 채용 공고 찾기",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: context.heightTransformer(dividedBy: 844/9)),
+                  child: Row(
+                    children: const [
+                      Text(
+                        "바로가기",
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const Expanded(child: SizedBox.shrink()),
+            const Icon(
+              Icons.badge_outlined,
+              size: 40,
+              color: Colors.white,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -305,29 +323,47 @@ class _FindWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: _innerPadding,
-      decoration: BoxDecoration(
-          color: backgroundColor, borderRadius: BorderRadius.circular(12)),
-      child: IntrinsicWidth(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(name,
-                style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white)),
-            _GoButton(onPressed: onPressed),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Icon(
-                icon,
-                size: 40,
-                color: Colors.white,
+    return RawMaterialButton(
+      onPressed: onPressed,
+      child: Container(
+        padding: _innerPadding,
+        decoration: BoxDecoration(
+            color: backgroundColor, borderRadius: BorderRadius.circular(12)),
+        child: IntrinsicWidth(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(name,
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: context.heightTransformer(dividedBy: 844/9)),
+                child: Row(
+                  children: const [
+                    Text(
+                      "바로가기",
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 16,
+                    )
+                  ],
+                ),
               ),
-            )
-          ],
+              Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  icon,
+                  size: 40,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
