@@ -11,6 +11,12 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgets = [
       _MenuWidget(
+        iconColor: const Color(0xFF3C92F8),
+        title: "홈",
+        onPressed: () => Get.toNamed("/main"),
+        icon: Icons.home_rounded,
+      ),
+      _MenuWidget(
           title: "청년 정책 찾기",
           icon: Icons.how_to_vote,
           iconColor: const Color(0xFF3C65F8),

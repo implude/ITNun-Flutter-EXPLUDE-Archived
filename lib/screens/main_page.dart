@@ -5,7 +5,7 @@ import 'package:itnun/widgets/app_widgets.dart';
 
 import '../widgets/search_widgets.dart';
 
-const _innerPadding = EdgeInsets.only(left: 28, right: 30, top: 18, bottom: 20);
+const _innerPadding = EdgeInsets.all(20);
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -96,7 +96,7 @@ class MainPage extends StatelessWidget {
                       onPressed: () => Get.toNamed("/search/total"),
                       icon: Icons.how_to_vote_outlined,
                     ),
-                    const Expanded(child: SizedBox.shrink()),
+                    Container(width: 26),
                     _FindWidget(
                         name: "착한 가게 찾기",
                         backgroundColor: const Color(0xFF4B3CF8),
@@ -134,7 +134,7 @@ class _NewInfoPageView extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: context.heightTransformer(dividedBy: 9),
+          height: context.heightTransformer(dividedBy: 9.2),
           child: PageView(onPageChanged: _index, children: items),
         ),
         const SizedBox(height: 10),
@@ -235,6 +235,7 @@ class _InfoWidget extends StatelessWidget {
                   style: TextStyle(
                       color: Color(0xFF565656), fontWeight: FontWeight.bold),
                 ),
+                const SizedBox(height: 4),
                 Text(
                   "나에게 필요한 정보가 모두 한 손 안에.",
                   style: TextStyle(fontSize: 10, color: Color(0xFFA1A1A1)),
@@ -323,13 +324,13 @@ class _FindWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
+    return Expanded(
       child: Container(
         padding: _innerPadding,
         decoration: BoxDecoration(
             color: backgroundColor, borderRadius: BorderRadius.circular(12)),
-        child: IntrinsicWidth(
+        child: RawMaterialButton(
+          onPressed: onPressed,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
