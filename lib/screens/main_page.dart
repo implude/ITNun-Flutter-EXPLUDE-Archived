@@ -7,6 +7,7 @@ import '../widgets/search_widgets.dart';
 
 const _innerPadding = EdgeInsets.only(left: 28, right: 30, top: 18, bottom: 20);
 
+
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
