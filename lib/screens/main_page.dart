@@ -17,47 +17,46 @@ class MainPage extends StatelessWidget {
         SizedBox(height: context.heightTransformer(dividedBy: 50));
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.only(left: context.widthTransformer(dividedBy: 390/23)),
-          child: IconButton(
-              iconSize: 36,
-              onPressed: () => Get.toNamed("/menu"),
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
-              )),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: context.widthTransformer(dividedBy: 390/23)),
-          child: Row(
-            children: [
-              IconButton(
-                  iconSize: 36,
-                  onPressed: () => Get.toNamed("/notification"),
-                  icon: const Icon(
-                    Icons.notifications_none,
-                    color: Colors.black,
-                  )),
-              SizedBox(
-                width: context.widthTransformer(dividedBy: 390/5),
+          leading: Padding(
+            padding: EdgeInsets.only(
+                left: context.widthTransformer(dividedBy: 390 / 23)),
+            child: IconButton(
+                iconSize: 36,
+                onPressed: () => Get.toNamed("/menu"),
+                icon: const Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                )),
+          ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(
+                  right: context.widthTransformer(dividedBy: 390 / 23)),
+              child: Row(
+                children: [
+                  IconButton(
+                      iconSize: 36,
+                      onPressed: () => Get.toNamed("/notification"),
+                      icon: const Icon(
+                        Icons.notifications_none,
+                        color: Colors.black,
+                      )),
+                  SizedBox(
+                    width: context.widthTransformer(dividedBy: 390 / 5),
+                  ),
+                  IconButton(
+                      iconSize: 36,
+                      onPressed: () => Get.toNamed("/account"),
+                      icon: const Icon(
+                        Icons.account_circle_outlined,
+                        color: Colors.black,
+                      ))
+                ],
               ),
-              IconButton(
-                  iconSize: 36,
-                  onPressed: () => Get.toNamed("/account"),
-                  icon: const Icon(
-                    Icons.account_circle_outlined,
-                    color: Colors.black,
-                  ))
-
-            ],
-          ),
-          ),
-
-        ],
-        backgroundColor: Colors.transparent,
-        elevation: 0
-      ),
+            ),
+          ],
+          backgroundColor: Colors.transparent,
+          elevation: 0),
       body: FocusUnSetter(
         child: AppPadding(
           child: SingleChildScrollView(
@@ -260,7 +259,9 @@ class _FindJobWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: (){Get.toNamed("/search/hire");},
+      onPressed: () {
+        Get.toNamed("/search/hire");
+      },
       child: Container(
         decoration: BoxDecoration(
             color: const Color(0xFF6721FC),
@@ -279,12 +280,14 @@ class _FindJobWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: context.heightTransformer(dividedBy: 844/9)),
+                  padding: EdgeInsets.symmetric(
+                      vertical: context.heightTransformer(dividedBy: 844 / 9)),
                   child: Row(
                     children: const [
                       Text(
                         "바로가기",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w600),
                       ),
                       Icon(
                         Icons.arrow_forward_ios,
@@ -341,12 +344,14 @@ class _FindWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.white)),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: context.heightTransformer(dividedBy: 844/9)),
+                padding: EdgeInsets.symmetric(
+                    vertical: context.heightTransformer(dividedBy: 844 / 9)),
                 child: Row(
                   children: const [
                     Text(
                       "바로가기",
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w600),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,

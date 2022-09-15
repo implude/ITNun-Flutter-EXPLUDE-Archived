@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/models/policy_info.dart';
+import 'package:itnun/models/space_info.dart';
 
 abstract class _BookmarkBox extends StatelessWidget {
   final String title;
@@ -44,15 +46,17 @@ abstract class _BookmarkBox extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
+              Flexible(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              const Expanded(child: SizedBox.shrink()),
               IconButton(
                   iconSize: 32,
                   padding: EdgeInsets.zero,
@@ -122,20 +126,20 @@ class CheapMarketBookmarkBox extends _BookmarkAbleBox {
             onPressed: () => Get.toNamed("/search/cheap/detail"));
 }
 
-class TotalBookmarkBox extends _BookmarkAbleBox {
-  TotalBookmarkBox(
+class PolicyBookmarkBox extends _BookmarkAbleBox {
+  PolicyBookmarkBox(
       {Key? key,
-      required super.title,
-      required String category,
-      required String region,
+      required PolicyInfo policyInfo,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
-            filled: category,
-            outlined: region,
+            title: policyInfo.name,
+            filled: policyInfo.type,
+            outlined: policyInfo.region,
             backgroundColor: appColor,
-            onPressed: () => Get.toNamed("/search/total/detail"));
+            onPressed: () =>
+                Get.toNamed("/search/total/detail", arguments: policyInfo));
 }
 
 class HireBookmarkBox extends _BookmarkAbleBox {
@@ -157,15 +161,16 @@ class HireBookmarkBox extends _BookmarkAbleBox {
 class SpaceBookmarkBox extends _BookmarkAbleBox {
   SpaceBookmarkBox(
       {Key? key,
-      required super.title,
-      required String region,
+      required SpaceInfo spaceInfo,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
-            filled: region,
+            title: spaceInfo.name,
+            filled: spaceInfo.region,
             backgroundColor: const Color(0xFF4B3CF8),
-            onPressed: () => Get.toNamed("/search/space/detail"));
+            onPressed: () =>
+                Get.toNamed("/search/space/detail", arguments: spaceInfo));
 }
 
 class KindBookmarkBox extends _BookmarkAbleBox {

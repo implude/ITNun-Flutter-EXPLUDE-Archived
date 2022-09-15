@@ -13,16 +13,19 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: createDefaultAppBar(),
-        body: ExpandedSingleChildScrollView(
-            child: FocusUnSetter(
+      appBar: createDefaultAppBar(),
+      body: ExpandedSingleChildScrollView(
+        child: FocusUnSetter(
           child: AppPadding(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               SizedBox(height: context.heightTransformer(dividedBy: 9)),
               const Text("로그인",
                   style: TextStyle(fontWeight: FontWeight.w800, fontSize: 36)),
               SizedBox(height: context.heightTransformer(dividedBy: 10)),
-              AppTextField(controller: controller.idController, label: "아이디"),
+              AppTextField(
+                  controller: controller.idController,
+                  label: "아이디",
+                  keyboardType: TextInputType.emailAddress),
               SizedBox(height: context.heightTransformer(dividedBy: 60)),
               AppTextField(
                   controller: controller.passwordController,
@@ -48,6 +51,8 @@ class LoginPage extends GetView<LoginController> {
               ]),
             ]),
           ),
-        )));
+        ),
+      ),
+    );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const appColor = Color(0xff3C65F8);
 const strokeColor = Color(0xffC5D1FD);
+final serverUrl = Uri.parse("http://211.40.128.23:5000");
 
 final regions = [
   "서울",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 
@@ -90,7 +91,10 @@ class _BottomInfo extends StatelessWidget {
                 )),
             const Expanded(child: SizedBox.shrink()),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.find<FlutterSecureStorage>().delete(key: "token");
+                  Get.offAllNamed("/");
+                },
                 child: const Text(
                   "로그아웃",
                   style: TextStyle(
