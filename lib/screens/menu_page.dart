@@ -13,7 +13,7 @@ class MenuPage extends StatelessWidget {
       _MenuWidget(
         iconColor: const Color(0xFF3C92F8),
         title: "홈",
-        onPressed: () => Get.toNamed("/main"),
+        onPressed: () => Get.offNamed("/main"),
         icon: Icons.home_rounded,
       ),
       _MenuWidget(
