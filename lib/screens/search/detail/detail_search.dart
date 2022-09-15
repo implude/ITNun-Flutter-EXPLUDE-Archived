@@ -74,23 +74,28 @@ class DetailSearch extends GetView<DetailSearchController> {
                           bottom: context.heightTransformer(dividedBy: 60)),
                       child: e,
                     )),
-                SizedBox(height: context.heightTransformer(dividedBy: 844/20)),
+                SizedBox(
+                    height: context.heightTransformer(dividedBy: 844 / 20)),
                 RawMaterialButton(
-                  onPressed: (){
+                  onPressed: () {
                     Get.toNamed("/search/detail/result");
                   },
                   child: Container(
-                    width: context.widthTransformer(dividedBy: 390/100),
-                    height: context.heightTransformer(dividedBy: 844/50),
+                    width: context.widthTransformer(dividedBy: 390 / 100),
+                    height: context.heightTransformer(dividedBy: 844 / 50),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF3C65F8),
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child:
-                    Center(child: Text("검색", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),)),
-
-                  ),)
-
+                        color: const Color(0xFF3C65F8),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                        child: Text(
+                      "검색",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    )),
+                  ),
+                )
               ],
             ),
           ),

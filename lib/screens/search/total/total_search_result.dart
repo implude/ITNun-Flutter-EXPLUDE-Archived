@@ -1,250 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/controllers/search/policy_search_controller.dart';
+import 'package:itnun/models/policy_info.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
 import 'package:itnun/widgets/search_widgets.dart';
 
-class TotalSearchResult extends StatelessWidget {
+class TotalSearchResult extends GetView<PolicySearchController> {
   const TotalSearchResult({Key? key}) : super(key: key);
-  static const int count = 30;
-  static const String answer = "일하기싫어ㅓㅓㅓㅓ";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: createDefaultAppBar(),
-      body: SearchWidget(
-          title: "통합검색",
-          subtitle: "검색 결과 18개",
-          borderColor: appColor,
-          iconColor: appColor.withOpacity(0.5),
-          children: [
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "청춘남녀만남지원",
-              category: "생활복지",
-              region: "경북",
-              marked: true,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "주거안정 월세 대출",
-              category: "주거금융",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "인문 100년 장학금",
-              category: "생활복지",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            ),
-            TotalBookmarkBox(
-              title: "LH 희망상가",
-              category: "창업지원",
-              region: "전국",
-              marked: false,
-              onMarked: (value) {},
-            )
-          ],
-          onSearchPressed: () {}),
+      body: FutureBuilder<List<PolicyInfo>>(
+        future: controller.policies,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final query = Get.parameters["query"]!;
+            final policies =
+                snapshot.data!.where((element) => element.name.contains(query));
+            return SearchWidget(
+              searchController: controller.searchController,
+              title: "통합검색",
+              subtitle: "검색 결과 ${policies.length}개",
+              borderColor: appColor,
+              iconColor: appColor.withOpacity(0.5),
+              children: policies
+                  .map((e) => PolicyBookmarkBox(
+                      policyInfo: e, marked: false, onMarked: (value) {}))
+                  .toList(),
+              onSearchPressed: () async => Get.offNamed(
+                  "/search/total/result?query=${controller.searchController.text}",
+                  arguments: await controller.policies),
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
     );
   }
 }

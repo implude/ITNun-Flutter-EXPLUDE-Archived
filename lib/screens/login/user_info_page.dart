@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
+import 'package:itnun/models/user_info.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bottom_setter.dart';
@@ -59,33 +60,45 @@ class _UserInfoTextField extends StatelessWidget {
   }
 }
 
+typedef MessageConverter<T> = String Function(T value);
+
 class UserInfoPage extends GetView<UserInfoController> {
   const UserInfoPage({Key? key}) : super(key: key);
+
+  Widget _createDropdown<T>(
+          List<T> values, Rxn<T> value, MessageConverter<T> converter) =>
+      DropdownButtonHideUnderline(
+        child: Obx(
+          () => DropdownButton<T>(
+            value: value.value,
+            items: values
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(converter(e)),
+                    ))
+                .toList(),
+            onChanged: (val) {
+              if (val != null) value(val);
+            },
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     final items = [
       _UserInfoWidget(
-          label: "직업",
-          child: _UserInfoTextField(controller: controller.jobController)),
+          label: "취업상태",
+          child: _createDropdown<UserJob>(
+              UserJob.values, controller.jobValue, (value) => value.message)),
       _UserInfoWidget(
           label: "교급",
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-                icon: const Icon(Icons.keyboard_arrow_down,
-                    color: Color(0xFFD1D1D1)),
-                hint: const Text("드롭다운 메뉴",
-                    style: TextStyle(color: Color(0xFFD1D1D1))),
-                value: controller.stageValue.value,
-                items: stages
-                    .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                    .toList(),
-                onChanged: controller.stageValue),
-          )),
+          child: _createDropdown<UserStage>(UserStage.values,
+              controller.academicValue, (value) => value.message)),
       _UserInfoWidget(
           label: "학과 / 전공",
-          child:
-              _UserInfoTextField(controller: controller.departmentController)),
+          child: _createDropdown<UserDepartment>(UserDepartment.values,
+              controller.specializationValue, (value) => value.message)),
       _UserInfoWidget(
           label: "창업 준비생이에요.",
           child: Obx(() => AppSwitch(
@@ -115,11 +128,16 @@ class UserInfoPage extends GetView<UserInfoController> {
                     subject: "이 입력은 건너뛸 수 있어요."),
                 ...widgets,
                 BottomSetter(children: [
-                  AppButton(
-                      text: "완료",
-                      textColor: Colors.white,
-                      backgroundColor: appColor,
-                      onPressed: controller.next)
+                  Obx(() {
+                    final isValid = controller.isValid();
+
+                    return AppButton(
+                        text: "완료",
+                        textColor: isValid ? Colors.white : Colors.black,
+                        backgroundColor:
+                            isValid ? appColor : const Color(0xFFF1F1F1),
+                        onPressed: isValid ? controller.next : null);
+                  })
                 ])
               ])),
         )));

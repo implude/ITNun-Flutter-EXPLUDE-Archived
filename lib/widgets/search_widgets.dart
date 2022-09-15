@@ -6,12 +6,14 @@ class SearchTextField extends StatelessWidget {
   final Color borderColor;
   final Color iconColor;
   final VoidCallback onPressed;
+  final TextEditingController? controller;
 
   const SearchTextField(
       {Key? key,
       required this.borderColor,
       required this.iconColor,
-      required this.onPressed})
+      required this.onPressed,
+      this.controller})
       : super(key: key);
 
   @override
@@ -21,6 +23,7 @@ class SearchTextField extends StatelessWidget {
       borderSide: BorderSide(color: borderColor, width: 3),
     );
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         enabledBorder: border,
         focusedBorder: border,
@@ -50,6 +53,7 @@ class _SearchTemplate extends StatelessWidget {
   final String subtitle;
   final Widget child;
   final VoidCallback? onSearchPressed;
+  final TextEditingController? searchController;
 
   const _SearchTemplate(
       {Key? key,
@@ -58,7 +62,8 @@ class _SearchTemplate extends StatelessWidget {
       required this.iconColor,
       required this.subtitle,
       required this.child,
-      required this.onSearchPressed})
+      required this.onSearchPressed,
+      this.searchController})
       : super(key: key);
 
   @override
@@ -81,6 +86,7 @@ class _SearchTemplate extends StatelessWidget {
                   iconColor != null &&
                   onSearchPressed != null) ...[
                 SearchTextField(
+                    controller: searchController,
                     borderColor: borderColor!,
                     iconColor: iconColor!,
                     onPressed: onSearchPressed!),
@@ -112,6 +118,7 @@ class SearchWidget extends StatelessWidget {
   final Color? borderColor;
   final Color? iconColor;
   final VoidCallback? onSearchPressed;
+  final TextEditingController? searchController;
 
   final List<Widget> children;
 
@@ -122,12 +129,14 @@ class SearchWidget extends StatelessWidget {
       this.borderColor,
       this.iconColor,
       required this.children,
-      this.onSearchPressed})
+      this.onSearchPressed,
+      this.searchController})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return _SearchTemplate(
+        searchController: searchController,
         onSearchPressed: onSearchPressed,
         title: title,
         borderColor: borderColor,
