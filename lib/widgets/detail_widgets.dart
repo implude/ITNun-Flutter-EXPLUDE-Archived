@@ -8,7 +8,7 @@ final _decoration = BoxDecoration(
     color: const Color(0xFFECF0FF), borderRadius: BorderRadius.circular(12));
 const _innerPadding = EdgeInsets.all(20);
 
-class _CircleIcon extends StatelessWidget {
+class _CircleIcon extends StatelessWidget { // 목차 나누는 조그만한 동그라미 아이콘
   const _CircleIcon({Key? key}) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class _CircleIcon extends StatelessWidget {
   }
 }
 
-class _CircleBigText extends StatelessWidget {
+class _CircleBigText extends StatelessWidget { // 위의 아이콘과 텍스트를 합친 위젯 (큰목차)
   final String text;
 
   const _CircleBigText({Key? key, required this.text}) : super(key: key);
@@ -41,7 +41,7 @@ class _CircleBigText extends StatelessWidget {
   }
 }
 
-class _CircleSmallText extends StatelessWidget {
+class _CircleSmallText extends StatelessWidget { // 위의 아이콘과 텍스트를 합친 위젯 (소목차)
   final String text;
 
   const _CircleSmallText({Key? key, required this.text}) : super(key: key);
@@ -66,7 +66,7 @@ class _CircleSmallText extends StatelessWidget {
   }
 }
 
-class DetailValueBox extends StatelessWidget {
+class DetailValueBox extends StatelessWidget { //
   const DetailValueBox(
       {Key? key, required this.description, required this.value})
       : super(key: key);

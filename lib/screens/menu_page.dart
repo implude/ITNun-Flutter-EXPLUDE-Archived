@@ -32,7 +32,7 @@ class MenuPage extends StatelessWidget {
           iconColor: const Color(0xFF4B3CF8),
           children: [
             _MenuItem(
-                text: "착한 가게", onPressed: () => Get.toNamed("/search/cheap")),
+                text: "착한 가게", onPressed: () => Get.toNamed("/search/xcheap")),
             _MenuItem(
                 text: "청년 공간", onPressed: () => Get.toNamed("/search/space")),
             _MenuItem(
