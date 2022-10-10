@@ -14,3 +14,6 @@ https://youtu.be/vpwGEaJi5OM
 
 백엔드 레포지토리
 https://github.com/implude/ITNun-Backend-EXPLUDE
+
+-참고사항
+현재는 테스트중이라 이메일 인증기능을 넣지않아서 회원가입 하실 때에 인증번호는 '220914'를 입력하시면 됩니다.
