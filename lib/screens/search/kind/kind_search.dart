@@ -13,32 +13,40 @@ class KindSearch extends StatelessWidget {
       appBar: createDefaultAppBar(),
       body: SearchWidget(
           title: "선한 영향력 가게 찾기",
-          subtitle: "추천 가게",
+          subtitle: "",
           borderColor: const Color(0xFF4B3CF8),
           iconColor: const Color(0xFFA59EFC),
           children: [
-            KindBookmarkBox(
-                title: "사당 강고짐",
-                region: "서울 서초구",
-                marked: true,
-                onMarked: (value) {}),
-            KindBookmarkBox(
-                title: "옆집 컴퓨터",
-                region: "경기 양주시",
-                marked: true,
-                onMarked: (value) {}),
-            KindBookmarkBox(
-                title: "글라스밤안경 시흥은계정",
-                region: "경기 시흥시",
-                marked: true,
-                onMarked: (value) {}),
-            KindBookmarkBox(
-                title: "소낭",
-                region: "제주특별자치도 제주시",
-                marked: true,
-                onMarked: (value) {})
+            Column(
+              children: [
+                SizedBox(height: 150,),
+                Container(
+                  child: Text("현재 개발중인 화면입니다.",style: TextStyle(fontSize: 30,fontFamily: "Pretendard",fontWeight: FontWeight.bold),),
+                ),
+              ],
+            )
+            // KindBookmarkBox(
+            //     title: "사당 강고짐",
+            //     region: "서울 서초구",
+            //     marked: true,
+            //     onMarked: (value) {}),
+            // KindBookmarkBox(
+            //     title: "옆집 컴퓨터",
+            //     region: "경기 양주시",
+            //     marked: true,
+            //     onMarked: (value) {}),
+            // KindBookmarkBox(
+            //     title: "글라스밤안경 시흥은계정",
+            //     region: "경기 시흥시",
+            //     marked: true,
+            //     onMarked: (value) {}),
+            // KindBookmarkBox(
+            //     title: "소낭",
+            //     region: "제주특별자치도 제주시",
+            //     marked: true,
+            //     onMarked: (value) {})
           ],
-          onSearchPressed: () => Get.toNamed("/search/kind/result")),
+          onSearchPressed: () => Get.toNamed("/search/kind")),
     );
   }
 }

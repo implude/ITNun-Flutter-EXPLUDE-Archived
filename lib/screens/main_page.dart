@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/widgets/app_widgets.dart';
-
 import '../widgets/search_widgets.dart';
 
 const _innerPadding = EdgeInsets.all(20);

@@ -40,7 +40,7 @@ class MenuPage extends StatelessWidget {
           ]),
       _MenuWidget(
         iconColor: const Color(0xFF6721FC),
-        title: "청년 채용 광고 찾기",
+        title: "청년 채용 공고 찾기",
         onPressed: () => Get.toNamed("/search/hire"),
         icon: Icons.badge_outlined,
       ),

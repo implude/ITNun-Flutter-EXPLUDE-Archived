@@ -56,7 +56,7 @@ import 'package:itnun/screens/start_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);//폰 statusBar 없애기
 }
 
 class MyApp extends StatelessWidget {
