@@ -1,43 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/controllers/search/space_search_controller.dart';
+import 'package:itnun/models/space_info.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
 import 'package:itnun/widgets/search_widgets.dart';
 
-class SpaceSearch extends StatelessWidget {
+class SpaceSearch extends GetView<SpaceSearchController> {
   const SpaceSearch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: createDefaultAppBar(),
-        body: SearchWidget(
-            title: "청년공간 찾기",
-            subtitle: "추천 가게",
-            borderColor: const Color(0xFF4B3CF8),
-            iconColor: const Color(0xFFA59EFC),
-            children: [
-              SpaceBookmarkBox(
-                  title: "유유기지 부평",
-                  region: "인천 부평구",
-                  marked: true,
-                  onMarked: (value) {}),
-              SpaceBookmarkBox(
-                  title: "광명시 청년동",
-                  region: "경기 광명시",
-                  marked: false,
-                  onMarked: (value) {}),
-              SpaceBookmarkBox(
-                  title: "여주시 청년활동지원센터",
-                  region: "경기 여주시",
-                  marked: false,
-                  onMarked: (value) {}),
-              SpaceBookmarkBox(
-                  title: "강릉시청년센터두루",
-                  region: "강원 강릉시",
-                  marked: false,
-                  onMarked: (value) {})
-            ],
-            onSearchPressed: () => Get.toNamed("/search/space/result")));
+      appBar: createDefaultAppBar(),
+      body: FutureBuilder<List<SpaceInfo>>(
+          future: controller.spaces,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final spaces = snapshot.data!..shuffle();
+              return SearchWidget(
+                searchController: controller.searchController,
+                title: "청년공간 찾기",
+                subtitle: "추천 가게",
+                borderColor: const Color(0xFF4B3CF8),
+                iconColor: const Color(0xFFA59EFC),
+                children: spaces
+                    .sublist(0, 4)
+                    .map((e) => SpaceBookmarkBox(
+                        spaceInfo: e, marked: false, onMarked: (value) {}))
+                    .toList(),
+                onSearchPressed: () async => Get.toNamed(
+                    "/search/space/result?query=${controller.searchController.text}",
+                    arguments: await controller.spaces),
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          }),
+    );
   }
 }

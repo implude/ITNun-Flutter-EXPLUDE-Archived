@@ -26,20 +26,20 @@ class BookmarkPage extends StatelessWidget {
           children: [
             const TitleWidget(title: "북마크된 페이지"),
             ...[
-              TotalBookmarkBox(
-                onMarked: (value) {},
-                title: "LH 희망상가",
-                category: "창업지원",
-                region: "전국",
-                marked: true,
-              ),
-              TotalBookmarkBox(
-                onMarked: (value) {},
-                title: "청춘남녀만남지원",
-                category: "생활복지",
-                region: "경북",
-                marked: true,
-              ),
+              // PolicyBookmarkBox(
+              //   onMarked: (value) {},
+              //   title: "LH 희망상가",
+              //   category: "창업지원",
+              //   region: "전국",
+              //   marked: true,
+              // ),
+              // PolicyBookmarkBox(
+              //   onMarked: (value) {},
+              //   title: "청춘남녀만남지원",
+              //   category: "생활복지",
+              //   region: "경북",
+              //   marked: true,
+              // ),
               CheapMarketBookmarkBox(
                 onMarked: (value) {},
                 title: "체스보드게임",

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:itnun/controllers/detail_search_controller.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
 import 'package:itnun/controllers/my_info_edit_controller.dart';
+import 'package:itnun/controllers/search/policy_search_controller.dart';
+import 'package:itnun/controllers/search/space_search_controller.dart';
 import 'package:itnun/controllers/setting_controller.dart';
 import 'package:itnun/controllers/signup_controller.dart';
+import 'package:itnun/controllers/start_controller.dart';
 import 'package:itnun/controllers/user_info_controller.dart';
 import 'package:itnun/controllers/verify_controller.dart';
 import 'package:itnun/controllers/verify_find_password_controller.dart';
@@ -49,6 +53,7 @@ import 'package:itnun/screens/search/total/total_search_detail.dart';
 import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
 
+
 void main() async {
   runApp(const MyApp());
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
@@ -63,8 +68,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
       initialRoute: "/",
+      initialBinding: BindingsBuilder(() {
+        Get.put(
+            const FlutterSecureStorage(
+                aOptions: AndroidOptions(encryptedSharedPreferences: true)),
+            permanent: true);
+      }),
       getPages: [
-        GetPage(name: "/", page: () => const StartPage()),
+        GetPage(
+            name: "/",
+            page: () => const StartPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => StartController());
+            })),
         GetPage(
             name: "/login",
             page: () => const LoginPage(),
@@ -113,7 +129,12 @@ class MyApp extends StatelessWidget {
           page: () => const TotalSearchDetail(),
         ),
         GetPage(name: "/menu", page: () => const MenuPage()),
-        GetPage(name: "/search/total", page: () => const TotalSearch()),
+        GetPage(
+            name: "/search/total",
+            page: () => const TotalSearch(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => PolicySearchController());
+            })),
         GetPage(
             name: "/search/detail",
             page: () => const DetailSearch(),
@@ -160,10 +181,18 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/cheap/detail",
             page: () => const CheapMarketSearchDetail()),
-        GetPage(name: "/search/space", page: () => const SpaceSearch()),
+        GetPage(
+            name: "/search/space",
+            page: () => const SpaceSearch(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => SpaceSearchController());
+            })),
         GetPage(
             name: "/search/space/result",
-            page: () => const SpaceSearchResult()),
+            page: () => const SpaceSearchResult(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => SpaceSearchController());
+            })),
         GetPage(
             name: "/search/space/detail",
             page: () => const SpaceSearchDetail()),
@@ -171,7 +200,8 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/kind/result", page: () => const KindSearchResult()),
         GetPage(
-            name: "/search/kind/detail", page: () => const KindSearchDetail())
+            name: "/search/kind/detail", page: () => const KindSearchDetail()),
+        GetPage(name: "/license", page: ()=>const LicensePage(),),
       ],
     );
   }

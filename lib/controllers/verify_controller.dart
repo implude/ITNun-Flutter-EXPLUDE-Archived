@@ -5,8 +5,12 @@ class VerifyController extends GetxController {
   final inputController = TextEditingController();
   final liveText = "".obs;
 
-  void verify() {
-    Get.toNamed("/userInfo");
+  void verify() async {
+    if (inputController.text != "220914") {
+      Get.snackbar("인증", "인증에 실패 하였습니다");
+      return;
+    }
+    Get.back(result: await Get.toNamed("/userInfo"));
   }
 
   bool isValid() {

@@ -85,11 +85,13 @@ class DetailValueBox extends StatelessWidget { //
             Text(description,
                 style:
                     const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-            Text(
-              textAlign: TextAlign.end,
-              value,
-              style: const TextStyle(
-                  color: _textColor, fontWeight: FontWeight.w500),
+            Flexible(
+              child: Text(
+                textAlign: TextAlign.end,
+                value,
+                style: const TextStyle(
+                    color: _textColor, fontWeight: FontWeight.w500),
+              ),
             ),
           ],
         ));
@@ -116,6 +118,7 @@ class PlainTextBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        width: double.infinity,
         padding: _innerPadding,
         decoration: _decoration,
         child: Text(text,
