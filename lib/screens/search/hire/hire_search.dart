@@ -12,12 +12,13 @@ class HireSearch extends StatelessWidget {
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: SearchWidget(
-        onSearchPressed: () => Get.toNamed("/search/hire/result"),
+        onSearchPressed: () => Get.toNamed("/search/hire"),
         title: "청년 채용 공고 찾기",
-        subtitle: "추천 공고",
+        subtitle: "",
         borderColor: const Color(0xFF6721FC),
         iconColor: const Color(0xFFB390FE),
         children: [
+
           HireBookmarkBox(
               title: "[경력]반도체 배관시공 구매담당 채용",
               dueDate: "D-59",

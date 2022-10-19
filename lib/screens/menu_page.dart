@@ -35,12 +35,11 @@ class MenuPage extends StatelessWidget {
                 text: "착한 가게", onPressed: () => Get.toNamed("/search/xcheap")),
             _MenuItem(
                 text: "청년 공간", onPressed: () => Get.toNamed("/search/space")),
-            _MenuItem(
-                text: "선한 영향력 가게", onPressed: () => Get.toNamed("/search/kind"))
+
           ]),
       _MenuWidget(
         iconColor: const Color(0xFF6721FC),
-        title: "청년 채용 광고 찾기",
+        title: "청년 채용 공고 찾기",
         onPressed: () => Get.toNamed("/search/hire"),
         icon: Icons.badge_outlined,
       ),

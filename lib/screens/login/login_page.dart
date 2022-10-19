@@ -25,12 +25,12 @@ class LoginPage extends GetView<LoginController> {
               AppTextField(
                   controller: controller.idController,
                   label: "아이디",
-                  keyboardType: TextInputType.emailAddress),
+                  keyboardType: TextInputType.emailAddress),//아이디 입력
               SizedBox(height: context.heightTransformer(dividedBy: 60)),
               AppTextField(
                   controller: controller.passwordController,
                   label: "비밀번호",
-                  obscureText: true),
+                  obscureText: true),//비밀번호 입력
               SizedBox(height: context.heightTransformer(dividedBy: 120)),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Text("비밀번호를 잊으셨나요?",
@@ -40,7 +40,7 @@ class LoginPage extends GetView<LoginController> {
                       Get.toNamed("/password/find");
                     },
                     child: const Text("비밀번호 찾기",
-                        style: TextStyle(color: Color(0xFF343434))))
+                        style: TextStyle(color: Color(0xFF343434))))//비밀번호 찾기
               ]),
               BottomSetter(children: [
                 AppButton(
