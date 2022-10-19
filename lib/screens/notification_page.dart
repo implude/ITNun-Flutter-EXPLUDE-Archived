@@ -47,8 +47,8 @@ class NotificationPage extends StatelessWidget {
       appBar: createDefaultAppBar(),
       body: AppPadding(
           child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
           SizedBox(height: context.heightTransformer(dividedBy: 30)),
           const Text(
             "공지사항",
@@ -78,7 +78,9 @@ class _NotificationGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        Get.toNamed("/notification/detail");
+      },
       child: Column(children: [
         SizedBox(
           height: context.heightTransformer(dividedBy: 45),
@@ -124,7 +126,7 @@ class _NotificationGroup extends StatelessWidget {
 class _NotificationData {
   final String title;
   final String content;
-  final DateTime date;
+  final DateTime  date;
   final bool isNew;
 
   const _NotificationData({

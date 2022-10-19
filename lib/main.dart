@@ -53,6 +53,7 @@ import 'package:itnun/screens/search/total/total_search.dart';
 import 'package:itnun/screens/search/total/total_search_detail.dart';
 import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/notification_detail_page.dart';
 
 
 void main() async {
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/tos",
+      initialRoute: "/main",
       initialBinding: BindingsBuilder(() {
         Get.put(
             const FlutterSecureStorage(
@@ -204,6 +205,7 @@ class MyApp extends StatelessWidget {
             name: "/search/kind/detail", page: () => const KindSearchDetail()),
         GetPage(name: "/license", page: ()=>const LicensePage(),),
         GetPage(name: "/tos", page: () => const TosAgree()),
+        GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
       ],
     );
   }

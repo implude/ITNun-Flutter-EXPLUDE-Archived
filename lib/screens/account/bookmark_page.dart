@@ -31,12 +31,12 @@ class BookmarkPage extends StatelessWidget {
               PolicyBookmarkBox(
                 onMarked: (value) {},
                 marked: true,
-                policyInfo: PolicyInfo("", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
               ),
               PolicyBookmarkBox(
                 onMarked: (value) {},
                 marked: true,
-                policyInfo: PolicyInfo("", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
               ),
               KindBookmarkBox(
                   title: "체스보드게임",
