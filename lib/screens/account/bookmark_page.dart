@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/title_subject_widget.dart';
+import 'package:itnun/widgets/bookmark_widget.dart';
 
 import '../../widgets/bookmark_widget.dart';
 
@@ -40,13 +41,13 @@ class BookmarkPage extends StatelessWidget {
               //   region: "경북",
               //   marked: true,
               // ),
-              CheapMarketBookmarkBox(
-                onMarked: (value) {},
-                title: "체스보드게임",
-                category: "기타서비스업",
-                region: "부산광역시",
-                marked: true,
-              )
+              // KindBookmarkBox(
+              //     title: "체스보드게임",
+              //     category: "기타서비스업",
+              //     region: "부산광역시",
+              //     marked: true,
+              //     onMarked: (value) {}
+              // ),
             ].map((e) => Padding(
                   padding: EdgeInsets.only(
                       bottom: context.heightTransformer(dividedBy: 60)),
