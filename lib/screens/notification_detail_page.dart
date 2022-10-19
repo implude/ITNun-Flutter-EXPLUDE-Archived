@@ -3,18 +3,21 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
+import 'package:itnun/screens/notification_page.dart';
 
 class NotificationDetailPage extends StatelessWidget {
   const NotificationDetailPage({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
     return Scaffold(
       appBar: createDefaultAppBar(),
       body: _NotificationDetailWidget(
-        title :"공지사항 1",
-        date : DateTime(2020, 1, 1),
-        content : "이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 이수성 일해 "
+        title : data.title,
+        date : data.date,
+        content : data.content
       )
     );
   }
@@ -61,10 +64,10 @@ class _NotificationDetailWidget extends StatelessWidget {
                   style : const TextStyle(
                     fontSize: 20,
                   ),
-                )
+                ),
               ],
             ),
-          ),
+          )
         )
     );
   }
