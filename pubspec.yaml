@@ -47,6 +47,7 @@ dependencies:
   flutter_secure_storage: ^6.0.0
 
 dev_dependencies:
+  badges: ^2.0.3
   flutter_test:
     sdk: flutter
 

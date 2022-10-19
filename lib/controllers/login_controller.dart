@@ -24,10 +24,10 @@ class LoginController extends GetxController {
     if (json["result"] == "success") {
       final token = json["token"] as String;
       _storage.write(key: "token", value: token);
-      Get.snackbar("로그인 성공", "로그인에 성공 하였습니다");
+      Get.snackbar("로그인 성공", "로그인에 성공 하였습니다",backgroundColor: appColor,colorText: Colors.white);
       Get.offAllNamed("/main");
     } else {
-      Get.snackbar("로그인 실패", "이메일과 비밀번호를 다시 확인 해주세요");
+      Get.snackbar("로그인 실패", "이메일과 비밀번호를 다시 확인 해주세요",backgroundColor: Colors.red,colorText: Colors.white);
     }
   }
 }
