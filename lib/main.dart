@@ -33,6 +33,7 @@ import 'package:itnun/screens/news/today_news_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
+import 'package:itnun/screens/login/tos_agree.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search_detail.dart';
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/",
+      initialRoute: "/tos",
       initialBinding: BindingsBuilder(() {
         Get.put(
             const FlutterSecureStorage(
@@ -202,6 +203,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/kind/detail", page: () => const KindSearchDetail()),
         GetPage(name: "/license", page: ()=>const LicensePage(),),
+        GetPage(name: "/tos", page: () => const TosAgree()),
       ],
     );
   }
