@@ -54,6 +54,8 @@ import 'package:itnun/screens/search/total/total_search_detail.dart';
 import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
 import 'package:itnun/screens/notification_detail_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_confirm_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_end_page.dart';
 
 
 void main() async {
@@ -206,6 +208,14 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/license", page: ()=>const LicensePage(),),
         GetPage(name: "/tos", page: () => const TosAgree()),
         GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
+        GetPage(
+          name: "/withdraw/confirm",
+          page: () => const WithDrawConfirmPage(),
+        ),
+        GetPage(
+          name: "/withdraw/end",
+          page: () => const WithdrawEndPage(),
+        )
       ],
     );
   }
