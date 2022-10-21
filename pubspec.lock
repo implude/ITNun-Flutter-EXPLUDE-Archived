@@ -216,6 +216,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_hooks:
+    dependency: "direct main"
+    description:
+      name: flutter_hooks
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.5+1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -744,4 +751,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.6 <3.0.0"
-  flutter: ">=2.10.0"
+  flutter: ">=3.0.0"
