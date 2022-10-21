@@ -10,7 +10,7 @@ class VerifyController extends GetxController {
       Get.snackbar("인증", "인증에 실패 하였습니다",backgroundColor: Colors.red,colorText: Colors.white);
       return;
     }
-    Get.back(result: await Get.toNamed("/userInfo"));
+    Get.back(result: await Get.toNamed("/tos"));
   }
 
   bool isValid() {

@@ -193,7 +193,6 @@ class BookmarkRemoveBox extends _BookmarkBox {
       required super.title,
       required super.filled,
       super.outlined,
-      required super.backgroundColor,
       required VoidCallback onRemoved})
-      : super(key: key, icon: Icons.remove, onIconPressed: onRemoved);
+      : super(key: key, icon: Icons.remove, onIconPressed: onRemoved, backgroundColor: appColor);
 }

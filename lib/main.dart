@@ -33,6 +33,7 @@ import 'package:itnun/screens/news/today_news_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
+import 'package:itnun/screens/login/tos_agree.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search_detail.dart';
@@ -49,6 +50,9 @@ import 'package:itnun/screens/search/total/total_search.dart';
 import 'package:itnun/screens/search/total/total_search_detail.dart';
 import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
+import 'package:itnun/screens/notification_detail_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_confirm_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_end_page.dart';
 
 
 void main() async {
@@ -64,7 +68,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/",
+      initialRoute: "/main",
       initialBinding: BindingsBuilder(() {
         Get.put(
             const FlutterSecureStorage(
@@ -194,6 +198,16 @@ class MyApp extends StatelessWidget {
             name: "/search/space/detail",
             page: () => const SpaceSearchDetail()),
         GetPage(name: "/license", page: ()=>const LicensePage(),),
+        GetPage(name: "/tos", page: () => const TosAgree()),
+        GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
+        GetPage(
+          name: "/withdraw/confirm",
+          page: () => const WithDrawConfirmPage(),
+        ),
+        GetPage(
+          name: "/withdraw/end",
+          page: () => const WithdrawEndPage(),
+        )
       ],
     );
   }
