@@ -48,6 +48,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
 
 dev_dependencies:
+  badges: ^2.0.3
   flutter_test:
     sdk: flutter
 

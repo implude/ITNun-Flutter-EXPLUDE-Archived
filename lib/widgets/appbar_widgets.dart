@@ -10,7 +10,7 @@ class AppBarLogo extends StatelessWidget {
   }
 }
 
-class AppBarBackButton extends StatelessWidget {
+class AppBarBackButton extends StatelessWidget { // 모든 페이지들의 맨 위에 부분
   const AppBarBackButton({Key? key}) : super(key: key);
 
   @override

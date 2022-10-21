@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 typedef AppFormFieldValidator = bool Function(String);
 
-class AppSwitch extends StatelessWidget {
+class AppSwitch extends StatelessWidget { // on, off 식의 토글 스위치 위젯
   final bool value;
   final ValueChanged<bool> onChanged;
 
@@ -27,7 +27,7 @@ class AppSwitch extends StatelessWidget {
   }
 }
 
-class LogoWithText extends StatelessWidget {
+class LogoWithText extends StatelessWidget { // 로고 위젯
   final double width;
 
   const LogoWithText({Key? key, required this.width}) : super(key: key);
@@ -58,7 +58,7 @@ class LogoWithText extends StatelessWidget {
   }
 }
 
-class FocusUnSetter extends StatelessWidget {
+class FocusUnSetter extends StatelessWidget { // 부드러운 키보드 사용(키보드 사용중 다른 부분 누르면 내려감)
   final Widget child;
 
   const FocusUnSetter({Key? key, required this.child}) : super(key: key);
@@ -73,7 +73,7 @@ class FocusUnSetter extends StatelessWidget {
   }
 }
 
-class AppButton extends StatelessWidget {
+class AppButton extends StatelessWidget { // 처음 로그인, 회원가입시 사용하는 앱버튼(색 조정 가능)
   final String text;
   final Color textColor;
   final Color? outlineColor;
@@ -112,7 +112,7 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class AppTextField extends StatelessWidget {
+class AppTextField extends StatelessWidget { // 기존 텍스트필드 위젯의 테두리가 동그랗게 됨, 텍스트 입력부분 안에 마진 추가
   final TextEditingController? controller;
   final String label;
   final bool obscureText;
@@ -162,7 +162,7 @@ class AppTextField extends StatelessWidget {
   }
 }
 
-class AppPadding extends StatelessWidget {
+class AppPadding extends StatelessWidget { // 모든 페이지들의 기본 패딩
   final Widget child;
 
   const AppPadding({Key? key, required this.child}) : super(key: key);

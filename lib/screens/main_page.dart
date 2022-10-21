@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/widgets/app_widgets.dart';
-
 import '../widgets/search_widgets.dart';
+import 'package:badges/badges.dart';
 
 const _innerPadding = EdgeInsets.all(20);
 
@@ -34,13 +34,23 @@ class MainPage extends StatelessWidget {
                   right: context.widthTransformer(dividedBy: 390 / 23)),
               child: Row(
                 children: [
-                  IconButton(
-                      iconSize: 36,
-                      onPressed: () => Get.toNamed("/notification"),
-                      icon: const Icon(
-                        Icons.notifications_none,
-                        color: Colors.black,
-                      )),
+                  Column(
+                    children: [
+                      Badge(
+                        position: BadgePosition.topEnd(top: -1,end: 0),
+                        badgeContent: Text("99+", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+                        badgeColor: Color(0xffFF6C00),
+                        child: IconButton(
+                            iconSize: 36,
+                            onPressed: () => Get.toNamed("/notification"),
+                            icon: const Icon(
+                              Icons.notifications_none,
+                              color: Colors.black,
+                            )),
+                      ),
+
+                    ],
+                  ),
                   SizedBox(
                     width: context.widthTransformer(dividedBy: 390 / 5),
                   ),

@@ -43,9 +43,6 @@ import 'package:itnun/screens/search/detail/detail_search_result.dart';
 import 'package:itnun/screens/search/hire/hire_search.dart';
 import 'package:itnun/screens/search/hire/hire_search_detail.dart';
 import 'package:itnun/screens/search/hire/hire_search_result.dart';
-import 'package:itnun/screens/search/kind/kind_search.dart';
-import 'package:itnun/screens/search/kind/kind_search_detail.dart';
-import 'package:itnun/screens/search/kind/kind_search_result.dart';
 import 'package:itnun/screens/search/space/space_search.dart';
 import 'package:itnun/screens/search/space/space_search_detail.dart';
 import 'package:itnun/screens/search/space/space_search_result.dart';
@@ -60,7 +57,7 @@ import 'package:itnun/screens/account/withdraw/withdraw_end_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);//폰 statusBar 없애기
 }
 
 class MyApp extends StatelessWidget {
@@ -200,11 +197,6 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/space/detail",
             page: () => const SpaceSearchDetail()),
-        GetPage(name: "/search/kind", page: () => const KindSearch()),
-        GetPage(
-            name: "/search/kind/result", page: () => const KindSearchResult()),
-        GetPage(
-            name: "/search/kind/detail", page: () => const KindSearchDetail()),
         GetPage(name: "/license", page: ()=>const LicensePage(),),
         GetPage(name: "/tos", page: () => const TosAgree()),
         GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
