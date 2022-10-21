@@ -30,14 +30,14 @@ class BookmarkEditPage extends StatelessWidget {
                   title: "LH 희망상가",
                   filled: "창업지원",
                   outlined: "전국",
-                  backgroundColor: appColor,
-                  onRemoved: () {}),
+                  onRemoved: () {}
+              ),
               BookmarkRemoveBox(
                   title: "청춘남녀만남지원",
                   filled: "생활복지",
                   outlined: "경북",
-                  backgroundColor: appColor,
-                  onRemoved: () {})
+                  onRemoved: () {}
+              )
             ].map((e) => Padding(
                   padding: EdgeInsets.only(
                       bottom: context.heightTransformer(dividedBy: 60)),
