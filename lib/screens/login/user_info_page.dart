@@ -125,7 +125,7 @@ class UserInfoPage extends GetView<UserInfoController> {
                   children: [
                 const TitleSubjectWidget(
                     title: "더 나은 서비스를 위해\n정보를 입력해주세요",
-                    subject: "이 입력은 건너뛸 수 있어요."),
+                    subject: "이 정보는 나중에 변경할 수 있어요"),
                 ...widgets,
                 BottomSetter(children: [
                   Obx(() {

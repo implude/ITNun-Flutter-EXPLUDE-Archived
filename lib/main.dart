@@ -19,10 +19,12 @@ import 'package:itnun/screens/account/account_page.dart';
 import 'package:itnun/screens/account/app_info_page.dart';
 import 'package:itnun/screens/account/bookmark_edit_page.dart';
 import 'package:itnun/screens/account/bookmark_page.dart';
+import 'package:itnun/screens/account/itnun_policy.dart';
 import 'package:itnun/screens/account/my_info_edit_page.dart';
 import 'package:itnun/screens/account/my_info_page.dart';
 import 'package:itnun/screens/account/setting_page.dart';
 import 'package:itnun/screens/login/login_page.dart';
+import 'package:itnun/screens/login/need_user_info_page.dart';
 import 'package:itnun/screens/login/signup_page.dart';
 import 'package:itnun/screens/login/user_info_page.dart';
 import 'package:itnun/screens/login/verify_page.dart';
@@ -199,6 +201,10 @@ class MyApp extends StatelessWidget {
             page: () => const SpaceSearchDetail()),
         GetPage(name: "/license", page: ()=>const LicensePage(),),
         GetPage(name: "/tos", page: () => const TosAgree()),
+        GetPage(name: "/needuserinfo", page: ()=>  CheckedNeedUserInfo()),
+        GetPage(name: "/itnunpolicy", page: ()=>const ItnunPolicy()),
+        GetPage(name: "/privatepolicy", page: ()=>const PrivatePolicy()),
+        GetPage(name: "/uncheckeduserinfo", page: ()=>UnCheckedNeedUserInfo()),
         GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
         GetPage(
           name: "/withdraw/confirm",
