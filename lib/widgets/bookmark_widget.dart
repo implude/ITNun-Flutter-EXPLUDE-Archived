@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/models/cheap_market_info.dart';
 import 'package:itnun/models/policy_info.dart';
 import 'package:itnun/models/space_info.dart';
 
@@ -113,17 +114,17 @@ abstract class _BookmarkAbleBox extends _BookmarkBox {
 class CheapMarketBookmarkBox extends _BookmarkAbleBox {
   CheapMarketBookmarkBox(
       {Key? key,
-      required super.title,
-      required String category,
-      required String region,
+      required CheapMarketInfo marketInfo,
       required super.marked,
       required super.onMarked})
       : super(
             key: key,
-            filled: category,
-            outlined: region,
+            title: marketInfo.name,
+            filled: marketInfo.service,
+            outlined: marketInfo.city,
             backgroundColor: const Color(0xff4B3CF8),
-            onPressed: () => Get.toNamed("/search/cheap/detail"));
+            onPressed: () =>
+                Get.toNamed("/search/cheap/detail", arguments: marketInfo));
 }
 
 class PolicyBookmarkBox extends _BookmarkAbleBox {
@@ -194,5 +195,9 @@ class BookmarkRemoveBox extends _BookmarkBox {
       required super.filled,
       super.outlined,
       required VoidCallback onRemoved})
-      : super(key: key, icon: Icons.remove, onIconPressed: onRemoved, backgroundColor: appColor);
+      : super(
+            key: key,
+            icon: Icons.remove,
+            onIconPressed: onRemoved,
+            backgroundColor: appColor);
 }

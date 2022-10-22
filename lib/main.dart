@@ -7,6 +7,8 @@ import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
 import 'package:itnun/controllers/my_info_edit_controller.dart';
+import 'package:itnun/controllers/news_controller.dart';
+import 'package:itnun/controllers/search/cheap_search_controller.dart';
 import 'package:itnun/controllers/search/policy_search_controller.dart';
 import 'package:itnun/controllers/search/space_search_controller.dart';
 import 'package:itnun/controllers/setting_controller.dart';
@@ -23,19 +25,21 @@ import 'package:itnun/screens/account/itnun_policy.dart';
 import 'package:itnun/screens/account/my_info_edit_page.dart';
 import 'package:itnun/screens/account/my_info_page.dart';
 import 'package:itnun/screens/account/setting_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_confirm_page.dart';
+import 'package:itnun/screens/account/withdraw/withdraw_end_page.dart';
 import 'package:itnun/screens/login/login_page.dart';
-import 'package:itnun/screens/login/need_user_info_page.dart';
 import 'package:itnun/screens/login/signup_page.dart';
+import 'package:itnun/screens/login/tos_agree.dart';
 import 'package:itnun/screens/login/user_info_page.dart';
 import 'package:itnun/screens/login/verify_page.dart';
 import 'package:itnun/screens/main_page.dart';
 import 'package:itnun/screens/menu_page.dart';
 import 'package:itnun/screens/news/today_news_detail_page.dart';
 import 'package:itnun/screens/news/today_news_page.dart';
+import 'package:itnun/screens/notification_detail_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
 import 'package:itnun/screens/password/make_password_page.dart';
-import 'package:itnun/screens/login/tos_agree.dart';
 import 'package:itnun/screens/password/verify_find_password_page.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search.dart';
 import 'package:itnun/screens/search/cheap/cheap_market_search_detail.dart';
@@ -52,14 +56,12 @@ import 'package:itnun/screens/search/total/total_search.dart';
 import 'package:itnun/screens/search/total/total_search_detail.dart';
 import 'package:itnun/screens/search/total/total_search_result.dart';
 import 'package:itnun/screens/start_page.dart';
-import 'package:itnun/screens/notification_detail_page.dart';
-import 'package:itnun/screens/account/withdraw/withdraw_confirm_page.dart';
-import 'package:itnun/screens/account/withdraw/withdraw_end_page.dart';
 
+import 'screens/login/need_user_info_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);//폰 statusBar 없애기
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 }
 
 class MyApp extends StatelessWidget {
@@ -150,11 +152,24 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/detail/result",
             page: () => const DetailSearchResult()),
-        GetPage(name: "/search/cheap", page: () => const CheapMarketSearch()),
+        GetPage(
+            name: "/search/cheap",
+            page: () => const CheapMarketSearch(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => CheapSearchController());
+            })),
         GetPage(
             name: "/search/cheap/result",
-            page: () => const CheapMarketSearchResult()),
-        GetPage(name: "/main", page: () => const MainPage()),
+            page: () => const CheapMarketSearchResult(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => CheapSearchController());
+            })),
+        GetPage(
+            name: "/main",
+            page: () => const MainPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => NewsController());
+            })),
         GetPage(name: "/account", page: () => const AccountPage()),
         GetPage(name: "/account/info", page: () => const MyInfoPage()),
         GetPage(
@@ -199,13 +214,19 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/search/space/detail",
             page: () => const SpaceSearchDetail()),
-        GetPage(name: "/license", page: ()=>const LicensePage(),),
+        GetPage(
+          name: "/license",
+          page: () => const LicensePage(),
+        ),
         GetPage(name: "/tos", page: () => const TosAgree()),
-        GetPage(name: "/needuserinfo", page: ()=>  CheckedNeedUserInfo()),
-        GetPage(name: "/itnunpolicy", page: ()=>const ItnunPolicy()),
-        GetPage(name: "/privatepolicy", page: ()=>const PrivatePolicy()),
-        GetPage(name: "/uncheckeduserinfo", page: ()=>UnCheckedNeedUserInfo()),
-        GetPage(name: "/notification/detail", page: () => const NotificationDetailPage()),
+        GetPage(name: "/needuserinfo", page: () => CheckedNeedUserInfo()),
+        GetPage(name: "/itnunpolicy", page: () => const ItnunPolicy()),
+        GetPage(name: "/privatepolicy", page: () => const PrivatePolicy()),
+        GetPage(
+            name: "/uncheckeduserinfo", page: () => UnCheckedNeedUserInfo()),
+        GetPage(
+            name: "/notification/detail",
+            page: () => const NotificationDetailPage()),
         GetPage(
           name: "/withdraw/confirm",
           page: () => const WithDrawConfirmPage(),
@@ -213,7 +234,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/withdraw/end",
           page: () => const WithdrawEndPage(),
-        )
+        ),
+        GetPage(
+          name: "/license",
+          page: () => const LicensePage(),
+        ),
       ],
     );
   }

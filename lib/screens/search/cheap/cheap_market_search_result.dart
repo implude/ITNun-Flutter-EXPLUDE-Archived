@@ -1,221 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:itnun/controllers/search/cheap_search_controller.dart';
+import 'package:itnun/models/cheap_market_info.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
 import 'package:itnun/widgets/search_widgets.dart';
 
-class CheapMarketSearchResult extends StatelessWidget {
+class CheapMarketSearchResult extends GetView<CheapSearchController> {
   const CheapMarketSearchResult({Key? key}) : super(key: key);
-  static const int count = 30;
-  static const String answer = "일하기싫어ㅓㅓㅓㅓ";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: createDefaultAppBar(),
-      body: SearchWidget(
-        title: "착한가게 찾기",
-        subtitle: "검색 결과 18개",
-        borderColor: const Color(0xff4B3CF8),
-        iconColor: const Color(0xFFA59EFC),
-        onSearchPressed: () {},
-        children: [
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "체스보드게임",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: true,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "맥스리뷰(금정점)",
-            category: "기타서비스업",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "펠로",
-            category: "양식",
-            region: "부산광역시",
-            marked: false,
-            onMarked: (value) {},
-          ),
-          CheapMarketBookmarkBox(
-            title: "헤어디자이너 수빈",
-            category: "이미용업",
-            region: "광주광역시",
-            marked: false,
-            onMarked: (value) {},
-          )
-        ],
+      body: FutureBuilder<List<CheapMarketInfo>>(
+        future: controller.markets,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final query = Get.parameters["query"]!;
+            final markets =
+                snapshot.data!.where((element) => element.name.contains(query));
+            return SearchWidget(
+              searchController: controller.searchController,
+              title: "착한가게 찾기",
+              subtitle: "검색 결과 ${markets.length}개",
+              borderColor: const Color(0xff4B3CF8),
+              iconColor: const Color(0xFFA59EFC),
+              onSearchPressed: () async => Get.offNamed(
+                  "/search/cheap/result?query=${controller.searchController.text}",
+                  arguments: await controller.markets),
+              children: markets
+                  .map((e) => CheapMarketBookmarkBox(
+                      marketInfo: e, marked: false, onMarked: (value) {}))
+                  .toList(),
+            );
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
       ),
     );
   }

@@ -1,14 +1,16 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/controllers/news_controller.dart';
+import 'package:itnun/models/news_data.dart';
 import 'package:itnun/widgets/app_widgets.dart';
+
 import '../widgets/search_widgets.dart';
-import 'package:badges/badges.dart';
 
 const _innerPadding = EdgeInsets.all(20);
 
-
-class MainPage extends StatelessWidget {
+class MainPage extends GetView<NewsController> {
   const MainPage({Key? key}) : super(key: key);
 
   @override
@@ -37,9 +39,13 @@ class MainPage extends StatelessWidget {
                   Column(
                     children: [
                       Badge(
-                        position: BadgePosition.topEnd(top: -1,end: 0),
-                        badgeContent: Text("99+", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
-                        badgeColor: Color(0xffFF6C00),
+                        position: BadgePosition.topEnd(top: -1, end: 0),
+                        badgeContent: const Text(
+                          "99+",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                        badgeColor: const Color(0xffFF6C00),
                         child: IconButton(
                             iconSize: 36,
                             onPressed: () => Get.toNamed("/notification"),
@@ -48,7 +54,6 @@ class MainPage extends StatelessWidget {
                               color: Colors.black,
                             )),
                       ),
-
                     ],
                   ),
                   SizedBox(
@@ -119,11 +124,16 @@ class MainPage extends StatelessWidget {
                 separator,
                 const _InfoWidget(),
                 separator,
-                const _TodayNewsWidget(news: [
-                  "\"청년이 만든 자율예산 사업\"...서울시, 시민투표 실시",
-                  "뉴질랜드 현지취업...한인청년 취업박람회 개최",
-                  "\"지친 청년의 마음에 보탬을\"...서울시, '마음건강 앱'..."
-                ])
+                FutureBuilder<List<NewsData>>(
+                  future: controller.fetchNewsData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return _TodayNewsWidget(news: snapshot.data!);
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  },
+                )
               ],
             ),
           ),
@@ -169,7 +179,7 @@ class _NewInfoPageView extends StatelessWidget {
 }
 
 class _TodayNewsWidget extends StatelessWidget {
-  final List<String> news;
+  final List<NewsData> news;
 
   const _TodayNewsWidget({Key? key, required this.news}) : super(key: key);
 
@@ -185,7 +195,7 @@ class _TodayNewsWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const Expanded(child: SizedBox.shrink()),
               TextButton(
-                  onPressed: () => Get.toNamed("/news"),
+                  onPressed: () => Get.toNamed("/news", arguments: news),
                   child: Row(
                     children: const [
                       Icon(
@@ -214,7 +224,7 @@ class _TodayNewsWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12)),
                 padding: _innerPadding,
                 child: Text(
-                  e,
+                  e.title,
                   style: const TextStyle(color: Color(0xFF616161)),
                 ),
               ),
