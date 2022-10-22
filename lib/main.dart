@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/main",
+      initialRoute: "/",
       initialBinding: BindingsBuilder(() {
         Get.put(
             const FlutterSecureStorage(
