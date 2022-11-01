@@ -1,4 +1,12 @@
 # ITNun(잇는) - EXPLUDE
+
+## Installation
+
+1. Clone this repository
+2. Install flutter sdk from [Flutter SDK](https://docs.flutter.dev/get-started/install)
+3. Run `flutter pub get` in root directory
+4. Execute `flutter run`
+
 상상하는대로 만들어라!
 
 안녕하세요 EXPLUDE입니다!
