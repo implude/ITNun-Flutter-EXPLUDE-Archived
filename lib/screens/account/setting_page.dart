@@ -48,21 +48,27 @@ class SettingPage extends GetView<SettingController> {
           ),
           TosBox(
             description: "이용 약관",
-            onPressed: () { },
-          ),
-          SizedBox(
-            height:context.heightTransformer(dividedBy: 40),
-          ),
-          TosBox(
-            description: "개인정보처리방침 (필수)",
-            onPressed: () { },
-          ),
-          SizedBox(
-            height:context.heightTransformer(dividedBy: 40),
+            onPressed: () {
+              Get.toNamed("/itnunpolicy");
+            },
           ),
           TosBox(
-            description: "개인정보처리방침 (선택)",
-            onPressed: () { },
+            description: "개인정보처리방침",
+            onPressed: () {
+              Get.toNamed("/privatepolicy");
+            },
+          ),
+          TosBox(
+            description: "개인정보 수집 및 이용 동의서 (필수)",
+            onPressed: () {
+              Get.toNamed("/collect/necessary");
+            },
+          ),
+          TosBox(
+            description: "개인정보 수집 및 이용 동의서 (선택)",
+            onPressed: () {
+              Get.toNamed("/collect/optional");
+            },
           ),
           BottomSetter(
             children: [
@@ -186,7 +192,10 @@ class TosBox extends StatelessWidget {
               fontWeight: FontWeight.w500,
             )
           ),
-        )
+        ),
+        SizedBox(
+          height:context.heightTransformer(dividedBy: 40),
+        ),
       ],
     );
   }
