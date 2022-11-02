@@ -135,7 +135,7 @@ class AppTextField extends StatelessWidget { // 기존 텍스트필드 위젯의
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        autovalidateMode: AutovalidateMode.always,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: validator == null
             ? null
             : ((s) => s != null && validator!(s) ? null : ""),
