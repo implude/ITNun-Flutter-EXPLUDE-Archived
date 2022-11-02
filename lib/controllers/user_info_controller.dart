@@ -21,7 +21,8 @@ class UserInfoController extends GetxController {
             academic: academicValue.value!,
             specialization: specializationValue.value!,
             preparing: isPreparing.value));
-    Get.snackbar("회원가입 완료","회원가입이 완료되었습니다",colorText: Colors.white,backgroundColor: appColor);
+    Get.snackbar("회원가입 완료", "회원가입이 완료되었습니다",
+        colorText: Colors.white, backgroundColor: appColor);
     Get.offAllNamed("/");
   }
 }

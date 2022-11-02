@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:itnun/constants.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
@@ -30,14 +29,12 @@ class BookmarkEditPage extends StatelessWidget {
                   title: "LH 희망상가",
                   filled: "창업지원",
                   outlined: "전국",
-                  onRemoved: () {}
-              ),
+                  onRemoved: () {}),
               BookmarkRemoveBox(
                   title: "청춘남녀만남지원",
                   filled: "생활복지",
                   outlined: "경북",
-                  onRemoved: () {}
-              )
+                  onRemoved: () {})
             ].map((e) => Padding(
                   padding: EdgeInsets.only(
                       bottom: context.heightTransformer(dividedBy: 60)),

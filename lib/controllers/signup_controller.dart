@@ -46,10 +46,12 @@ class SignUpController extends GetxController {
 
     if (json["result"] == "success") {
       Get.offAllNamed("/");
-      Get.snackbar("회원가입", "회원가입에 성공 하였습니다",backgroundColor: appColor,colorText: Colors.white);
+      Get.snackbar("회원가입", "회원가입에 성공 하였습니다",
+          backgroundColor: appColor, colorText: Colors.white);
     } else {
       final message = json["message"];
-      Get.snackbar("회원가입", "회원가입에 실패 하였습니다\n$message",backgroundColor: Colors.red,colorText: Colors.white);
+      Get.snackbar("회원가입", "회원가입에 실패 하였습니다\n$message",
+          backgroundColor: Colors.red, colorText: Colors.white);
     }
   }
 }

@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import 'package:itnun/models/policy_info.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
-import 'package:itnun/widgets/title_subject_widget.dart';
 import 'package:itnun/widgets/bookmark_widget.dart';
-
-import '../../widgets/bookmark_widget.dart';
+import 'package:itnun/widgets/title_subject_widget.dart';
 
 class BookmarkPage extends StatelessWidget {
   const BookmarkPage({Key? key}) : super(key: key);
@@ -31,19 +29,20 @@ class BookmarkPage extends StatelessWidget {
               PolicyBookmarkBox(
                 onMarked: (value) {},
                 marked: true,
-                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "",
+                    "", "", "", "", ""),
               ),
               PolicyBookmarkBox(
                 onMarked: (value) {},
                 marked: true,
-                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+                policyInfo: PolicyInfo("서울", "", "", "", "", "", "", "", "", "",
+                    "", "", "", "", ""),
               ),
               KindBookmarkBox(
                   title: "체스보드게임",
                   region: "부산광역시",
                   marked: true,
-                  onMarked: (value) {}
-              ),
+                  onMarked: (value) {}),
             ].map((e) => Padding(
                   padding: EdgeInsets.only(
                       bottom: context.heightTransformer(dividedBy: 60)),

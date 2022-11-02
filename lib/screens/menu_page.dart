@@ -35,7 +35,6 @@ class MenuPage extends StatelessWidget {
                 text: "착한 가게", onPressed: () => Get.toNamed("/search/xcheap")),
             _MenuItem(
                 text: "청년 공간", onPressed: () => Get.toNamed("/search/space")),
-
           ]),
       _MenuWidget(
         iconColor: const Color(0xFF6721FC),

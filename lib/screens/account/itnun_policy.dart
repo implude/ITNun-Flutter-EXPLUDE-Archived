@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/title_subject_widget.dart';
 
@@ -10,40 +9,37 @@ class PolicyBox extends StatelessWidget {
   final String title;
   final String description;
 
-  const PolicyBox({Key? key,
-  required this.title,
-  required this.description}) : super(key: key);
+  const PolicyBox({Key? key, required this.title, required this.description})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: createDefaultAppBar(),
-      body: ExpandedSingleChildScrollView(
-        child: FocusUnSetter(
-          child: AppPadding(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TitleWidget(
-                  title: title,
-                ),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    color: Color(0xff313131),
+        appBar: createDefaultAppBar(),
+        body: ExpandedSingleChildScrollView(
+          child: FocusUnSetter(
+            child: AppPadding(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TitleWidget(
+                    title: title,
                   ),
-                )
-              ],
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      color: Color(0xff313131),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      )
-    );
+        ));
   }
 }
-
 
 class ItnunPolicy extends StatelessWidget {
   const ItnunPolicy({Key? key}) : super(key: key);
@@ -372,9 +368,7 @@ class AgreeOfCollectNecessary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PolicyBox(
-        title: "개인정보 수집 및 이용 동의서 (필수)",
-        description: """
+    return const PolicyBox(title: "개인정보 수집 및 이용 동의서 (필수)", description: """
         본인은 귀사의 서비스를 이용함에 따라 [개인정보 보호법] 제15조 및 제17조에 따라 아래의 내용으로 개인정보를 수집, 이용하는데 동의합니다.
 □ 개인정보의 수집 및 이용에 관한 사항
 - 수집하는 개인정보 항목 (회원가입시 입력되는 정보) : 이메일, 비밀번호, 로그인ID, 이름, 서비스 이용 기록
@@ -394,7 +388,8 @@ class AgreeOfCollectOptional extends StatelessWidget {
   Widget build(BuildContext context) {
     return const PolicyBox(
       title: "개인정보 수집 및 이용 동의서 (선택)",
-      description: """본인은 귀사의 서비스를 이용함에 따라 [개인정보 보호법] 제15조 및 제17조에 따라 아래의 내용으로 개인정보를 수집, 이용하는데 동의합니다.
+      description:
+          """본인은 귀사의 서비스를 이용함에 따라 [개인정보 보호법] 제15조 및 제17조에 따라 아래의 내용으로 개인정보를 수집, 이용하는데 동의합니다.
 
 □ 개인정보의 수집 및 이용에 관한 사항
 - 수집하는 개인정보 항목 (회원가입시 입력되는 정보) : 직업, 교급, 지역, 학과/전공, 창업 준비 여부
