@@ -61,7 +61,7 @@ class _TosAgreeState extends State<TosAgree> {
                           "잇는 이용약관 (필수) ",
                           style: TextStyle(
                               color: _ischecked1 ? const Color(0xff515151) : const Color(0xffC1C1C1),
-                              fontSize:24
+                              fontSize:20
                           )
                       ),
                     ),
@@ -88,13 +88,13 @@ class _TosAgreeState extends State<TosAgree> {
                     const SizedBox(width:8),
                     RawMaterialButton(
                       onPressed: (){
-                        Get.toNamed("/privatepolicy");
+                        Get.toNamed("/collect/necessary");
                       },
                       child: Text(
                           "개인정보처리방침(필수)",
                           style: TextStyle(
                               color: _ischecked2 ? const Color(0xff515151) : const Color(0xffC1C1C1),
-                              fontSize:24
+                              fontSize:20
                           )
                       ),
                     ),
@@ -128,7 +128,7 @@ class _TosAgreeState extends State<TosAgree> {
                           "개인정보 수집 및 이용 동의서 (필수)",
                           style: TextStyle(
                               color: _ischecked3 ? const Color(0xff515151) : const Color(0xffC1C1C1),
-                              fontSize:24
+                              fontSize:20
                           )
                       ),
                     ),
@@ -162,7 +162,7 @@ class _TosAgreeState extends State<TosAgree> {
                           "개인정보 수집 및 이용 동의서 (선택)",
                           style: TextStyle(
                               color: _ischecked4 ? const Color(0xff515151) : const Color(0xffC1C1C1),
-                              fontSize:24
+                              fontSize:20
                           )
                       ),
                     ),

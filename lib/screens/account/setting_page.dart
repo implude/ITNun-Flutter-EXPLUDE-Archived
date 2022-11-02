@@ -48,24 +48,28 @@ class SettingPage extends GetView<SettingController> {
           ),
           TosBox(
             description: "이용 약관",
+            padding: 12.5,
             onPressed: () {
               Get.toNamed("/itnunpolicy");
             },
           ),
           TosBox(
             description: "개인정보처리방침",
+            padding: 12.5,
             onPressed: () {
               Get.toNamed("/privatepolicy");
             },
           ),
           TosBox(
-            description: "개인정보 수집 및 이용 동의서 (필수)",
+            description: "개인정보 수집 및 이용 동의서 \n(필수)",
+            padding: 10,
             onPressed: () {
               Get.toNamed("/collect/necessary");
             },
           ),
           TosBox(
-            description: "개인정보 수집 및 이용 동의서 (선택)",
+            description: "개인정보 수집 및 이용 동의서 \n(선택)",
+            padding: 10,
             onPressed: () {
               Get.toNamed("/collect/optional");
             },
@@ -164,11 +168,13 @@ class TimeSelectWidget extends StatelessWidget {
 
 class TosBox extends StatelessWidget {
   final String description;
+  final double padding;
   final VoidCallback? onPressed;
 
   const TosBox({Key? key,
   required this.description,
-  required this.onPressed}) : super(key: key);
+  required this.padding,
+  required this.onPressed,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +200,7 @@ class TosBox extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height:context.heightTransformer(dividedBy: 40),
+          height:context.heightTransformer(dividedBy: padding),
         ),
       ],
     );
