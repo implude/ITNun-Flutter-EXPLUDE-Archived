@@ -62,5 +62,6 @@ class CheapMarketInfo {
       this.recentRepair,
       this.totlaRepairTerm);
 
-  factory CheapMarketInfo.fromJson(Map<String, dynamic> json) => _$CheapMarketInfoFromJson(json);
+  factory CheapMarketInfo.fromJson(Map<String, dynamic> json) =>
+      _$CheapMarketInfoFromJson(json);
 }

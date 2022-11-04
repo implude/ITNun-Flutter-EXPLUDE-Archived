@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
@@ -38,9 +37,17 @@ class AppInfoPage extends StatelessWidget {
                   }
                 }),
             SizedBox(
-              height: context.heightTransformer(dividedBy: 844/200),
+              height: context.heightTransformer(dividedBy: 844 / 200),
             ),
-            TextButton(onPressed: (){Get.toNamed("/license");},child: Text("사용된 오픈소스의 라이선스 보기",style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xffC1C1C1)),)),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed("/license");
+                },
+                child: Text(
+                  "사용된 오픈소스의 라이선스 보기",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Color(0xffC1C1C1)),
+                )),
           ],
         ),
       ),

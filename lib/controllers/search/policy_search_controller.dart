@@ -13,6 +13,7 @@ class PolicySearchController extends GetxController {
 
   late final Future<List<PolicyInfo>> policies = Future(() async {
     if (Get.arguments != null) return Get.arguments;
+
     final response = await post(
         serverUrl.replace(path: "/policy/get_all_policy"),
         headers: {"Content-Type": "application/json"},

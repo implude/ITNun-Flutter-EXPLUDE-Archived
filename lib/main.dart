@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Pretendard"),
-      initialRoute: "/main",
+      initialRoute: "/",
       initialBinding: BindingsBuilder(() {
         Get.put(
             const FlutterSecureStorage(
@@ -222,8 +222,12 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/needuserinfo", page: () => CheckedNeedUserInfo()),
         GetPage(name: "/itnunpolicy", page: () => const ItnunPolicy()),
         GetPage(name: "/privatepolicy", page: () => const PrivatePolicy()),
-        GetPage(name: "/collect/necessary", page: () => const AgreeOfCollectNecessary()),
-        GetPage(name: "/collect/optional", page: () => const AgreeOfCollectOptional()),
+        GetPage(
+            name: "/collect/necessary",
+            page: () => const AgreeOfCollectNecessary()),
+        GetPage(
+            name: "/collect/optional",
+            page: () => const AgreeOfCollectOptional()),
         GetPage(
             name: "/uncheckeduserinfo", page: () => UnCheckedNeedUserInfo()),
         GetPage(

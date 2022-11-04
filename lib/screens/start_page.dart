@@ -40,13 +40,13 @@ class StartPage extends GetView<StartController> {
                     textColor: appColor,
                     backgroundColor: Colors.transparent,
                     outlineColor: appColor,
-                    onPressed: () => Get.toNamed("/login")),//로그인 버튼
+                    onPressed: () => Get.toNamed("/login")), //로그인 버튼
                 SizedBox(height: context.heightTransformer(dividedBy: 70)),
                 AppButton(
                     text: "회원가입",
                     textColor: Colors.white,
                     backgroundColor: appColor,
-                    onPressed: () => Get.toNamed("/signup"))//회원가입 버튼
+                    onPressed: () => Get.toNamed("/signup")) //회원가입 버튼
               ])
             ]);
           }),

@@ -18,7 +18,6 @@ class HireSearch extends StatelessWidget {
         borderColor: const Color(0xFF6721FC),
         iconColor: const Color(0xFFB390FE),
         children: [
-
           HireBookmarkBox(
               title: "[경력]반도체 배관시공 구매담당 채용",
               dueDate: "D-59",
