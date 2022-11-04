@@ -57,17 +57,28 @@ class DetailSearch extends GetView<DetailSearchController> {
                 SizedBox(height: context.heightTransformer(dividedBy: 40)),
                 ...[
                   _createGridViewWrapper(
-                      "취업상태",
-                      controller.employmentState,
-                      controller.employmentStates,
-                      controller.employmentExpanded),
-                  _createGridViewWrapper("학력", controller.education,
-                      controller.educations, controller.educationExpanded),
-                  _createGridViewWrapper("특화분야", controller.specialization,
-                      controller.specializations, controller.specialtyExpanded),
-                  _createGridViewWrapper("신청기간", controller.applyDate,
-                      controller.applyDates, controller.applyDateExpanded),
-                  _AgeWidget(controller: controller.ageController),
+                    "정책유형",
+                      controller.policyType,
+                      controller.policyTypes,
+                      controller.policyTypeExpanded),
+                  _createGridViewWrapper(
+                    "지역",
+                    controller.region,
+                    controller.regions,
+                    controller.regionsExpanded
+                  ),
+                  // _createGridViewWrapper(
+                  //     "취업상태",
+                  //     controller.employmentState,
+                  //     controller.employmentStates,
+                  //     controller.employmentExpanded),
+                  // _createGridViewWrapper("학력", controller.education,
+                  //     controller.educations, controller.educationExpanded),
+                  // _createGridViewWrapper("특화분야", controller.specialization,
+                  //     controller.specializations, controller.specialtyExpanded),
+                  // _createGridViewWrapper("신청기간", controller.applyDate,
+                  //     controller.applyDates, controller.applyDateExpanded),
+                  // _AgeWidget(controller: controller.ageController),
                   _KeywordWidget(controller: controller.keywordController),
                 ].map((e) => Padding(
                       padding: EdgeInsets.only(
@@ -86,7 +97,7 @@ class DetailSearch extends GetView<DetailSearchController> {
                     decoration: BoxDecoration(
                         color: const Color(0xFF3C65F8),
                         borderRadius: BorderRadius.circular(10)),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "검색",
                       style: TextStyle(

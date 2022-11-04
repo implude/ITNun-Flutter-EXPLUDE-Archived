@@ -54,48 +54,137 @@ class _TosAgreeState extends State<TosAgree> {
                       : MaterialStateProperty.all(const Color(0xffC1C1C1)),
                   checkColor: const Color(0xff515151),
                 ),
-                const SizedBox(width: 8),
-                RawMaterialButton(
-                  onPressed: () {
-                    Get.toNamed("/itnunpolicy");
-                  },
-                  child: Text("잇는 이용약관 (필수) ",
-                      style: TextStyle(
-                          color: _ischecked1
-                              ? const Color(0xff515151)
-                              : const Color(0xffC1C1C1),
-                          fontSize: 24)),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _ischecked1,
+                      onChanged: (value){
+                        setState((){
+                          _ischecked1 = value!;
+                        });
+                      },
+                      fillColor: _ischecked1 ? MaterialStateProperty.all(Colors.transparent):MaterialStateProperty.all(const Color(0xffC1C1C1)),
+                      checkColor: const Color(0xff515151),
+                    ),
+
+                    const SizedBox(width:8),
+                    RawMaterialButton(
+                      onPressed: (){
+                        Get.toNamed("/itnunpolicy");
+                      },
+                      child: Text(
+                          "잇는 이용약관 (필수) ",
+                          style: TextStyle(
+                              color: _ischecked1 ? const Color(0xff515151) : const Color(0xffC1C1C1),
+                              fontSize:20
+                          )
+                      ),
+                    ),
+                    SizedBox(
+                      height:context.heightTransformer(dividedBy: 20),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: context.heightTransformer(dividedBy: 20),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _ischecked2,
+                      onChanged: (value){
+                        setState((){
+                          _ischecked2 = value!;
+                        });
+                      },
+                      fillColor: _ischecked2 ? MaterialStateProperty.all(Colors.transparent):MaterialStateProperty.all(const Color(0xffC1C1C1)),
+                      checkColor: const Color(0xff515151),
+
+
+                    ),
+
+                    const SizedBox(width:8),
+                    RawMaterialButton(
+                      onPressed: (){
+                        Get.toNamed("/collect/necessary");
+                      },
+                      child: Text(
+                          "개인정보처리방침(필수)",
+                          style: TextStyle(
+                              color: _ischecked2 ? const Color(0xff515151) : const Color(0xffC1C1C1),
+                              fontSize:20
+                          )
+                      ),
+                    ),
+                    SizedBox(
+                      height:context.heightTransformer(dividedBy: 20),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  value: _ischecked2,
-                  onChanged: (value) {
-                    setState(() {
-                      _ischecked2 = value!;
-                    });
-                  },
-                  fillColor: _ischecked2
-                      ? MaterialStateProperty.all(Colors.transparent)
-                      : MaterialStateProperty.all(const Color(0xffC1C1C1)),
-                  checkColor: const Color(0xff515151),
+
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _ischecked3,
+                      onChanged: (value){
+                        setState((){
+                          _ischecked3 = value!;
+                        });
+                      },
+                      fillColor: _ischecked3 ? MaterialStateProperty.all(Colors.transparent):MaterialStateProperty.all(const Color(0xffC1C1C1)),
+                      checkColor: const Color(0xff515151),
+
+
+                    ),
+
+                    const SizedBox(width:8),
+                    RawMaterialButton(
+                      onPressed: (){
+                        Get.toNamed("/collect/necessary");
+                      },
+                      child: Text(
+                          "개인정보 수집 및 이용 동의서 (필수)",
+                          style: TextStyle(
+                              color: _ischecked3 ? const Color(0xff515151) : const Color(0xffC1C1C1),
+                              fontSize:20
+                          )
+                      ),
+                    ),
+                    SizedBox(
+                      height:context.heightTransformer(dividedBy: 20),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 8),
-                RawMaterialButton(
-                  onPressed: () {
-                    Get.toNamed("/privatepolicy");
-                  },
-                  child: Text("개인정보처리방침(필수)",
-                      style: TextStyle(
-                          color: _ischecked2
-                              ? const Color(0xff515151)
-                              : const Color(0xffC1C1C1),
-                          fontSize: 24)),
+
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _ischecked4,
+                      onChanged: (value){
+                        setState((){
+                          _ischecked4 = value!;
+                        });
+                      },
+                      fillColor: _ischecked4 ? MaterialStateProperty.all(Colors.transparent):MaterialStateProperty.all(const Color(0xffC1C1C1)),
+                      checkColor: const Color(0xff515151),
+
+
+                    ),
+
+                    const SizedBox(width:8),
+                    RawMaterialButton(
+                      onPressed: (){
+                        Get.toNamed("/collect/optional");
+                      },
+                      child: Text(
+                          "개인정보 수집 및 이용 동의서 (선택)",
+                          style: TextStyle(
+                              color: _ischecked4 ? const Color(0xff515151) : const Color(0xffC1C1C1),
+                              fontSize:20
+                          )
+                      ),
+                    ),
+                    SizedBox(
+                      height:context.heightTransformer(dividedBy: 20),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: context.heightTransformer(dividedBy: 20),
