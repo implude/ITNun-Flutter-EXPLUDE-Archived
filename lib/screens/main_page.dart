@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/controllers/news_controller.dart';
 import 'package:itnun/models/news_data.dart';
+import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 
 import '../widgets/search_widgets.dart';
@@ -40,11 +41,15 @@ class MainPage extends GetView<NewsController> {
                     children: [
                       Badge(
                         position: BadgePosition.topEnd(top: -1, end: 0),
-                        badgeContent: const Text(
-                          "99+",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
+                        badgeContent: Obx(() => Text(
+                              dataList
+                                  .where((element) => element.isNew.value)
+                                  .length
+                                  .toString(),
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )),
                         badgeColor: const Color(0xffFF6C00),
                         child: IconButton(
                             iconSize: 36,

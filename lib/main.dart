@@ -133,7 +133,12 @@ class MyApp extends StatelessWidget {
           name: "/search/total/detail",
           page: () => const TotalSearchDetail(),
         ),
-        GetPage(name: "/menu", page: () => const MenuPage()),
+        GetPage(
+            name: "/menu",
+            page: () => const MenuPage(),
+            binding: BindingsBuilder(() {
+              Get.lazyPut(() => NewsController());
+            })),
         GetPage(
             name: "/search/total",
             page: () => const TotalSearch(),

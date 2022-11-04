@@ -19,7 +19,8 @@ class NewsController extends GetxController {
       body: jsonEncode({"token": await _token}),
     );
 
-    final list = jsonDecode(utf8.decode(response.bodyBytes))["news"] as List;
+    final list = (jsonDecode(utf8.decode(response.bodyBytes))["news"] as List)
+        .sublist(0, 3);
 
     return await Future.wait(list.map((e) => _crawl(e["news_url"]!)));
   }

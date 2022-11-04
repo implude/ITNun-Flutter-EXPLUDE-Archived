@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/controllers/news_controller.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/title_subject_widget.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends GetView<NewsController> {
   const MenuPage({Key? key}) : super(key: key);
 
   @override
@@ -46,7 +47,8 @@ class MenuPage extends StatelessWidget {
         title: "오늘의 뉴스",
         icon: Icons.newspaper,
         iconColor: const Color(0xFFA921FC),
-        onPressed: () => Get.toNamed("/news"),
+        onPressed: () async =>
+            Get.toNamed("/news", arguments: await controller.fetchNewsData()),
       )
     ];
 
