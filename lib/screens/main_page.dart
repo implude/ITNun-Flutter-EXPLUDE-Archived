@@ -2,8 +2,6 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
-import 'package:itnun/controllers/news_controller.dart';
-import 'package:itnun/models/news_data.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 
@@ -11,7 +9,7 @@ import '../widgets/search_widgets.dart';
 
 const _innerPadding = EdgeInsets.all(20);
 
-class MainPage extends GetView<NewsController> {
+class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
@@ -128,17 +126,6 @@ class MainPage extends GetView<NewsController> {
                 const _FindJobWidget(),
                 separator,
                 const _InfoWidget(),
-                separator,
-                FutureBuilder<List<NewsData>>(
-                  future: controller.fetchNewsData(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return _TodayNewsWidget(news: snapshot.data!);
-                    } else {
-                      return const SizedBox.shrink();
-                    }
-                  },
-                )
               ],
             ),
           ),
@@ -175,62 +162,6 @@ class _NewInfoPageView extends StatelessWidget {
                       shape: BoxShape.circle),
                   width: 6,
                   height: 6,
-                ),
-              ),
-            ))
-      ],
-    );
-  }
-}
-
-class _TodayNewsWidget extends StatelessWidget {
-  final List<NewsData> news;
-
-  const _TodayNewsWidget({Key? key, required this.news}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            children: [
-              const Text("오늘의 뉴스",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              const Expanded(child: SizedBox.shrink()),
-              TextButton(
-                  onPressed: () => Get.toNamed("/news", arguments: news),
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Color(0xFFC1C1C1),
-                      ),
-                      Text(
-                        "자세히 보기",
-                        style: TextStyle(
-                            color: Color(0xFFC1C1C1),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      )
-                    ],
-                  ))
-            ],
-          ),
-        ),
-        ...news.map((e) => Padding(
-              padding: EdgeInsets.only(
-                  bottom: context.heightTransformer(dividedBy: 50)),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFF5F7FE),
-                    borderRadius: BorderRadius.circular(12)),
-                padding: _innerPadding,
-                child: Text(
-                  e.title,
-                  style: const TextStyle(color: Color(0xFF616161)),
                 ),
               ),
             ))

@@ -8,7 +8,6 @@ import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
 import 'package:itnun/controllers/my_info_controller.dart';
 import 'package:itnun/controllers/my_info_edit_controller.dart';
-import 'package:itnun/controllers/news_controller.dart';
 import 'package:itnun/controllers/search/cheap_search_controller.dart';
 import 'package:itnun/controllers/search/policy_search_controller.dart';
 import 'package:itnun/controllers/search/space_search_controller.dart';
@@ -35,8 +34,6 @@ import 'package:itnun/screens/login/user_info_page.dart';
 import 'package:itnun/screens/login/verify_page.dart';
 import 'package:itnun/screens/main_page.dart';
 import 'package:itnun/screens/menu_page.dart';
-import 'package:itnun/screens/news/today_news_detail_page.dart';
-import 'package:itnun/screens/news/today_news_page.dart';
 import 'package:itnun/screens/notification_detail_page.dart';
 import 'package:itnun/screens/notification_page.dart';
 import 'package:itnun/screens/password/find_password_page.dart';
@@ -81,7 +78,6 @@ class MyApp extends StatelessWidget {
             permanent: true);
 
         Get.lazyPut(() => MyInfoController());
-        Get.lazyPut(() => NewsController());
       }),
       getPages: [
         GetPage(
@@ -200,8 +196,6 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/account/bookmark/edit",
             page: () => const BookmarkEditPage()),
-        GetPage(name: "/news", page: () => const TodayNewsPage()),
-        GetPage(name: "/news/detail", page: () => const TodayNewsDetailPage()),
         GetPage(name: "/search/hire", page: () => const HireSearch()),
         GetPage(
             name: "/search/hire/result", page: () => const HireSearchResult()),
