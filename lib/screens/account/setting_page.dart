@@ -164,10 +164,12 @@ class TosBox extends StatelessWidget {
   final double padding;
   final VoidCallback? onPressed;
 
-  const TosBox({Key? key,
-  required this.description,
-  required this.padding,
-  required this.onPressed,}) : super(key: key);
+  const TosBox({
+    Key? key,
+    required this.description,
+    required this.padding,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +191,7 @@ class TosBox extends StatelessWidget {
               )),
         ),
         SizedBox(
-          height:context.heightTransformer(dividedBy: padding),
+          height: context.heightTransformer(dividedBy: padding),
         ),
       ],
     );

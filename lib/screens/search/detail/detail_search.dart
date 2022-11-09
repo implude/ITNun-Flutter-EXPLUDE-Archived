@@ -57,16 +57,15 @@ class DetailSearch extends GetView<DetailSearchController> {
                 SizedBox(height: context.heightTransformer(dividedBy: 40)),
                 ...[
                   _createGridViewWrapper(
-                    "정책유형",
+                      "정책유형",
                       controller.policyType,
-                      controller.policyTypes,
+                      controller.policyTypes.keys.toList(),
                       controller.policyTypeExpanded),
                   _createGridViewWrapper(
-                    "지역",
-                    controller.region,
-                    controller.regions,
-                    controller.regionsExpanded
-                  ),
+                      "지역",
+                      controller.region,
+                      controller.regions.keys.toList(),
+                      controller.regionsExpanded),
                   // _createGridViewWrapper(
                   //     "취업상태",
                   //     controller.employmentState,
@@ -88,8 +87,9 @@ class DetailSearch extends GetView<DetailSearchController> {
                 SizedBox(
                     height: context.heightTransformer(dividedBy: 844 / 20)),
                 RawMaterialButton(
-                  onPressed: () {
-                    Get.toNamed("/search/detail/result");
+                  onPressed: () async {
+                    Get.toNamed("/search/detail/result",
+                        arguments: await controller.search());
                   },
                   child: Container(
                     width: context.widthTransformer(dividedBy: 390 / 100),

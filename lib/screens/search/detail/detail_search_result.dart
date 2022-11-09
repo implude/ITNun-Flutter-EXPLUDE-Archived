@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:itnun/models/policy_info.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
+import 'package:itnun/widgets/bookmark_widget.dart';
 import 'package:itnun/widgets/search_widgets.dart';
 
 class DetailSearchResult extends StatelessWidget {
@@ -7,234 +10,18 @@ class DetailSearchResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final policies = Get.arguments as List<PolicyInfo>;
+    final length = policies.length;
     return Scaffold(
       appBar: createDefaultAppBar(),
-      body: SearchWidget(title: "상세검색", subtitle: "검색 결과 18개", children: [
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "청춘남녀만남지원",
-        //   category: "생활복지",
-        //   region: "경북",
-        //   marked: true,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "주거안정 월세 대출",
-        //   category: "주거금융",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "인문 100년 장학금",
-        //   category: "생활복지",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // ),
-        // PolicyBookmarkBox(
-        //   title: "LH 희망상가",
-        //   category: "창업지원",
-        //   region: "전국",
-        //   marked: false,
-        //   onMarked: (value) {},
-        // )
-      ]),
+      body: SearchWidget(
+        title: "상세검색",
+        subtitle: "검색 결과 ${length == 100 ? "100+" : length}개",
+        children: policies
+            .map((e) => PolicyBookmarkBox(
+                policyInfo: e, marked: false, onMarked: (value) {}))
+            .toList(),
+      ),
     );
   }
 }

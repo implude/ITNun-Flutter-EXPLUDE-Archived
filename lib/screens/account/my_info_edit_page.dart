@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
 import 'package:itnun/controllers/my_info_edit_controller.dart';
+import 'package:itnun/models/user_info.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/appbar_widgets.dart';
 import 'package:itnun/widgets/title_subject_widget.dart';
@@ -15,53 +16,85 @@ class MyInfoEditPage extends GetView<MyInfoEditController> {
       appBar: createDefaultAppBar(
         actions: [
           IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(
-                Icons.check,
-                color: Colors.black,
-              ))
+            onPressed: () async {
+              await controller.change();
+              Get.back();
+            },
+            icon: const Icon(
+              Icons.check,
+              color: Colors.black,
+            ),
+          )
         ],
       ),
       body: SingleChildScrollView(
         child: FocusUnSetter(
           child: AppPadding(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TitleWidget(title: "내 정보 수정"),
-                ...[
-                  _InfoEditWidget(
-                      description: "이름", controller: controller.nameController),
-                  _InfoEditWidget(
-                      description: "이메일",
-                      controller: controller.emailController),
-                  Obx(() => _InfoEditWidget(
-                      description: "지역",
-                      value: controller.region.value,
-                      items: regions,
-                      onValueChanged: controller.region)),
-                  _InfoEditWidget(
-                      description: "직업", controller: controller.jobController),
-                  Obx(() => _InfoEditWidget(
-                      description: "교급",
-                      value: controller.stage.value,
-                      items: stages,
-                      onValueChanged: controller.stage)),
-                  _InfoEditWidget(
-                    description: "학과 / 전공",
-                    controller: controller.departmentController,
-                  ),
-                  Obx(() => _InfoEditWidget(
-                        description: "창업 준비생이에요.",
-                        enabled: controller.isPreparing.value,
-                        onChanged: controller.isPreparing,
-                      ))
-                ].map((e) => Padding(
-                      padding: EdgeInsets.only(
-                          bottom: context.heightTransformer(dividedBy: 30)),
-                      child: e,
-                    ))
-              ],
+            child: FutureBuilder(
+              future: controller.init(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const TitleWidget(title: "내 정보 수정"),
+                      ...[
+                        _InfoEditWidget(
+                            description: "이름",
+                            controller: controller.nameController),
+                        Obx(() => _InfoEditWidget(
+                            description: "지역",
+                            value: controller.region.value,
+                            items: regions,
+                            onValueChanged: controller.region)),
+                        Obx(() => _InfoEditWidget(
+                              description: "직업",
+                              value: controller.job.value.message,
+                              items:
+                                  UserJob.values.map((e) => e.message).toList(),
+                              onValueChanged: (value) => controller.job.value =
+                                  UserJob.values.firstWhere(
+                                      (element) => element.message == value),
+                            )),
+                        Obx(() => _InfoEditWidget(
+                              description: "교급",
+                              value: controller.academic.value.message,
+                              items: UserStage.values
+                                  .map((e) => e.message)
+                                  .toList(),
+                              onValueChanged: (value) => controller
+                                      .academic.value =
+                                  UserStage.values.firstWhere(
+                                      (element) => element.message == value),
+                            )),
+                        Obx(() => _InfoEditWidget(
+                              description: "학과 / 전공",
+                              value: controller.specialization.value.message,
+                              items: UserDepartment.values
+                                  .map((e) => e.message)
+                                  .toList(),
+                              onValueChanged: (value) => controller
+                                      .specialization.value =
+                                  UserDepartment.values.firstWhere(
+                                      (element) => element.message == value),
+                            )),
+                        Obx(() => _InfoEditWidget(
+                              description: "창업 준비생이에요.",
+                              enabled: controller.preStartup.value,
+                              onChanged: controller.preStartup,
+                            ))
+                      ].map((e) => Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    context.heightTransformer(dividedBy: 30)),
+                            child: e,
+                          ))
+                    ],
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
             ),
           ),
         ),

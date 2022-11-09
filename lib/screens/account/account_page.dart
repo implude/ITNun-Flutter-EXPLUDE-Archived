@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:itnun/constants.dart';
+import 'package:itnun/controllers/my_info_controller.dart';
+import 'package:itnun/models/user.dart';
 
-class AccountPage extends StatelessWidget {
+class AccountPage extends GetView<MyInfoController> {
   const AccountPage({Key? key}) : super(key: key);
 
   @override
@@ -21,29 +23,43 @@ class AccountPage extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         color: appColor,
-        child: Column(
-          children: [
-            SizedBox(height: context.heightTransformer(dividedBy: 20)),
-            Image.asset("assets/images/logo_outlined.png", color: Colors.white),
-            SizedBox(height: context.heightTransformer(dividedBy: 30)),
-            const Text(
-              "김태윤",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            SizedBox(height: context.heightTransformer(dividedBy: 100)),
-            const Text(
-              "ktywp8436@dimigo.hs.kr",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
-            SizedBox(height: context.heightTransformer(dividedBy: 16)),
-            const Expanded(child: _BottomInfo())
-          ],
+        child: FutureBuilder<Rx<User>>(
+          future: controller.user,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Obx(() {
+                final user = snapshot.data!.value;
+
+                return Column(
+                  children: [
+                    SizedBox(height: context.heightTransformer(dividedBy: 20)),
+                    Image.asset("assets/images/logo_outlined.png",
+                        color: Colors.white),
+                    SizedBox(height: context.heightTransformer(dividedBy: 30)),
+                    const Text(
+                      "김태윤",
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(height: context.heightTransformer(dividedBy: 100)),
+                    Text(
+                      user.email,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(height: context.heightTransformer(dividedBy: 16)),
+                    const Expanded(child: _BottomInfo())
+                  ],
+                );
+              });
+            } else {
+              return const SizedBox.shrink();
+            }
+          },
         ),
       ),
     );
