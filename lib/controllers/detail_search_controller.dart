@@ -1,5 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:itnun/constants.dart';
+import 'package:itnun/models/policy_info.dart';
 
 class DetailSearchController extends GetxController {
   // final employmentExpanded = false.obs;
@@ -9,34 +15,35 @@ class DetailSearchController extends GetxController {
   final policyTypeExpanded = false.obs;
   final regionsExpanded = false.obs;
 
-  final policyTypes = [
-    "취업지원",
-    "창업지원",
-    "주거·금융",
-    "생활·복지",
-    "정책참여",
-    "코로나19"
-  ];
+  late final _token = Get.find<FlutterSecureStorage>().read(key: "token");
+  final policyTypes = {
+    "취업지원": "004001",
+    "창업지원": "004002",
+    "주거·금융": "004003",
+    "생활·복지": "004004",
+    "정책참여": "004005",
+    "코로나19": "004006",
+  };
 
-  final regions = [
-    "서울",
-    "인천",
-    "대전",
-    "대구",
-    "광주",
-    "울산",
-    "부산",
-    "세종",
-    "제주",
-    "경기",
-    "강원",
-    "충남",
-    "충북",
-    "경북",
-    "경남",
-    "전북",
-    "전남",
-  ];
+  final regions = {
+    "서울": "003002001",
+    "인천": "003002004",
+    "대전": "003002006",
+    "대구": "003002003",
+    "광주": "003002005",
+    "울산": "003002007",
+    "부산": "003002002",
+    "세종": "003002017",
+    "제주": "003002016",
+    "경기": "003002008",
+    "강원": "003002009",
+    "충남": "003002011",
+    "충북": "003002010",
+    "경북": "003002014",
+    "경남": "003002015",
+    "전북": "003002012",
+    "전남": "003002013",
+  };
 
   // final employmentStates = [
   //   "재직자",
@@ -85,4 +92,46 @@ class DetailSearchController extends GetxController {
 
   final region = <String>[].obs;
   final policyType = <String>[].obs;
+
+  Future<List<PolicyInfo>> search() async {
+    final url = serverUrl.replace(path: "/policy/detail_search");
+
+    final response = await post(
+      url,
+      body: jsonEncode({
+        "token": await _token,
+        "query": keywordController.text,
+        if (policyType.isNotEmpty)
+          "bizTycdSel":
+              policyType.map((element) => policyTypes[element]).join(","),
+        if (region.isNotEmpty)
+          "srchPolyBizSecd":
+              region.map((element) => regions[element]).join(","),
+      }),
+      headers: {"Content-Type": "application/json"},
+    );
+
+    final policy =
+        jsonDecode(utf8.decode(response.bodyBytes))["policy"] as List;
+
+    return policy
+        .map((e) => PolicyInfo(
+              e["polyBizSecd"],
+              e["accrRqisCn"],
+              e["ageInfo"],
+              e["polyItcnCn"],
+              e["splzRlmRqisCn"],
+              e["bizId"],
+              e["empmSttsCn"],
+              e["polyBizSjnm"],
+              e["rqutPrdCn"],
+              e["majrRqisCn"],
+              e["sporScvl"],
+              e["sporCn"],
+              e["plcyTpNm"],
+              e["rqutUrla"],
+              e["rqutProcCn"],
+            ))
+        .toList();
+  }
 }

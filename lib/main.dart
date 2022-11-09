@@ -6,6 +6,7 @@ import 'package:itnun/controllers/detail_search_controller.dart';
 import 'package:itnun/controllers/find_password_controller.dart';
 import 'package:itnun/controllers/login_controller.dart';
 import 'package:itnun/controllers/make_password_controller.dart';
+import 'package:itnun/controllers/my_info_controller.dart';
 import 'package:itnun/controllers/my_info_edit_controller.dart';
 import 'package:itnun/controllers/news_controller.dart';
 import 'package:itnun/controllers/search/cheap_search_controller.dart';
@@ -78,6 +79,9 @@ class MyApp extends StatelessWidget {
             const FlutterSecureStorage(
                 aOptions: AndroidOptions(encryptedSharedPreferences: true)),
             permanent: true);
+
+        Get.lazyPut(() => MyInfoController());
+        Get.lazyPut(() => NewsController());
       }),
       getPages: [
         GetPage(
@@ -110,7 +114,7 @@ class MyApp extends StatelessWidget {
             binding: BindingsBuilder(() {
               Get.lazyPut(() => UserInfoController());
             })),
-        GetPage(name: "/notification", page: () => NotificationPage()),
+        GetPage(name: "/notification", page: () => const NotificationPage()),
         GetPage(
             name: "/password/find",
             page: () => const FindPasswordPage(),
@@ -134,11 +138,9 @@ class MyApp extends StatelessWidget {
           page: () => const TotalSearchDetail(),
         ),
         GetPage(
-            name: "/menu",
-            page: () => const MenuPage(),
-            binding: BindingsBuilder(() {
-              Get.lazyPut(() => NewsController());
-            })),
+          name: "/menu",
+          page: () => const MenuPage(),
+        ),
         GetPage(
             name: "/search/total",
             page: () => const TotalSearch(),
@@ -170,13 +172,17 @@ class MyApp extends StatelessWidget {
               Get.lazyPut(() => CheapSearchController());
             })),
         GetPage(
-            name: "/main",
-            page: () => const MainPage(),
-            binding: BindingsBuilder(() {
-              Get.lazyPut(() => NewsController());
-            })),
-        GetPage(name: "/account", page: () => const AccountPage()),
-        GetPage(name: "/account/info", page: () => const MyInfoPage()),
+          name: "/main",
+          page: () => const MainPage(),
+        ),
+        GetPage(
+          name: "/account",
+          page: () => const AccountPage(),
+        ),
+        GetPage(
+          name: "/account/info",
+          page: () => const MyInfoPage(),
+        ),
         GetPage(
             name: "/account/info/edit",
             page: () => const MyInfoEditPage(),

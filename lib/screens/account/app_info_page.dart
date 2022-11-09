@@ -43,7 +43,7 @@ class AppInfoPage extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed("/license");
                 },
-                child: Text(
+                child: const Text(
                   "사용된 오픈소스의 라이선스 보기",
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Color(0xffC1C1C1)),

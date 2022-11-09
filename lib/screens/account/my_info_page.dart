@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itnun/controllers/my_info_controller.dart';
+import 'package:itnun/models/user.dart';
 import 'package:itnun/widgets/app_widgets.dart';
 import 'package:itnun/widgets/title_subject_widget.dart';
 
 import '../../widgets/appbar_widgets.dart';
 
-class MyInfoPage extends StatelessWidget {
+class MyInfoPage extends GetView<MyInfoController> {
   const MyInfoPage({Key? key}) : super(key: key);
 
   @override
@@ -22,25 +24,41 @@ class MyInfoPage extends StatelessWidget {
         ],
       ),
       body: AppPadding(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const TitleWidget(title: "내 정보"),
-            ...[
-              const _InfoWidget(description: "이름", value: "김태윤"),
-              const _InfoWidget(
-                  description: "이메일", value: "ktywp8436@dimigo.hs.kr"),
-              const _InfoWidget(description: "지역", value: "세종"),
-              const _InfoWidget(description: "직업", value: "학생"),
-              const _InfoWidget(description: "교급", value: "고등학교"),
-              const _InfoWidget(description: "학과", value: "웹프로그래밍과"),
-              const _InfoWidget(description: "창업 준비 여부", value: "Y")
-            ].map((e) => Padding(
-                  padding: EdgeInsets.only(
-                      bottom: context.heightTransformer(dividedBy: 20)),
-                  child: e,
-                ))
-          ],
+        child: FutureBuilder<Rx<User>>(
+          future: controller.user,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Obx(() {
+                final user = snapshot.data!.value;
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TitleWidget(title: "내 정보"),
+                    ...[
+                      const _InfoWidget(description: "이름", value: "김태윤"),
+                      _InfoWidget(description: "이메일", value: user.email),
+                      const _InfoWidget(description: "지역", value: "세종"),
+                      _InfoWidget(description: "직업", value: user.job.message),
+                      _InfoWidget(
+                          description: "교급", value: user.academic.message),
+                      _InfoWidget(
+                          description: "학과",
+                          value: user.specialization.message),
+                      _InfoWidget(
+                          description: "창업 준비 여부",
+                          value: user.preStartup ? "Y" : "N")
+                    ].map((e) => Padding(
+                          padding: EdgeInsets.only(
+                              bottom: context.heightTransformer(dividedBy: 20)),
+                          child: e,
+                        ))
+                  ],
+                );
+              });
+            } else {
+              return const SizedBox.shrink();
+            }
+          },
         ),
       ),
     );

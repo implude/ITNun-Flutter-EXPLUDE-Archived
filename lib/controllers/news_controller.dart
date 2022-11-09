@@ -12,7 +12,7 @@ class NewsController extends GetxController {
   late final _token = Get.find<FlutterSecureStorage>().read(key: "token");
   final _regex = RegExp(r'(.+) 기자  (.+)');
 
-  Future<List<NewsData>> fetchNewsData() async {
+  late final _news = Future(() async {
     final response = await post(
       serverUrl.replace(path: "/news/check_news"),
       headers: {"Content-Type": "application/json"},
@@ -23,7 +23,9 @@ class NewsController extends GetxController {
         .sublist(0, 3);
 
     return await Future.wait(list.map((e) => _crawl(e["news_url"]!)));
-  }
+  });
+
+  Future<List<NewsData>> fetchNewsData() => _news;
 
   Future<NewsData> _crawl(String url) async {
     final response = await get(Uri.parse(url));
